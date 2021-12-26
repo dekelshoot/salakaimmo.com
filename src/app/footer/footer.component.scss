@@ -1,0 +1,27 @@
+.bg{
+    /* background-color: #7952b3 !important; */
+    background: linear-gradient(70deg ,#7952b3 ,#46237b );
+}
+
+#footer h5{
+    font-size: 15px;
+	padding-left: 5px;
+    border-left: 3px solid #eeeeee;
+    padding-bottom: 1px;
+    margin-bottom: 5px;
+    color:#ffffff;
+}
+a{
+    cursor: pointer;
+}
+#footer a {
+    color: #ffffff;
+    text-decoration: none !important;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+
+#footer ul.social li a i {
+    margin-right: 5px;
+	font-size:25px;
+}

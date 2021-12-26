@@ -1,0 +1,122 @@
+
+@import url('https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap');
+.bg{
+    /* background-color: #7952b3 !important; */
+    background: linear-gradient(70deg ,#7952b3 ,#46237b );
+}
+
+a{
+    cursor: pointer;
+}
+li a:hover{
+    color: #c2b9ce !important;
+}
+
+
+.brand{
+  /* font-family: 'MonteCarlo', cursive; */
+    font-weight: bold;
+    font-size: 150%;
+
+}
+
+    .fa{
+        color: #ffffff;
+        font-size: 20px;
+    }
+    .bi{
+        color: white ;
+    }
+    .ti{
+        text-decoration: none;
+        color: white;
+        font-weight: bold
+
+    }
+
+    .top{
+        font-size: 120%;
+    }
+    .top2{
+        // width: 10px;
+        font-size: 10px;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap');
+    .mod{
+
+        position: absolute;
+        z-index: 1000;
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background: linear-gradient(70deg ,#7952b3 ,#46237b ); /* Fallback color */
+        padding-top: 10%;
+
+        .brand{
+            font-family: 'MonteCarlo', cursive;
+            font-weight: bold;
+            font-size: 700%;
+            color: white ;
+        }
+
+        .title{
+            font-weight: bold;
+            color: white ;
+            font-size: 200%;
+        }
+
+        .spinner{
+            width: 3rem;
+            height: 3rem;
+            color: white;
+        }
+
+    }
+    .name{
+        display: none;
+    }
+
+    @media screen and (max-width: 991px) {
+        .name{
+            display:contents;
+        }
+
+      }
+
+    @media screen and (max-width: 720px) {
+        .mod{
+            padding-top: 20%;
+        }
+      }
+
+      @media screen and (max-width: 500px) {
+        .mod{
+            padding-top: 25%;
+        }
+
+      .brand{
+        /* font-family: 'MonteCarlo', cursive; */
+          font-weight: bold;
+          font-size: 100%;
+
+      }
+      }
+
+      @media  screen and (max-width: 300px) {
+        .mod{
+            padding-top: 40%;
+        }
+
+      .brand{
+        /* font-family: 'MonteCarlo', cursive; */
+          font-weight: bold;
+          font-size: 70%;
+
+      }
+      }
+

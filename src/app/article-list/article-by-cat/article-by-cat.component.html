@@ -1,0 +1,87 @@
+<div id="head" class="head  col-md-8 order-md-1 col-lg-7 text-center text-md-start">
+    <a (click)="onBack()"><i class="bi bi-arrow-left-square-fill"></i> </a>
+    <span>{{categorie}}</span> 
+</div>
+
+<div class="cont " >
+
+    
+<br>
+
+    <div class="Title">
+        <div class="slider">
+            <div><button class=" btn " (click)="onSwitchCat('Tout')" [disabled]="categorie=='Tout'" [ngClass]="{'active':  categorie =='Tout'}" > <div class="cercle " > <i class="bi bi-grid"></i> </div> <p class="cat">Tout</p></button></div>
+            <div><button class=" btn " (click)="onChangeCat('Appartement à louer')" (click)="onSwitchCat('Appartement')" [disabled]="categorie=='Appartement'" [ngClass]="{'active':  categorie =='Appartement'}"> <div class="cercle"> <i class="bi bi-cat bi-building"></i> </div> <p class="cat">Appartement</p></button></div>
+            <div><button class=" btn "(click)="onSwitchCat('Boutique')" [disabled]="categorie=='Boutique'" [ngClass]="{'active':  categorie =='Boutique'}"> <div class="cercle"> <i class="bi bi-cat bi-shop"></i> </div> <p class="cat">Boutique</p></button></div>
+            <div><button class=" btn "(click)="onSwitchCat('Maison')" [disabled]="categorie=='Maison'" [ngClass]="{'active':  categorie =='Maison'}"> <div class="cercle"> <i class="bi bi-cat bi-house-door"></i> </div> <p class="cat">Maison</p></button></div>
+            <div><button class=" btn "(click)="onSwitchCat('Chambre')" [disabled]="categorie=='Chambre'" [ngClass]="{'active':  categorie =='Chambre'}"> <div class="cercle"> <i class="bi bi-cat bi-door-closed"></i> </div> <p class="cat">Chambre</p></button></div>
+            <div><button class=" btn "(click)="onSwitchCat('Studio')" [disabled]="categorie=='Studio'" [ngClass]="{'active':  categorie =='Studio'}"> <div class="cercle"> <i class="bi bi-cat bi-door-open"></i> </div> <p class="cat">Studio</p></button></div>
+            <div><button class=" btn "(click)="onSwitchCat('Terrain')" [disabled]="categorie=='Terrain'" [ngClass]="{'active':  categorie =='Terrain'}"> <div class="cercle"> <i class="bi bi-cat bi-signpost"></i> </div> <p class="cat">Terrain</p></button></div>
+        </div>
+        <br>
+        <div class="slider filter">
+            <div><button class=" btn " (click)="onFilter('date')" [disabled]="filter=='date'" [ngClass]="{'active':  filter =='date'}" > <div class="cercle " > <i class="bi bi-smartwatch"></i> </div> <p class="cat">Date</p></button></div>
+            <div><button class=" btn " (click)="onFilter('prixCroissant')" [disabled]="filter=='prixCroissant'" [ngClass]="{'active':  filter =='prixCroissant'}"> <div class="cercle"> <i class="bi bi-cat bi-sort-down-alt"></i> </div> <p class="cat">Prix</p></button></div>
+            <div><button class=" btn " (click)="onFilter('prixDecroissant')" [disabled]="filter=='prixDecroissant'" [ngClass]="{'active':  filter =='prixDecroissant'}"> <div class="cercle"> <i class="bi bi-cat bi-sort-up"></i> </div> <p class="cat">Prix</p></button></div>
+        </div>
+    </div>
+
+    <div class="wrapper" *ngIf="articleFiltrer.length!=0">
+        <div class="recent">
+            <p>Toutes( {{articleFiltrer.length}} )</p>
+        </div>
+
+        <div class="cards_wrap">
+      
+            <div class="card_item"  *ngFor = "let article of articleFiltrer " 
+            (click)="onViewProperty(article.id)">
+                <button class="card_inner btn">
+                <div class="card_top">
+                    <img class=" rounded img-thumbnail" [src]="article.photo[0]" alt="car" />
+                </div>
+                <div class="card_bottom">
+                    <div class="card_date d-flex justify-content-evenly">
+                        <i class="bi bi-images">{{article.photo.length}}</i>
+                        <span>  {{article.datePublication | date : 'd MMM y'}} à {{article.datePublication | date : 'h:mm'}}</span>
+                    </div>
+                    <div class="card_info">
+                        <p class="title">{{article.titre}}</p>
+                        <p class="category">{{article.categorie}}</p>
+                        <p class="location">{{article.lieu}}</p>
+                    </div>
+                </div>
+                <div class="card_prix">
+                   {{article.prix}} Fcfa
+                </div>
+                </button>
+            </div>
+            
+     
+        </div>
+      </div>
+
+      <div *ngIf="loading && articleFiltrer.length!=0"  style="align-items: center; text-align: center;"> 
+        <div class="spinner-border text-purple" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+        
+    <div class="error" *ngIf="articleFiltrer.length==0">
+        <i class="bi bi-emoji-frown-fill"></i>
+        <p class="error-detail">Oups... Pas de résultats!!!</p>
+        <div class="error-recomentation">
+            <p class="error-recomentation-detail color-danger">
+                Désolé, Nous n'avons pas encore d'annonces correspondant à votre recherche.
+            </p>
+    
+            <p class="error-recomentation-proposition">Veillez réessayer ultérieurement.</p>
+        </div>
+    
+    
+        <br><br>
+    </div>
+
+      <br>
+
+    <br><br> 
+</div>

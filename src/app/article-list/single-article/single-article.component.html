@@ -1,0 +1,401 @@
+<div id="head" class="head  col-md-8 order-md-1 col-lg-7 text-center text-md-start">
+    <a (click)="onBack()"><i class="bi bi-arrow-left-square-fill"></i> </a>
+    <span>Détails sur l'annonce</span> 
+</div>
+
+
+<div class="presentation">
+    <div>
+        <div class="slider">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button slide" data-bs-target="#carouselExampleIndicators" 
+                                            class="active" aria-current="true" data-bs-slide-to="0" aria-label="Slide 1" ></button>
+                <button type="button slider" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" *ngIf="link[1]"></button>
+                <button type="button slider" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" *ngIf="link[2]"></button>
+                <button type="button slider" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4" *ngIf="link[3]"></button>
+                <button type="button slider" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5" *ngIf="link[4]"></button>
+                <button type="button slider" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6" *ngIf="link[5]"></button>
+                <button type="button slider" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7" *ngIf="link[6]"></button>
+                <button type="button slider" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7" aria-label="Slide 8" *ngIf="link[7]"></button>
+                <button type="button slider" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="8" aria-label="Slide 1" *ngIf="link[8]"></button>
+
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item img active" *ngIf="link[0]">
+                    <img [src]="link[0]" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item img" *ngIf="link[1]">
+                    <img [src]="link[1]" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item img" *ngIf="link[2]">
+                    <img [src]="link[2]" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item img" *ngIf="link[3]">
+                    <img [src]="link[3]" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item img" *ngIf="link[4]">
+                    <img [src]="link[4]" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item img" *ngIf="link[5]">
+                    <img [src]="link[5]" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item img" *ngIf="link[6]">
+                    <img [src]="link[6]" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item img" *ngIf="link[7]">
+                    <img [src]="link[7]" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item img" *ngIf="link[8]">
+                    <img [src]="link[8]" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+            </div>
+        </div>
+        
+            <div class="minav">
+            <p class="prix"> <i class=" bi bi-cash"></i> <span>{{article.prix}} FCFA</span> </p>
+            <p class="title">{{article.titre}}</p>
+            <p class="lieu">{{article.lieu}} - Yaoundé</p>
+            </div>
+    </div>
+
+
+    
+    <div *ngIf="getAuth()" class="admin">
+        <button   (click)="delete()" class="btn  btn-danger" style="width: 45%;"><i class="bi bi-trash"></i> Supprimer</button>
+        <button class="btn  btn-primary" style="width: 45%;"><i class="bi bi-pencil-square"></i> Modifier</button>
+    </div>
+ <!-- --------------------------------------Appartement maison studio chambre à louer---------------- -->   
+            <p class="date">{{article.datePublication | date : 'd MMM y'}} à {{article.datePublication | date : 'h:mm'}}  <span> <i class="bi bi-eye-fill"></i> {{article.nombreVu}} views</span></p>
+            
+
+            <div class="description" *ngIf="article.categorie=='Appartement à louer' || article.categorie=='Studio à louer' || article.categorie=='Studio meublé' || article.categorie=='Maison à louer' || article.categorie=='Chambre à louer' ">
+                <div class="description">
+                    <i class="fas fa-money-bill"></i>
+                    <div>
+                        <p class="decription-title">Loyer</p>
+                        <p class="description-description">{{article.modalite}}</p>
+                    </div>
+                </div>
+
+                <div class="description">
+                    <i class="fas fa-bed"></i>
+                    <div>
+                        <p class="decription-title">Nombre de chambres</p>
+                        <p class="description-description">{{article.nombreChambre}} </p>
+                    </div>
+                </div>
+
+                <div class="description">
+                    <i class="fas fa-bed"></i>
+                    <div>
+                        <p class="decription-title">Nombre de pièces</p>
+                        <p class="description-description">{{article.nombrePiece}} </p>
+                    </div>
+                </div>
+                
+                <div class="description">
+                    <i class="fas fa-bed"></i>
+                    <div>
+                        <p class="decription-title">Pièces</p>
+                        <p class="description-description">{{article.detailPiece}} </p>
+                    </div>
+                </div>
+
+                <div class="description">
+                    <i class=" bi bi-geo-alt-fill"></i>
+                    <div>
+                        <p class="decription-title">Lieu</p>
+                        <p class="description-description">
+                            {{article.lieu}} - yaoundé - Cameroun </p>
+                    </div>
+                </div>
+
+                <div class="description">
+                    <i class=" bi bi-signpost-fill"></i>
+                    <div>
+                        <p class="decription-title">Accessibilité</p>
+                        <p class="description-description">{{article.accessibilite}} </p>
+                    </div>
+                </div>
+
+                <div class="description">
+                    <i class="fas fa-user"></i>
+                    <div>
+                        <p class="decription-title">Sécurité</p>
+                        <p class="description-description">{{article.securite}}</p>
+                    </div>
+                </div>
+
+                <div class="description">
+                    <i class="fas fa-car"></i>
+                    <div>
+                        <p class="decription-title">Parking</p>
+                        <p class="description-description">{{article.parking}} </p>
+                    </div>
+                </div>
+
+                <div class="description">
+                    <i class="fas fa-faucet"></i>
+                    <div>
+                        <p class="decription-title">Eau élèctricité</p>
+                        <p class="description-description">{{article.eauElectricite}} </p>
+                    </div>
+                </div>
+            </div>
+ 
+
+            <!-- --------------------------------------Appartement maison vendre---------------- -->   
+            <div class="description" *ngIf="article.categorie=='Appartement à vendre' || article.categorie=='Maison à vendre'  ">
+                
+                <div class="description">
+                    <i class="fas fa-bed"></i>
+                    <div>
+                        <p class="decription-title">Pièces</p>
+                        <p class="description-description">{{article.detailPiece}} </p>
+                    </div>
+                </div>
+
+                <div class="description">
+                    <i class=" bi bi-geo-alt-fill"></i>
+                    <div>
+                        <p class="decription-title">Lieu</p>
+                        <p class="description-description">
+                            {{article.lieu}} - yaoundé - Cameroun </p>
+                    </div>
+                </div>
+
+                <div class="description">
+                    <i class=" bi fas fa-road"></i>
+                    <div>
+                        <p class="decription-title">Superficie</p>
+                        <p class="description-description">{{article.superficie}} m² </p>
+                    </div>
+                </div>
+
+                <div class="description">
+                    <i class=" bi bi-signpost-fill"></i>
+                    <div>
+                        <p class="decription-title">Accessibilité</p>
+                        <p class="description-description">{{article.accessibilite}} </p>
+                    </div>
+                </div>
+
+                <div class="description">
+                    <i class="fas fa-user"></i>
+                    <div>
+                        <p class="decription-title">Sécurité</p>
+                        <p class="description-description">{{article.securite}}</p>
+                    </div>
+                </div>
+
+                <div class="description">
+                    <i class="fas fa-car"></i>
+                    <div>
+                        <p class="decription-title">Parking</p>
+                        <p class="description-description">{{article.parking}} </p>
+                    </div>
+                </div>
+
+                
+            </div>
+ 
+<!-- --------------------------------------Terrain---------------- -->
+            <div class="description" *ngIf="article.categorie=='Terrain'">
+                
+                <div class="description">
+                    <i class=" bi bi-geo-alt-fill"></i>
+                    <div>
+                        <p class="decription-title">Lieu</p>
+                        <p class="description-description">
+                            {{article.lieu}} - yaoundé - Cameroun </p>
+                    </div>
+                </div>
+                <div class="description">
+                    <i class="fas fa-money-bill"></i>
+                    <div>
+                        <p class="decription-title">Modalités</p>
+                        <p class="description-description">{{article.modalite}}</p>
+                    </div>
+                </div>
+
+                <div class="description">
+                    <i class=" bi bi-signpost-fill"></i>
+                    <div>
+                        <p class="decription-title">Accessibilité</p>
+                        <p class="description-description">{{article.accessibilite}} </p>
+                    </div>
+                </div>
+                <div class="description">
+                    <i class=" bi fas fa-road"></i>
+                    <div>
+                        <p class="decription-title">Superficie</p>
+                        <p class="description-description">{{article.superficie}} m² </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- --------------------------------------boutiques---------------- -->
+            <div class="description" *ngIf="article.categorie=='Boutique' || article.categorie=='Fond de commerce'">
+                
+                <div class="description">
+                    <i class=" bi bi-geo-alt-fill"></i>
+                    <div>
+                        <p class="decription-title">Lieu</p>
+                        <p class="description-description">
+                            {{article.lieu}} - yaoundé - Cameroun </p>
+                    </div>
+                </div>
+                <div class="description">
+                    <i class="fas fa-money-bill"></i>
+                    <div>
+                        <p class="decription-title">Loyer</p>
+                        <p class="description-description">{{article.modalite}}</p>
+                    </div>
+                </div>
+
+                <div class="description">
+                    <i class=" bi bi-signpost-fill"></i>
+                    <div>
+                        <p class="decription-title">Accessibilité</p>
+                        <p class="description-description">{{article.accessibilite}} </p>
+                    </div>
+                </div>
+                <div class="description">
+                    <i class=" bi fas fa-road"></i>
+                    <div>
+                        <p class="decription-title">Superficie</p>
+                        <p class="description-description">{{article.superficie}} m² </p>
+                    </div>
+                </div>
+
+            </div>
+
+</div> 
+
+
+
+
+
+
+<div>
+    <div>
+        <p class="single-title">Plus de détails</p>
+        <div class="detail">
+                <p>
+                    {{article.description}}
+                </p>
+        </div>
+
+    </div>
+
+    <div class="contactPC">
+        <br>
+        <p class="single-title">Contacts</p>
+
+        <div class="contact">
+            <a (click)="scroll('dealerCard')"><button class="btn " style="width: 100%;"> <i class="bi bi-telephone-fill"></i> Afficher le contact</button></a>
+
+            <a [href]="hrefWa"><button class="btn " style="width: 100%;"><i class="bi bi-whatsapp"></i> Whatsapp</button></a>
+
+            <a [href]="hrefMail"><button class="btn " style="width: 100%;"><i class="bi bi-envelope-fill"></i>  Email</button></a>
+        </div>
+    </div>
+
+    <div class="contactPhone">
+        <br>
+        <p class="single-title">Contacts</p>
+
+        <div class="contact">
+            <a [href]="hrefTel"><button class="btn " style="width: 100%;"> <i class="bi bi-telephone-fill"></i> Appeler</button></a>
+
+            <a [href]="hrefSms"><button class="btn " style="width: 100%;"><i class="bi bi-chat-square-dots-fill"></i> SMS</button></a>
+
+            <a [href]="hrefWa"><button class="btn " style="width: 100%;"><i class="bi bi-whatsapp"></i> Whatsapp</button></a>
+
+            <a [href]="hrefMail"><button class="btn " style="width: 100%;"><i class="bi bi-envelope-fill"></i>  Email</button></a>
+        </div>
+    </div>
+
+    <div id="dealerCard" class="dealerCard">
+        <br>
+        <p class="single-title">Vendeur</p>
+
+        <div class="contact">
+            <p class="name">{{dealer?.name}}</p>
+            <p class="email">{{dealer?.email}}</p>
+            <p class="tel">+{{dealer?.tel}}</p>
+        </div>
+    </div>
+
+
+</div>
+
+    
+
+    <br>
+    <p class="single-title">Annonces similaires</p>
+
+    <div class="error" *ngIf="sameArticle.length==0">
+        <i class="bi bi-emoji-frown-fill"></i>
+        <p class="error-detail">Oups... Pas d'annonces similaires!!!</p>
+        <div class="error-recomentation">
+            <p class="error-recomentation-detail color-danger">
+                Désolé, Nous n'avons pas encore d'annonces similaires.
+            </p>
+    
+            <p class="error-recomentation-proposition">Veillez réessayer ultérieurement.</p>
+        </div>
+    
+    
+        <br><br>
+    </div>
+
+
+    
+     <div class="wrapper" *ngIf="sameArticle.length!=0">
+        <div class="recent">
+            <p>Toutes( {{sameArticle.length}} )</p>
+        </div>
+
+        <div class="cards_wrap">
+      
+            <div class="card_item"  *ngFor = "let article of sameArticle " 
+            (click)="onViewProperty(article.id)">
+                <button class="card_inner btn">
+                <div class="card_top">
+                    <img class=" rounded img-thumbnail" [src]="article.photo[0]" alt="car" />
+                </div>
+                <div class="card_bottom">
+                    <div class="card_date d-flex justify-content-evenly">
+                        <i class="bi bi-images">{{article.photo.length}}</i>
+                        <span>  {{article.datePublication | date : 'd MMM y'}} à {{article.datePublication | date : 'h:mm'}}</span>
+                    </div>
+                    <div class="card_info">
+                        <p class="title">{{article.titre}}</p>
+                        <p class="category">{{article.categorie}}</p>
+                        <p class="location">{{article.lieu}}</p>
+                    </div>
+                </div>
+                <div class="card_prix">
+                   {{article.prix}} Fcfa
+                </div>
+                </button>
+            </div>
+            
+     
+        </div>
+      </div>
+
+
+<br>

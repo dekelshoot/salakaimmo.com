@@ -1,0 +1,89 @@
+<div id="head" class="head col-md-8 order-md-1 col-lg-7 text-center text-md-start">
+    <a (click)="onBack()"><i class="bi bi-arrow-left-square-fill"></i> </a>
+    <span>Commentaires</span> 
+</div>
+<div class="Title">
+    <h2 class="text-center">Vous avez un commentaire? veillez rediger votre commentaire</h2>
+</div>
+
+<br>
+<div class="container">
+    
+    <form [formGroup]="commentForm" (ngSubmit)="onComent()">
+        <div class="card-footer">
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name" formControlName="name">
+                <label for="floatingInput">Votre nom</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name" formControlName="contact">
+                <label for="floatingInput">Votre numéro ou email</label>
+            </div>
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" formControlName="comment"></textarea>
+                <label for="floatingTextarea2">Votre commentaire</label>
+            </div>
+        <p></p>
+            <button class="btn  text-white btn-purpel" [disabled]="commentForm.invalid " 
+            type="submit">
+             <i class="bi bi-cursor-fill"></i> Publier</button>
+        </div>
+    </form>
+    <br>
+    
+    <div *ngIf="!comments[0]"  style="align-items: center; text-align: center;"> 
+        <br><br><br><br>
+        <div class="spinner-border text-purple" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <br><br><br><br>
+        <br>
+    </div>
+    
+    <div class="comment" *ngIf="comments[0]">
+        <h4 class="text-center">Vos commentaires s'affichent ici. Vous pouvez les lire à tout moment</h4>
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <p class="floatg-left nom">Salaka immo (propriétaire)</p>
+                        <div class="clearfix "></div>
+                            <p>
+                                Les services offerts par la société salaka sont:
+                                - Gestion et promotion immobilière ; Financement des projets immobiliers; Conseils et accompagnement ; Expertise et formation; Prestation de service; Import-export; BTP, Lotissement et aménagement des terrains urbains et ruraux; Agriculture et élevage. 
+                                En plus généralement, toutes opérations industrielles, commerciales, ou financières, immobilières ou mobilières, de services de rattachant directement ou indirectement à l'objet social ou à tous autres objet similaires ou connexes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div *ngFor="let comment of comments, let i=index">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <span class="floatg-left nom">{{comment.author}}</span> <br>
+                            <span class="contact">{{comment.contact}}</span>
+                        <div class="clearfix "></div>
+                            <p>{{comment.comment}}</p>
+                            <div class="justify-content-between">
+                                <p >
+                                    <button id="like" (click)="like(i)" class="float-right btn text-white btn-purpel">
+                                         <i class="fa fa-heart"></i> Like</button>
+                                         <span class="float-end">{{comment.like}} <i class="fa purpel fa-heart"></i> </span>
+                                 </p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+    <br>
+    </div>
+

@@ -1,0 +1,43 @@
+<div class="head  col-md-8 order-md-1 col-lg-7 text-center text-md-start">
+    <a (click)="onBack()"><i class="bi bi-arrow-left-square-fill"></i> </a>
+    <span>Se connecter</span> 
+</div>
+
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <p class="brand">B</p>
+        <h1>Ets Salaka</h1>
+      </div>
+  
+      <!-- Login Form -->
+      <form [formGroup]="signInForm" (ngSubmit)="onSubmit()" >
+        <input type="email" id="login" class="fadeIn second" name="login" placeholder="username"  formControlName = "email">
+        <input type="password" id="password" class="fadeIn third" name="password" formControlName = "password" placeholder="password">
+        <input type="submit" [disabled]="signInForm.invalid" class="fadeIn fourth" value="Log In">
+      </form>
+  
+      <p class="text-danger">{{ errorMessage}}</p>
+
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="#"> Accueil</a>
+      </div>
+  
+    </div>
+  </div>
+
+
+  <div class="mod text-center" *ngIf="start"> 
+    <p class="brand">B</p>
+    <p class="title">ETS Salaka</p>
+    <p style="color: bisque;">Loading...</p>
+    <div class="spinner-border  spinner" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+
+</div>

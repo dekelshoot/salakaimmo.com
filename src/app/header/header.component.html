@@ -1,0 +1,68 @@
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" (click)="onBack()">
+            <span [ngClass]="{'top': header}"  class="brand">Salaka Immo</span>
+          </a>
+          <button class="navbar-toggler" [ngClass]="{'top2': header}" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li *ngIf="!isAuth" class="nav-item">
+                    <a class="nav-link active" (click)="naviger('/auth/signin')"  aria-current="page" data-bs-toggle="collapse" data-bs-target="#navbarText"  >Sign in</a>
+                </li>
+                <li *ngIf="isAuth" class="nav-item">
+                    <a class="nav-link active"  (click)="naviger('/article/new')"  aria-current="page" data-bs-toggle="collapse" data-bs-target="#navbarText">Publier</a>
+                </li>
+
+                <li *ngIf="isAuth"  class="nav-item">
+                    <a class="nav-link active" (click)="naviger('/ads')" aria-current="page" data-bs-toggle="collapse" data-bs-target="#navbarText">annonces</a>
+                </li>
+                <li  class="nav-item">
+                    <a class="nav-link active" (click)="naviger('/comment')" aria-current="page" data-bs-toggle="collapse" data-bs-target="#navbarText">commentaires</a>
+                </li>
+                <li  class="nav-item ">
+                    <a class="nav-link active" (click)="naviger('/about')" data-bs-toggle="collapse" data-bs-target="#navbarText">About</a>
+                </li>
+                <li *ngIf="isAuth" class="nav-item">
+                    <a class="nav-link active" (click)="onSignOut()" aria-current="page" data-bs-toggle="collapse" data-bs-target="#navbarText">Déconnexion</a>
+                </li>
+                <!-- <li  class="nav-item ">
+                    <a  class="nav-link active"  data-bs-toggle="collapse" data-bs-target="#navbarText"> <i class="bi bi-download"></i> Installer l'application</a>
+                </li> -->
+            </ul>
+
+                <div class="name" >
+                    <ul class="list-unstyled list-inline social text-center">
+                        <li class="text-center ti" >Salaka immo</li>
+                    </ul>
+                    <ul class="list-unstyled list-inline social text-center">
+                        <li class="list-inline-item"><a href="https://www.facebook.com/salakaimmobilier"><i class="fa bi-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="https://wa.me/237698684872"><i class="fa bi-whatsapp"></i></a></li>
+                        <!-- <li class="list-inline-item"><a href=""><i class="fa bi-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href=""><i class="fa bi-instagram"></i></a></li> -->
+                        <li class="list-inline-item"><a href="mailto:etablissementsalaka@gmail.com"><i class="fa bi-google"></i></a></li>
+                    </ul>
+
+                </div>
+
+
+          </div>
+        </div>
+      </nav>
+
+
+    <div class="mod text-center" *ngIf="start">
+        <p class="brand">B</p>
+        <p class="title">salakaimmo.com</p>
+        <p style="color: bisque;">Loading...</p>
+        <!-- <div class="spinner-border  spinner" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div> -->
+
+    </div>
+
+<br><br>
+

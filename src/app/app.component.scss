@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap');
+.mod{
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background: linear-gradient(70deg ,#7952b3 ,#46237b ); /* Fallback color */
+    padding-top: 10%;
+
+    .brand{
+        font-family: 'MonteCarlo', cursive;
+        font-weight: bold;
+        font-size: 700%;
+        color: white ;
+    }
+    
+    .title{
+        font-weight: bold;
+        color: white ;
+        font-size: 200%;
+    }
+    
+    .spinner{
+        width: 3rem;
+        height: 3rem;
+        color: white;
+    }
+   
+}
+
+@media screen and (max-width: 720px) {
+    .mod{
+        padding-top: 20%;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .mod{
+        padding-top: 25%;
+    }
+  }
+
+  @media  screen and (max-width: 300px) {
+    .mod{
+        padding-top: 40%;
+    }
+  }
+
+

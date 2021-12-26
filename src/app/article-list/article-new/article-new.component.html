@@ -1,0 +1,505 @@
+<div id="head" class="head  col-md-8 order-md-1 col-lg-7 text-center text-md-start">
+    <a (click)="onBack()"><i class="bi bi-arrow-left-square-fill"></i> </a>
+    <span>Publier un article</span> 
+</div>
+
+
+  <div class="container">
+    <div class="title">Nouvelle Annonce</div>
+    <hr>
+      <form [formGroup]="articleForm" (ngSubmit)="onSaveProperty()">
+        <div class="user-details">
+          
+          <div class=" form-group form-floating mb-3">
+            <input type="text" class="form-control"  placeholder="Titre" formControlName="titre">
+            <label for="floatingInput">Titre</label>
+          </div>
+
+          <div class=" form-group form-floating mb-3">
+            <textarea class="form-control description" style="width: 10000%;" placeholder="Description de l'annonce"  style="height: 70px" formControlName="description"></textarea>
+            <label for="floatingTextarea2">Description de l'annonce</label>
+          </div>
+
+          <div class=" form-group form-floating mb-3">
+            <select class=" form-select form-select-sm" style="height: 55px" aria-label="Floating label select example" formControlName="categorie">
+              <option *ngFor="let category of category">{{category}}</option>
+            </select>
+            <label for="floatingSelect">Catégorie</label>
+          </div>
+
+
+<!-- ------------------------------------------Appartement--------------------------------------------- -->          
+
+<!-- appartement a louer -->
+
+          <div *ngIf="articleForm.value.categorie == 'Appartement à louer' " class="appartment-a-louer">
+
+            <div class=" form-group form-floating mb-3">
+                <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="detailPiece">
+                <label for="floatingInput">Détails des pièces</label>
+            </div>
+
+            <div class=" form-group form-floating mb-3">
+                <input type="texte" class="form-control"  placeholder="nombre de pièce" formControlName="modalite">
+                <label for="floatingInput">Modalités</label>
+              </div>
+
+              <div class=" form-group form-floating mb-3">
+                <input type="number" class="form-control"  placeholder="nombre de pièce" formControlName="nombrePiece">
+                <label for="floatingInput">nombre de pièce</label>
+              </div>
+
+              <div class=" form-group form-floating mb-3">
+                <input type="number" class="form-control"  placeholder="nombre de pièce" formControlName="nombreChambre">
+                <label for="floatingInput">nombre de chambre</label>
+              </div>
+
+              <div class=" form-group form-floating mb-3">
+                <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="accessibilite">
+                <label for="floatingInput">Accessibilité</label>
+              </div>
+
+              <div class=" form-group form-floating mb-3">
+                <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="securite">
+                <label for="floatingInput">Sécurité</label>
+              </div>
+
+              <div class=" form-group form-floating mb-3">
+                <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="parking">
+                <label for="floatingInput">Parking</label>
+              </div>
+
+              <div class=" form-group form-floating mb-3">
+                <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="eauElectricite">
+                <label for="floatingInput">Eau et  élèctricité</label>
+              </div>
+
+         </div>
+          
+
+<!-- ------------------------------------------------------- -->
+
+
+
+<!-- appartement a vendre -->
+          
+
+         <div *ngIf="articleForm.value.categorie == 'Appartement à vendre' " class="vente">
+              
+              
+            <div class=" form-group form-floating mb-3">
+              <input type="number" class="form-control"  placeholder="nombre de pièce" formControlName="nombrePiece">
+              <label for="floatingInput">nombre de pièce</label>
+            </div>
+
+            <div class=" form-group form-floating mb-3">
+              <input type="number" class="form-control"  placeholder="nombre de pièce" formControlName="nombreChambre">
+              <label for="floatingInput">nombre de chambre</label>
+            </div>
+          
+              <div class=" form-group form-floating mb-3">
+                <input type="number" class="form-control"  placeholder="Superficie" formControlName="superficie">
+                <label for="floatingInput">Superficie m<sup>2</sup></label>
+              </div>
+
+              <div class=" form-group form-floating mb-3">
+                <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="detailPiece">
+                <label for="floatingInput">Détails des pièces</label>
+              </div>
+
+              <div class=" form-group form-floating mb-3">
+                <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="accessibilite">
+                <label for="floatingInput">Accessibilité</label>
+              </div>
+
+              <div class=" form-group form-floating mb-3">
+                <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="securite">
+                <label for="floatingInput">Sécurité</label>
+              </div>
+
+              <div class=" form-group form-floating mb-3">
+                <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="parking">
+                <label for="floatingInput">Parking</label>
+              </div>
+         </div>
+
+<!-- ------------------------------------------------------- -->
+
+<!-- appartement meublé -->
+
+<div *ngIf="articleForm.value.categorie == 'Appartement meublé' " class="appartment-a-louer">
+
+    <div class=" form-group form-floating mb-3">
+        <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="detailPiece">
+        <label for="floatingInput">Détails des pièces</label>
+    </div>
+
+    <div class=" form-group form-floating mb-3">
+        <input type="texte" class="form-control"  placeholder="nombre de pièce" formControlName="modalite">
+        <label for="floatingInput">Modalités</label>
+      </div>
+
+      <div class=" form-group form-floating mb-3">
+        <input type="number" class="form-control"  placeholder="nombre de pièce" formControlName="nombreChambre">
+        <label for="floatingInput">nombre de chambre</label>
+      </div>
+
+      <div class=" form-group form-floating mb-3">
+        <input type="number" class="form-control"  placeholder="nombre de pièce" formControlName="nombrePiece">
+        <label for="floatingInput">nombre de pièce</label>
+      </div>
+      <div class=" form-group form-floating mb-3">
+        <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="accessibilite">
+        <label for="floatingInput">Accessibilité</label>
+      </div>
+
+      <div class=" form-group form-floating mb-3">
+        <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="securite">
+        <label for="floatingInput">Sécurité</label>
+      </div>
+
+      <div class=" form-group form-floating mb-3">
+        <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="parking">
+        <label for="floatingInput">Parking</label>
+      </div>
+
+      <div class=" form-group form-floating mb-3">
+        <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="eauElectricite">
+        <label for="floatingInput">Eau et  élèctricité</label>
+      </div>
+
+ </div>
+  
+
+<!-- ------------------------------------------------------- -->
+
+
+
+<!-- ------------------------------------------Maison--------------------------------------------- -->
+
+<!-- maison a louer -->
+
+<div *ngIf="articleForm.value.categorie == 'Maison à louer' " class="appartment-a-louer">
+
+    <div class=" form-group form-floating mb-3">
+        <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="detailPiece">
+        <label for="floatingInput">Détails des pièces</label>
+    </div>
+
+    <div class=" form-group form-floating mb-3">
+        <input type="texte" class="form-control"  placeholder="nombre de pièce" formControlName="modalite">
+        <label for="floatingInput">Modalités</label>
+      </div>
+
+      <div class=" form-group form-floating mb-3">
+        <input type="number" class="form-control"  placeholder="nombre de pièce" formControlName="nombreChambre">
+        <label for="floatingInput">nombre de chambre</label>
+      </div>
+
+      <div class=" form-group form-floating mb-3">
+        <input type="number" class="form-control"  placeholder="nombre de pièce" formControlName="nombrePiece">
+        <label for="floatingInput">nombre de pièce</label>
+      </div>
+      <div class=" form-group form-floating mb-3">
+        <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="accessibilite">
+        <label for="floatingInput">Accessibilité</label>
+      </div>
+
+      <div class=" form-group form-floating mb-3">
+        <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="securite">
+        <label for="floatingInput">Sécurité</label>
+      </div>
+
+      <div class=" form-group form-floating mb-3">
+        <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="parking">
+        <label for="floatingInput">Parking</label>
+      </div>
+
+      <div class=" form-group form-floating mb-3">
+        <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="eauElectricite">
+        <label for="floatingInput">Eau et  élèctricité</label>
+      </div>
+
+ </div>
+  
+
+<!-- ------------------------------------------------------- -->
+
+
+
+<!-- maison a vendre -->
+  
+
+ <div *ngIf="articleForm.value.categorie == 'Maison à vendre' " class="vente">
+      <div class=" form-group form-floating mb-3">
+        <input type="number" class="form-control"  placeholder="Superficie" formControlName="superficie">
+        <label for="floatingInput">Superficie m<sup>2</sup></label>
+      </div>
+
+      <div class=" form-group form-floating mb-3">
+        <input type="number" class="form-control"  placeholder="nombre de pièce" formControlName="nombrePiece">
+        <label for="floatingInput">nombre de pièce</label>
+      </div>
+
+      <div class=" form-group form-floating mb-3">
+        <input type="number" class="form-control"  placeholder="nombre de pièce" formControlName="nombreChambre">
+        <label for="floatingInput">nombre de chambre</label>
+      </div>
+
+      <div class=" form-group form-floating mb-3">
+        <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="detailPiece">
+        <label for="floatingInput">Détails des pièces</label>
+      </div>  
+
+      <div class=" form-group form-floating mb-3">
+        <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="accessibilite">
+        <label for="floatingInput">Accessibilité</label>
+      </div>
+
+      <div class=" form-group form-floating mb-3">
+        <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="securite">
+        <label for="floatingInput">Sécurité</label>
+      </div>
+
+      <div class=" form-group form-floating mb-3">
+        <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="parking">
+        <label for="floatingInput">Parking</label>
+      </div>
+ </div>
+
+<!-- ------------------------------------------------------- -->
+
+
+<!-- ------------------------------------------chambre--------------------------------------------- -->
+
+<!-- chambre a louer -->
+
+<div *ngIf="articleForm.value.categorie == 'Chambre à louer' " class="appartment-a-louer">
+
+    <div class=" form-group form-floating mb-3">
+        <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="detailPiece">
+        <label for="floatingInput">Détails des pièces</label>
+    </div>
+
+    <div class=" form-group form-floating mb-3">
+        <input type="texte" class="form-control"  placeholder="nombre de pièce" formControlName="modalite">
+        <label for="floatingInput">Modalités</label>
+      </div>
+
+      <div class=" form-group form-floating mb-3">
+        <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="accessibilite">
+        <label for="floatingInput">Accessibilité</label>
+      </div>
+
+      <div class=" form-group form-floating mb-3">
+        <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="securite">
+        <label for="floatingInput">Sécurité</label>
+      </div>
+
+      <div class=" form-group form-floating mb-3">
+        <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="parking">
+        <label for="floatingInput">Parking</label>
+      </div>
+
+      <div class=" form-group form-floating mb-3">
+        <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="eauElectricite">
+        <label for="floatingInput">Eau et  élèctricité</label>
+      </div>
+
+ </div>
+
+ <!-- ------------------------------------------------------- -->
+
+
+ <!-- ------------------------------------------studio--------------------------------------------- -->
+
+<!-- studio a louer -->
+
+<div *ngIf="articleForm.value.categorie == 'Studio à louer' " class="studio-a-louer">
+
+    <div class=" form-group form-floating mb-3">
+        <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="detailPiece">
+        <label for="floatingInput">Détails des pièces</label>
+    </div>
+
+    <div class=" form-group form-floating mb-3">
+        <input type="texte" class="form-control"  placeholder="nombre de pièce" formControlName="modalite">
+        <label for="floatingInput">Modalités</label>
+      </div>
+
+      <div class=" form-group form-floating mb-3">
+        <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="accessibilite">
+        <label for="floatingInput">Accessibilité</label>
+      </div>
+
+      <div class=" form-group form-floating mb-3">
+        <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="securite">
+        <label for="floatingInput">Sécurité</label>
+      </div>
+
+      <div class=" form-group form-floating mb-3">
+        <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="parking">
+        <label for="floatingInput">Parking</label>
+      </div>
+
+      <div class=" form-group form-floating mb-3">
+        <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="eauElectricite">
+        <label for="floatingInput">Eau et  élèctricité</label>
+      </div>
+
+ </div>
+
+ <!-- ------------------------------------------------------- -->
+
+ <!-- studio meublé -->
+
+<div *ngIf="articleForm.value.categorie == 'Studio meublé' " class="appartment-a-louer">
+
+    <div class=" form-group form-floating mb-3">
+        <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="detailPiece">
+        <label for="floatingInput">Détails des pièces</label>
+    </div>
+
+    <div class=" form-group form-floating mb-3">
+        <input type="texte" class="form-control"  placeholder="nombre de pièce" formControlName="modalite">
+        <label for="floatingInput">Modalités</label>
+      </div>
+
+      <div class=" form-group form-floating mb-3">
+        <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="accessibilite">
+        <label for="floatingInput">Accessibilité</label>
+      </div>
+
+      <div class=" form-group form-floating mb-3">
+        <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="securite">
+        <label for="floatingInput">Sécurité</label>
+      </div>
+
+      <div class=" form-group form-floating mb-3">
+        <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="parking">
+        <label for="floatingInput">Parking</label>
+      </div>
+
+      <div class=" form-group form-floating mb-3">
+        <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="eauElectricite">
+        <label for="floatingInput">Eau et  élèctricité</label>
+      </div>
+
+ </div>
+  
+
+<!-- ------------------------------------------------------- -->
+
+
+ <!-- ------------------------------------------Terrain--------------------------------------------- -->
+
+<!-- Terrain -->
+<div *ngIf="articleForm.value.categorie == 'Terrain' " class="terrain">
+    <div class=" form-group form-floating mb-3">
+      <input type="number" class="form-control"  placeholder="Superficie" formControlName="superficie">
+      <label for="floatingInput">Superficie m<sup>2</sup></label>
+    </div>
+
+    <div class=" form-group form-floating mb-3">
+      <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="accessibilite">
+      <label for="floatingInput">Accessibilité</label>
+    </div>
+
+    <div class=" form-group form-floating mb-3">
+      <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="modalite">
+      <label for="floatingInput">Modalite</label>
+    </div>
+
+</div>
+
+<!-- ------------------------------------------------------- -->
+
+
+
+
+ <!-- ------------------------------------------Burreau--------------------------------------------- -->
+
+<!-- bureau -->
+<div *ngIf="articleForm.value.categorie ==='Boutique' || articleForm.value.categorie ==='Fond de commerce' " class="bureau">
+    <div class=" form-group form-floating mb-3">
+      <input type="number" class="form-control"  placeholder="Superficie" formControlName="superficie">
+      <label for="floatingInput">Superficie m<sup>2</sup></label>
+    </div>
+
+    <div class=" form-group form-floating mb-3">
+      <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="accessibilite">
+      <label for="floatingInput">Accessibilité</label>
+    </div>
+
+    <div class=" form-group form-floating mb-3">
+      <input type="text" class="form-control"  placeholder="nombre de pièce" formControlName="modalite">
+      <label for="floatingInput">Modalite</label>
+    </div>
+
+
+</div>
+
+<!-- ------------------------------------------------------- -->
+
+
+
+
+
+
+          <br>
+
+          
+
+          <p>image {{nomberFile}}/8</p>
+            <img *ngFor="let url of urls" [src]="url" class="rounded image mb-3">
+          <div class=" form-group mb-3">
+            <input class="form-control" (change)="detectFiles($event)" type="file" 
+                     multiple accept="image/*" formControlName="photo">
+
+            <br>
+
+            <div class="spinner-border  charge" role="status" *ngIf="fileUploading">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+          </div> 
+          <p class=" charge" *ngIf="fileUploaded">Fichiers chargés</p>
+          
+
+          <br>
+
+          <div class=" form-group form-floating mb-3">
+            <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search..." formControlName="lieu" >
+            <datalist id="datalistOptions">
+              <option *ngFor="let location of location" >{{location}}</option>
+            </datalist>
+            <label for="floatingSelect" class="form-label">Lieu</label>
+          </div>
+
+          <div class=" form-group form-floating mb-3">
+            <input type="number" class="form-control" id="floatingInput" placeholder="Prix" formControlName="prix">
+            <label for="floatingInput">Prix FCFA</label>
+          </div>
+
+
+          
+
+          
+        </div>
+    
+        <button class="btn button btn-primary" 
+                [disabled]="articleForm.invalid " 
+                 type="submit">
+        <p *ngIf="!loading">Publier l'annonce</p>
+        <div class="spinner-border text-warning" role="status" *ngIf="loading" >
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </button>
+                
+      </form>
+
+      
+  </div>
+ 
+  
+
+  

@@ -1,0 +1,125 @@
+<app-header  *ngIf="!start"></app-header>
+<div id="cont" class="cont " >
+
+    <div class="filter  col-md-8 order-md-1 col-lg-7 text-center text-md-start">
+        <br>
+        <h1 class="mb-3">Trouvez la maison de vos rêves !!!</h1>
+        <form class="form" [formGroup]="searchForm" (ngSubmit)="onSearchArticle()">
+            <!-- <div class="form-floating select">
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" formControlName="transaction">
+                  <option *ngFor="let typeTransaction of typeTransaction">{{typeTransaction}}</option>
+                </select>
+                <label for="floatingSelect">Transaction</label>
+            </div> -->
+            
+            <div class="form-floating select" (change)="Chambre()">
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" formControlName="type">
+                  <option *ngFor="let typeBien of typeBien">{{typeBien}}</option>
+                </select>
+                <label for="floatingSelect">Type de bien</label>
+              </div>
+
+              <div class="form-floating select"  *ngIf="!viewChambre">
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" formControlName="chambre">
+                  <option *ngFor="let chambre of chambre">{{chambre}}</option>
+                </select>
+                <label for="floatingSelect">Chambre</label>
+              </div>
+
+              <div class="form-floating select">
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" formControlName="lieu">
+                  <option *ngFor="let lieu of lieu">{{lieu}}</option>
+                </select>
+                <label for="floatingSelect">Lieu</label>
+              </div>
+
+              <div class="form-floating select">
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" formControlName="prix">
+                  <option  *ngFor="let prix of prix">{{prix}}</option>
+                </select>
+                <label for="floatingSelect">Prix</label>
+              </div>
+
+              
+
+              <button class="btn" [disabled]="searchForm.invalid " 
+                      type="submit">Trouvez</button>
+            </form>
+
+
+           
+    </div>
+<br>
+
+    <div class="slider">
+        <div><button [disabled]="!connect" class=" btn "(click)="onSwitchCat('Tout')" > <div class="cercle " > <i class="bi bi-grid"></i> </div> <p class="cat">Tout</p></button></div>
+        <div><button [disabled]="!connect" class=" btn "(click)="onSwitchCat('Appartement')"> <div class="cercle"> <i class="bi bi-cat bi-building"></i> </div> <p class="cat">Appartement</p></button></div>
+        <div><button [disabled]="!connect" class=" btn "(click)="onSwitchCat('Boutique')"> <div class="cercle"> <i class="bi bi-cat bi-shop"></i> </div> <p class="cat">Boutique</p></button></div>
+        <div><button [disabled]="!connect" class=" btn "(click)="onSwitchCat('Maison')"> <div class="cercle"> <i class="bi bi-cat bi-house-door"></i> </div> <p class="cat">Maison</p></button></div>
+        <div><button [disabled]="!connect" class=" btn "(click)="onSwitchCat('Chambre')"> <div class="cercle"> <i class="bi bi-cat bi-door-closed"></i> </div> <p class="cat">Chambre</p></button></div>
+        <div><button [disabled]="!connect" class=" btn "(click)="onSwitchCat('Studio')"> <div class="cercle"> <i class="bi bi-cat bi-door-open"></i> </div> <p class="cat">Studio</p></button></div>
+        <div><button [disabled]="!connect" class=" btn "(click)="onSwitchCat('Terrain')"> <div class="cercle"> <i class="bi bi-cat bi-signpost"></i> </div> <p class="cat">Terrain</p></button></div>
+    </div>
+
+
+    <div *ngIf="!articles[0]"  style="align-items: center; text-align: center;"> 
+      <br><br><br><br>
+      <div>
+        <div class="spinner-border text-purple" role="status">
+          <span class="visually-hidden">Loading...</span>
+      </div>
+      <p style="color: rgb(143, 139, 133);">Loading...</p>
+      </div>
+      <br><br><br><br>
+    </div>
+
+    <div *ngIf="articles[0]" class="wrapper">
+        <div class="recent">
+            <p>Annonces les plus récentes ({{chargeArticles.length}})</p>
+            <p>Toutes( {{articles.length}} )</p>
+        </div>
+
+        <div class="cards_wrap">
+      
+            <div class="card_item"  *ngFor = "let article of chargeArticles ; let i=index ; " 
+            (click)="onViewProperty(i)">
+                <button class="card_inner btn">
+                <div class="card_top">
+                    <img class=" rounded img-thumbnail" [src]="article.photo[0]" alt="car" />
+                </div>
+                <div class="card_bottom">
+                    <div class="card_date d-flex justify-content-evenly">
+                        <i class="bi bi-images">{{article.photo.length}}</i>
+                        <span>  {{article.datePublication | date : 'd MMM y'}} à {{article.datePublication | date : 'h:mm'}}</span>
+                    </div>
+                    <div class="card_info">
+                        <p class="title">{{article.titre}}</p>
+                        <p class="category">{{article.categorie}}</p>
+                        <p class="location">{{article.lieu}}</p>
+                    </div>
+                </div>
+                <div class="card_prix">
+                   {{article.prix}} Fcfa
+                </div>
+                </button>
+            </div>    
+        </div>
+      </div>
+        
+
+      <br>
+     
+      <div class="plus">
+        <button [disabled]="!connect" (click)="onSwitchCat('Tout')"  class="btn"> Plus d'annonces récentes ></button>
+      </div>
+      <br>
+      <div class="visitors">
+        <p>{{visitors}} visiteurs</p>
+      </div>
+
+      
+
+      
+    <br><br> 
+
+</div>

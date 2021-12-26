@@ -1,0 +1,26 @@
+export class Article{
+    id!:number;
+    titre!:string;
+    prix!:number;
+    superficie!:number;
+    detailPiece!: string;
+    modalite!:string;
+    photo!:any;
+    nombrePiece!:number;
+    lieu!:string;
+    accessibilite!:string;
+    securite!:string;
+    parking!:string;
+    eauElectricite!:string;
+    categorie!:string;
+    description!:string;
+    nombrePhoto!:number;
+    nombreVu!:number;
+    nombreChambre!:number;
+    datePublication!:string;
+    typeEchange!:string;
+    dealerEmail!:any;
+    constructor(){
+
+    }
+ }

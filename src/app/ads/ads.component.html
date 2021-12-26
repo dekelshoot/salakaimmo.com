@@ -1,0 +1,38 @@
+<div id="head" class="head  col-md-8 order-md-1 col-lg-7 text-center text-md-start">
+    <a (click)="onBack()"><i class="bi bi-arrow-left-square-fill"></i> </a>
+    <span>Ads</span> 
+</div>
+
+<div class="wrapper">
+    <div class="recent">
+        <p>Annonces </p>
+        <p>Toutes( {{articles.length}} )</p>
+    </div>
+
+    <div class="cards_wrap">
+  
+        <div class="card_item"  *ngFor = "let article of articles ; let i=index ; " 
+        (click)="onViewProperty(article.id)">
+            <button class="card_inner btn">
+            <div class="card_top">
+                <img class=" rounded img-thumbnail" [src]="article.photo[0]" alt="car" />
+            </div>
+            <div class="card_bottom">
+                <div class="card_date d-flex justify-content-evenly">
+                    <i class="bi bi-images">{{article.photo.length}}</i>
+                    <span>  {{article.datePublication | date : 'd MMM y'}} à {{article.datePublication | date : 'h:mm'}}</span>
+                </div>
+                <div class="card_info">
+                    <p class="title">{{article.titre}}</p>
+                    <p class="category">{{article.categorie}}</p>
+                    <p class="location">{{article.lieu}}</p>
+                </div>
+            </div>
+            <div class="card_prix">
+               {{article.prix}} Fcfa
+            </div>
+            </button>
+        </div>    
+    </div>
+  </div>
+    
