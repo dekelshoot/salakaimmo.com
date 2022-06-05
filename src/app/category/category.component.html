@@ -1,0 +1,105 @@
+<nav class="navbar fixed-top navbar-dark  bg-purple">
+    <div class="container-fluid">
+        <a (click)="route('accueil')">
+            <span><i class="bi bi-chevron-left"></i></span>
+            <span class="navbar-brand mb-0 h1">Catégories</span>
+        </a>
+
+        <form class="d-flex">
+            <a (click)="route('search')" class="search" ><i class="bi bi-search"></i></a>
+          <!-- <button class="search" class="btn" type="submit"><i class="bi bi-search"></i></button> -->
+        </form>
+    </div>
+</nav>
+<br id="head"><br><br >
+<div  class="container">
+    <div>
+        <button (click)="route('article/category/Maison à vendre')" class="btn cont">
+           <button class="btn icon"><i class="bi bi-house-door"></i></button><h5>Maison à vendre</h5>
+        </button>
+    </div>
+    <div>
+        <button (click)="route('article/category/Maison à louer')" class="btn cont">
+           <button class="btn icon"><i class="bi bi-house-door"></i></button><h5>Maison à louer</h5>
+        </button>
+    </div>
+    <div>
+        <button (click)="route('article/category/Maison meublé')"  class="btn cont">
+           <button class="btn icon"><i class="bi bi-house-door"></i></button><h5>Maison meublé</h5>
+        </button>
+    </div>
+    <div>
+        <button (click)="route('article/category/Terrain')"  class="btn cont">
+           <button class="btn icon"><i class="bi bi-signpost"></i></button><h5>Terrain à vendre</h5>
+        </button>
+    </div>
+    <div>
+        <button (click)="route('article/category/Appartement à louer')"  class="btn cont">
+           <button class="btn icon"><i class="bi bi-building"></i></button><h5>Appartement à louer</h5>
+        </button>
+    </div>
+    <div>
+        <button (click)="route('article/category/Appartement meublé')" class="btn cont">
+           <button class="btn icon"><i class="bi bi-building"></i></button><h5>Appartement meublé</h5>
+        </button>
+    </div>
+    <div>
+        <button (click)="route('article/category/Appartement à vendre')" class="btn cont">
+           <button class="btn icon"><i class="bi bi-building"></i></button><h5>Appartement à vendre</h5>
+        </button>
+    </div>
+    <div>
+        <button (click)="route('article/category/Boutique')" class="btn cont">
+           <button class="btn icon"><i class="bi bi-shop"></i></button><h5>Boutique à louer</h5>
+        </button>
+    </div>
+    <div>
+        <button (click)="route('article/category/Entrepot')" class="btn cont">
+           <button class="btn icon"><i class="bi bi-shop-window"></i></button><h5>Entrepot</h5>
+        </button>
+    </div>
+    <div>
+        <button (click)="route('article/category/Usine')"  class="btn cont">
+           <button class="btn icon"><i class="bi bi-shop-window"></i></button><h5>Usine</h5>
+        </button>
+    </div>
+    <div>
+        <button (click)="route('article/category/Studio à louer')"  class="btn cont">
+           <button class="btn icon"><i class="bi bi-door-open"></i></button><h5>Studio à louer</h5>
+        </button>
+    </div>
+    <div>
+        <button (click)="route('article/category/Studio meublé')"  class="btn cont">
+           <button class="btn icon"><i class="bi bi-door-open"></i></button><h5>Studio meublé</h5>
+        </button>
+    </div>
+    <div>
+        <button (click)="route('article/category/Chambre à louer')"  class="btn cont">
+           <button class="btn icon"><i class="bi bi-door-closed"></i></button><h5>Chambre à louer</h5>
+        </button>
+    </div>
+    <div>
+        <button (click)="route('article/category/Chambre meublé')"  class="btn cont">
+           <button class="btn icon"><i class="bi bi-door-closed"></i></button><h5>Chambre meublé</h5>
+        </button>
+    </div>
+    <div>
+        <button disabled (click)="route('article/category/BTP')"  class="btn cont">
+           <button class="btn icon"><i class="bi bi-bricks"></i></button><h5>BTP</h5>
+        </button>
+    </div>
+    <div>
+        <button disabled (click)="route('article/category/Lotissement')"  class="btn cont">
+           <button class="btn icon"><i class="bi bi-rulers"></i></button><h5>Lotissement</h5>
+        </button>
+    </div>
+    <div>
+        <button  (click)="route('article/category/Autre')"  class="btn cont">
+           <button class="btn icon"><i class="bi bi-exclamation-lg"></i></button><h5>Autre</h5>
+        </button>
+    </div>
+
+</div>
+  
+<br><br>
+<app-footer></app-footer>

@@ -1,0 +1,95 @@
+<nav class="navbar navbar-dark fixed-top bg-purple">
+    <div class="container-fluid">
+      <a (click)="route('accueil')" class="navbar-brand mb-0 h1">Salakaimmo.com</a>
+      <form class="d-flex">
+          <a (click)="route('search')" class="search" ><i class="bi bi-search"></i></a>
+      </form>
+    </div>
+</nav>
+<br><br><br>
+<div class="cont1">
+    <button *ngIf="isAuth==false"  (click)="route('signin')" class="btn btn1"><button class="btn rond"><i class="bi bi-door-open"></i></button><h5>Sign-in</h5></button>
+    <button *ngIf="isAuth==true"  data-bs-toggle="modal" data-bs-target="#exampleModal2"  type="submit"  class="btn btn-modal " value="Log In"  (click)="signOut()" class="btn btn1"><button class="btn rond"><i class="bi bi-door-closed"></i></button><h5>Sign-out</h5></button>
+    <!-- <button class="btn btn1"><button class="btn rond"><i class="bi bi-door-closed"></i></button><h5>Sign-out</h5></button> -->
+    <button [disabled]="!isAuth" (click)="route('article/new')" class="btn btn1"><button class="btn rond"><i class="bi bi-arrow-bar-up"></i></button><h5>Publier</h5></button>
+    <button [disabled]="!isAuth"  (click)="route('ads')" class="btn btn1"><button class="btn rond"><i class="bi bi-megaphone"></i></button><h5>annonces</h5></button>
+</div>
+<br>
+<div class="cont2">
+    <button (click)="route('comment')" class="btn btn1"><button class="btn rond"><i class="bi bi-chat-square-text"></i></button><h5>Commentaires</h5></button>
+</div>
+<br>
+
+<div class="cont2">
+    <button (click)="route('apropos')" class="btn btn1"><button class="btn rond"><i class="bi bi-info-circle"></i></button><h5>Apropos de nous</h5></button>
+    <button class="btn btn1"  data-bs-toggle="modal" data-bs-target="#exampleModal" ><button class="btn rond"><i class="bi bi-headset"></i></button><h5>Nous contacter</h5></button>
+</div>
+<br>
+<div class="cont3">
+   <h6> L'immobilier n'a plus de secret pour nous. Faites nous confiance et vous aurez un logement dans de brefs délais.</h6>
+</div>
+
+
+<br>
+<div class="visitors">
+    <p>{{visitors}} visiteurs</p>
+  </div>
+<div class="title"> <button class="btn"> Made by <a href="https://wa.me/237693034689">  Dekel Shoot</a></button></div>
+
+  
+  <!-- Modal -->
+  <div class="modal  fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog   modal-dialog-centered">
+      <div class="modal-content cont-modal">
+        <div class="modal-body">
+           <div class="head">
+                <h5 class="modal-title" id="exampleModalLabel">Nos contatcts</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <br>
+            <div class="contact">
+                <a href="tel:+237620256677"><button class="btn " style="width: 100%;"> <i class="bi bi-telephone-fill"></i> Appeler</button></a>
+                <a href="sms:/+237698684872"><button class="btn " style="width: 100%;"><i class="bi bi-chat-square-dots-fill"></i> SMS</button></a>  
+                <a href="https://wa.me/237620256677"><button class="btn " style="width: 100%;"><i class="bi bi-whatsapp"></i> Whatsapp</button></a>
+                <a href="mailto:etablissementsalaka@gmail.com"><button class="btn " style="width: 100%;"><i class="bi bi-envelope-fill"></i>  Email</button></a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+    <!-- Modal -->
+    <div  class="modal  fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog   modal-dialog-centered">
+        <div class="modal-content cont-modal2">
+          <div class="modal-body">
+             <div   class="head">
+                  <h5 class="modal-title" id="exampleModalLabel">Déconnexion</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <br>
+              <div class="content">
+                  <div *ngIf="start==true"  class="spinner-border  spinner" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                  </div>
+                  <div *ngIf="success==true" >
+                      <i class="bi text-success bi-check-circle"></i>
+                      <p>Déonnexion réussie</p>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <br><br>
+
+<div class="footer fixed-bottom">
+  <button class="btn btn1"  (click)="route('accueil')"><i class="bi bi-house"></i><h6>Accueil</h6></button>
+  <button class="btn btn2"(click)="route('services')"><i class="bi bi-card-list"></i><h6>services</h6></button>
+  <button class="btn btn3" (click)="route('menu')"><i class="bi bi-list"></i><h6>Menu</h6></button>
+</div>
+
+

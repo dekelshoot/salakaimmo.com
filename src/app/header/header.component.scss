@@ -1,0 +1,21 @@
+
+.bg-purple{
+    background: linear-gradient(70deg ,#7952b3 ,#46237b ) !important;
+    .search {
+        color: white;
+        font-size: 20px;
+    }
+}
+
+.body{
+    margin: 20%;
+    margin-top: 0;
+    background-color:whitesmoke;
+}
+
+@media screen and (max-width: 900px) {
+    .body{
+        margin: 0;
+    }
+    
+}

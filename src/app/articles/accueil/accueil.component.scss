@@ -1,0 +1,380 @@
+.container-fluid{
+    margin-top: 10px;
+    .slider{
+        color: white;
+        background-color: #7e55bc;
+        width: 100%;
+        height: 200px;
+        margin-top: 10px;
+        overflow: hidden;
+        border-radius: 15px;
+
+        .slide{
+            width: 100%;
+            height: 200px;
+            // border-top-left-radius: 1000px;
+            border-top-right-radius: 1000px;
+            // border-bottom-right-radius: 1000px;
+            border-bottom-left-radius: 1000px;
+            // border-radius: 15px;
+
+        }
+        button{
+            color: #7e55bc;
+        }
+        .first{
+            // background-image:url("../../../assets/maison.jpg");
+
+            background-color: white;
+
+        }
+        .second{
+            // background-image:url("../../../assets/villa.jpg");
+            background-color: white;
+        }
+        .third{
+            // background-image:url("../../../assets/terrain.jpg");
+            background-color: white;
+        }
+        .fort{
+            // background-image:url("../../../assets/terrain.jpg");
+            background-color: white;
+        }
+
+    }
+
+    .fix{
+        margin-top: 50px;
+        padding-top: 5px;
+        padding-bottom: 10px;
+        background-color: white;
+
+    }
+
+
+    .carousel{
+        margin-top: -20px;
+        .rond{
+            margin: 3px;
+            color: white;
+            border-radius: 100px;
+            background-color: #7e55bc;
+            .bi{
+                font-size: 20px;
+            }
+        }
+        p{
+            font-size: 14px;
+        }
+    }
+
+    .slick-arrow{
+        background-color:#7e55bc ;
+    }
+
+    .recent{
+        display: flex;
+        color:#7952b3;
+        justify-content: space-between;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-weight: bold;
+    }
+
+    .container{
+        margin-top: 10px;
+        .small-menu{
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            .btn{
+                width: 49%;
+                color: white;
+                border-radius: 15px;
+                background-color: #aa8ed3;
+            }
+            .active{
+                background-color: #7e55bc;
+            }
+        }
+        .block{
+            .head{
+                color:#7e55bc;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+}
+
+.footer{
+    height: 55px;
+    display: flex;
+    justify-content: space-between;
+    // background-color : #7e55bc;
+    background: linear-gradient(70deg ,#7952b3 ,#46237b );
+    button{
+        color: white;
+        padding-top: 5px;
+        padding-left: 25px;
+        padding-right: 35px;
+        padding-bottom: 7px;
+        i{
+            font-size: px;
+        }
+    }
+    .btn2{
+        opacity: 0.6;
+    }
+    .btn3{
+        opacity: 0.6;
+    }
+}
+
+.remonte{
+    text-align: center;
+    .rond{
+        margin: 3px;
+        color: white;
+        border-radius: 100px;
+        background-color: #7e55bc;
+        .bi{
+            font-size: 15px;
+        }
+    }
+
+}
+.plus{
+    .btn{
+        width: 100%;
+        color: white;
+        font-weight: bold;
+        background-color:#8a64c4 ;
+        padding: 7px ;
+    }
+
+}
+.slick-carousel{
+    .slide{
+        display: inline-block;
+        width: 100%;
+    }
+}
+
+.course{
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+    display: flex;
+    max-width: 100%;
+    max-height: 150px;
+    overflow: hidden;
+    width: 100%;
+
+        .course-image{
+            background: #7e55bc;
+            border-radius: 10px;
+            color: #fff;
+            width: 150px;
+            position: relative;
+            img{
+                width: 150px;
+                height: 100%;
+                border-radius: 10px;
+                object-fit: cover;
+            }
+        }
+        .info{
+            padding: 30px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            width: 98%;
+            display: block;
+            .title{
+                color: #7e55bc;
+                width: 100%;
+                text-align: start;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical  ;
+            }
+            .lieu{
+                margin-top: -5px;
+                width: 100%;
+                text-align: start;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical  ;
+            }
+            .categorie{
+                margin-top: -6px;
+                width: 100%;
+                text-align: start;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical  ;
+            }
+            .prix{
+                color: #7e55bc;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical  ;
+            }
+            p{
+                i{
+                    color: #7e55bc;
+                }
+
+            }
+        }
+
+}
+
+
+
+.choixEquipe{
+    .course{
+        max-height: 300px;
+    }
+  .slide{
+    display: flex;
+  }
+  .course{
+    display: block;
+    max-width: 100%;
+    width: 100%;
+
+        .course-image{
+            width: 100%;
+            img{
+                width: 100%;
+            }
+        }
+
+
+
+}
+
+}
+
+
+.spinner-border{
+    // margin-top: 25%;
+    margin-top: 150px;
+    width: 70px;
+    height: 70px;
+    color: #7952b3;
+}
+
+
+@media screen and (min-width: 900px) {
+  .choixEquipe{
+    .course{
+      .course-image{
+        width: 100%;
+        img{
+          width: 100%;
+        }
+      }
+    }
+  }
+  .fix{
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+  .footer{
+      margin-left: 20%;
+      margin-right: 20%;
+  }
+  nav{
+      margin-left: 20%;
+      margin-right: 20%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+    .small-menu{
+        .btn{
+            font-size: 13px;
+        }
+    }
+
+    .categorie{
+        .slide{
+            .btn1{
+                p{
+                    font-size: 11px;
+                }
+            }
+        }
+    }
+    .block{
+        h3{
+            font-size: 16px;
+        }
+    }
+    .course{
+        border-radius: 5px;
+        max-width: 100%;
+        max-height: 100px;
+        width: 100%;
+    
+            .course-image{
+                border-radius: 5px;
+                width: 100px;
+                img{
+                    width: 100px;
+                    height: 100%;
+                    border-radius: 5px;
+                }
+            }
+            .info{
+                padding: 10px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                width: 98%;
+                .title{
+                    font-size: 14px;
+                }
+                .lieu{
+                    margin-top: -15px;
+                    font-size: 11px;
+                }
+                .categorie{
+                    margin-top: -6px;
+                    width: 100%;
+                    font-size: 12px;
+                }
+                .prix{
+                    font-size: 13px;
+                    margin-top: -15px;
+                }
+              
+            }
+    
+    }
+
+    .footer{
+        height: 55px;
+        button{     
+            h6{
+                font-size: 12px;
+            }
+        }
+        .btn2{
+            opacity: 0.6;
+        }
+        .btn3{
+            opacity: 0.6;
+        }
+    }
+    
+  }
+
+
+

@@ -1,0 +1,493 @@
+<app-header  class="fixed-top"></app-header>
+<br ><br><br>
+<div id="head" *ngIf="start"    class="container-fluid">
+
+      <div id="carouselExampleControls" class="carousel slider slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" >
+            <button (click)="routeWithCat('Maison à vendre')" class=" btn slide first">
+              <h3>Maison à vendre</h3>
+              <p>Trouvez la maison de vos rêves en 2 cliques !!!</p>
+            </button>
+          </div>
+          <div class="carousel-item">
+            <button (click)="routeWithCat('Appartement à louer')" class=" btn slide second">
+              <h3>Appartement à louer</h3>
+              <p>Modernisez vous avec nos appartements   !!!</p>
+            </button>
+          </div>
+          <div class="carousel-item">
+            <button (click)="routeWithCat('Terrain')"  class=" btn slide third">
+              <h3>Terrain à vendre</h3>
+              <p>De grands espaces pour vos constructions !!!</p>
+            </button>
+          </div>
+          <div class="carousel-item">
+            <button  (click)="routeWithCat('Boutique')" class="btn slide fort">
+              <h3>Boutique à Louer</h3>
+              <p>Trouvez un espace adéquat pour votre commerce !!!</p>
+            </button>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <div class="container">
+        <!--                petit menu  *                     -->
+       <div [ngClass]="{'fixed-top': fixedTop===true, 'fix':fixedTop===true}">
+        <div  class="small-menu">
+          <button (click)="smallMenu='selection';rideUp2('selection')" [ngClass]="{'active': smallMenu==='selection'}" class="btn">Sélections</button>
+          <button (click)="smallMenu='plus recents';rideUp2('selection');recent()" [ngClass]="{'active': smallMenu==='plus recents'}" class="btn">Plus recents</button>
+        </div>
+       </div>
+        <!-- ----------------------------------------------- -->
+        <br id="selection">
+        <!-- ---------------------ctegories -------------------------------->
+        <div *ngIf="smallMenu=='selection'" >
+          <div class="block categorie">
+            <button (click)="route('categories')" class="btn head">
+              <h3>Nos catégories</h3>
+            <p><i class="bi bi-chevron-right"></i></p>
+            </button>
+            <ngx-slick-carousel class="carousel"
+              #slickModal="slick-carousel"
+              [config]="slideConfig" >
+              <!-- <div ngxSlickItem class="slide"><img src="../../../assets/photo_2021-11-23_21-12-47.jpg" alt=""></div>
+              <div ngxSlickItem class="slide"><img src="../../../assets/photo_2021-11-23_21-12-47.jpg" alt=""></div> -->
+              <div ngxSlickItem class="slide"><button (click)="routeWithCat('Maison à vendre')"class="btn btn1"><button class="btn rond"><i class="bi bi-house-door"></i></button><p>Maison à vendre</p></button></div>
+              <div ngxSlickItem class="slide"><button (click)="routeWithCat('Maison à louer')"class="btn btn1"><button class="btn rond"><i class="bi bi-house-door"></i></button><p>Maison à louer</p></button></div>
+              <div ngxSlickItem class="slide"><button (click)="routeWithCat('Appartement à louer')" class="btn btn1"><button class="btn rond"><i class="bi bi-building"></i></button><p>Appartement à louer</p></button></div>
+              <div ngxSlickItem class="slide"><button (click)="routeWithCat('Appartement à vendre')" class="btn btn1"><button class="btn rond"><i class="bi bi-building"></i></button><p>Appartement à vendre</p></button></div>
+              <div ngxSlickItem class="slide"><button (click)="routeWithCat('Terrain')" class="btn btn1"><button class="btn rond"><i class="bi bi-signpost"></i></button><p>Terrain à vendre </p></button></div>
+              <div ngxSlickItem class="slide"><button (click)="routeWithCat('Boutique')"class="btn btn1"><button class="btn rond"><i class="bi bi-shop"></i></button><p>Boutique à louer</p></button></div>
+              <div ngxSlickItem class="slide"><button (click)="routeWithCat('Fond de commerce')"class="btn btn1"><button class="btn rond"><i class="bi bi-shop"></i></button><p>Fond de commerce</p></button></div>
+              <div ngxSlickItem class="slide"><button (click)="routeWithCat('Studio à louer')" class="btn btn1"><button class="btn rond"><i class="bi bi-door-open"></i></button><p>Studio à louer</p></button></div>
+              <div ngxSlickItem class="slide"><button (click)="routeWithCat('Studio meublé')" class="btn btn1"><button class="btn rond"><i class="bi bi-door-open"></i></button><p>Studio meublé</p></button></div>
+              <div ngxSlickItem class="slide"><button (click)="routeWithCat('Chambre à louer')" class="btn btn1"><button class="btn rond"><i class="bi bi-door-closed"></i></button><p>Chambre à louer</p></button></div>
+              <div ngxSlickItem class="slide"><button (click)="routeWithCat('Chambre meublé')" class="btn btn1"><button class="btn rond"><i class="bi bi-door-closed"></i></button><p>Chambre meublé</p></button></div>
+              <div ngxSlickItem class="slide"><button (click)="routeWithCat('Entrepot')" class="btn btn1"><button class="btn rond"><i class="bi bi-shop-window"></i></button><p>Entrepot</p></button></div>
+              <div ngxSlickItem class="slide"><button (click)="routeWithCat('Usine')" class="btn btn1"><button class="btn rond"><i class="bi bi-shop-window"></i></button><p>Usine</p></button></div>
+              <div ngxSlickItem class="slide"><button disabled (click)="routeWithCat('BTP')" class="btn btn1"><button class="btn rond"><i class="bi bi-bricks"></i></button><p>BTP</p></button></div>
+              <div ngxSlickItem class="slide"><button disabled (click)="routeWithCat('Lotissement')" class="btn btn1"><button class="btn rond"><i class="bi bi-rulers"></i></button><p>Lotissement</p></button></div>
+            </ngx-slick-carousel>
+          </div>
+<!-- -----------------------------.------------------------------------ -->
+          <div *ngIf="choixEquipe[0]"  class="block choixEquipe" >
+            <button (click)="routeWithCat('Choix équipe')" class="btn head">
+              <h3>Choix de l'équipe</h3>
+            <p><i class="bi bi-chevron-right"></i></p>
+            </button>
+
+            <ngx-slick-carousel class="carousel"
+              #slickModal="slick-carousel"
+              [config]="slideConfig0" >
+
+
+              <div ngxSlickItem class="slide" *ngFor="let article of choixEquipe">
+                <button (click)="route('article/view/'+replace(article.categorie)+'-'+article.id)" class="btn container">
+                  <div class="course">
+                    <div class="course-image">
+                        <img *ngIf="article.photo" [src]="article.photo[0]" alt="photo de l'article">
+                    </div>
+                    <div class="info">
+                        <h6 class="title float-start"> {{article.titre}}</h6> 
+                        <p class="categorie float-start"> {{article.categorie}}</p> <div></div>
+                        <p class="p-trunc lieu float-start"><i class="bi bi-geo-alt-fill"></i> {{article.lieu}}</p>
+                          <h6 class="prix float-end">{{money(article.prix)}}</h6>
+                    </div>
+                  </div>
+                </button>
+              </div>
+
+             
+            </ngx-slick-carousel>
+          </div>
+
+<!-- -----------------------------.------------------------------------ -->
+<div *ngIf="MaisonAVendre[0]"  class="block maison à louer">
+  <button (click)="routeWithCat('Maison à vendre')" class="btn head">
+    <h3>Nos maisons à vendre</h3>
+  <p><i class="bi bi-chevron-right"></i></p>
+  </button>
+
+  <ngx-slick-carousel class="carousel"
+    #slickModal="slick-carousel"
+    [config]="slideConfig2" >
+    <div ngxSlickItem class="slide" *ngFor="let article of MaisonAVendre" >
+      <button (click)="route('article/view/'+replace(article.categorie)+'-'+article.id)" class="btn container">
+        <div class="course">
+          <div class="course-image">
+              <img *ngIf="article.photo" [src]="article.photo[0]"  alt="photo de l'article">
+          </div>
+          <div class="info">
+              <h6 class="title float-start"> {{article.titre}}</h6>
+              <p class="categorie float-start"> {{article.categorie}}</p> <div></div>
+              <p class="p-trunc lieu float-start"><i class="bi bi-geo-alt-fill"></i> {{article.lieu}} <span></span></p>
+                <h6 class="prix float-end">{{money(article.prix)}} FCFA</h6>
+          </div>
+        </div>
+      </button>
+    </div>
+  </ngx-slick-carousel>
+</div>
+<!-- ---------------------------------------------------------------------------------- -->
+<div *ngIf="MaisonALouer[0]"  class="block maison à louer">
+  <button (click)="routeWithCat('Maison à louer')" class="btn head">
+    <h3>Nos maisons à louer</h3>
+  <p><i class="bi bi-chevron-right"></i></p>
+  </button>
+
+  <ngx-slick-carousel class="carousel slick-carousel"
+    #slickModal="slick-carousel"
+    [config]="slideConfig2" >
+    <div ngxSlickItem class="slide" *ngFor="let article of MaisonALouer" >
+      <button (click)="route('article/view/'+replace(article.categorie)+'-'+article.id)" class="btn container">
+        <div class="course">
+          <div class="course-image">
+              <img *ngIf="article.photo" [src]="article.photo[0]"  alt="photo de l'article">
+          </div>
+          <div class="info">
+              <h6 class="title float-start"> {{article.titre}}</h6>
+              <p class="categorie float-start"> {{article.categorie}}</p> <div></div>
+              <p class="p-trunc lieu float-start"><i class="bi bi-geo-alt-fill"></i> {{article.lieu}} <span></span></p>
+                <h6 class="prix float-end">{{money(article.prix)}} FCFA</h6>
+          </div>
+        </div>
+      </button>
+    </div>
+  </ngx-slick-carousel>
+</div>
+<!-- ---------------------------------------------------------------------------------- -->
+<div *ngIf="Terrain[0]" class=" block Terrain">
+  <button (click)="routeWithCat('Terrain')" class="btn head">
+    <h3>Nos terrains à vendre</h3>
+  <p><i class="bi bi-chevron-right"></i></p>
+  </button>
+
+  <ngx-slick-carousel class="carousel"
+    #slickModal="slick-carousel"
+    [config]="slideConfig2" >
+    <div ngxSlickItem class="slide" *ngFor="let article of Terrain" >
+      <button (click)="route('article/view/'+replace(article.categorie)+'-'+article.id)" class="btn container">
+        <div class="course">
+          <div class="course-image">
+              <img *ngIf="article.photo"  [src]="article.photo[0]"  alt="photo de l'article">
+          </div>
+          <div class="info">
+              <h6 class="title float-start"> {{article.titre}}</h6>
+              <p class="categorie float-start"> {{article.categorie}}</p> <div></div>
+              <p class="p-trunc lieu float-start"><i class="bi bi-geo-alt-fill"></i> {{article.lieu}} <span></span></p>
+                <h6 class="prix float-end">{{money(article.prix)}} FCFA</h6>
+          </div>
+        </div>
+      </button>
+    </div>
+  </ngx-slick-carousel>
+</div>
+<!-- -------------------------------------------------------------------------- -->
+<div *ngIf="Boutique[0]" class="block Boutique">
+  <button (click)="routeWithCat('Boutique')" class="btn head">
+    <h3>Nos boutiques à louer</h3>
+  <p><i class="bi bi-chevron-right"></i></p>
+  </button>
+
+  <ngx-slick-carousel class="carousel"
+    #slickModal="slick-carousel"
+    [config]="slideConfig2" >
+    <div ngxSlickItem class="slide" *ngFor="let article of Boutique" >
+      <button (click)="route('article/view/'+replace(article.categorie)+'-'+article.id)" class="btn container">
+        <div class="course">
+          <div class="course-image">
+              <img *ngIf="article.photo" [src]="article.photo[0]"  alt="photo de l'article">
+          </div>
+          <div class="info">
+              <h6 class="title float-start"> {{article.titre}}</h6>
+              <p class="categorie float-start"> {{article.categorie}}</p> <div></div>
+              <p class="p-trunc lieu float-start"><i class="bi bi-geo-alt-fill"></i> {{article.lieu}} <span></span></p>
+                <h6 class="prix float-end">{{money(article.prix)}} FCFA</h6>
+          </div>
+        </div>
+      </button>
+    </div>
+  </ngx-slick-carousel>
+</div>
+          <!-- -------------------------------------------------------------------------- -->
+          <div *ngIf="FondCommerce[0]" class="block FondCommerce">
+            <button (click)="routeWithCat('Fond de commerce')" class="btn head">
+              <h3>Nos fonds commerce </h3>
+            <p><i class="bi bi-chevron-right"></i></p>
+            </button>
+          
+            <ngx-slick-carousel class="carousel"
+              #slickModal="slick-carousel"
+              [config]="slideConfig2" >
+              <div ngxSlickItem class="slide" *ngFor="let article of FondCommerce" >
+                <button (click)="route('article/view/'+replace(article.categorie)+'-'+article.id)" class="btn container">
+                  <div class="course">
+                    <div class="course-image">
+                        <img *ngIf="article.photo" [src]="article.photo[0]"  alt="photo de l'article">
+                    </div>
+                    <div class="info">
+                        <h6 class="title float-start"> {{article.titre}}</h6>
+                        <p class="categorie float-start"> {{article.categorie}}</p> <div></div>
+                        <p class="p-trunc lieu float-start"><i class="bi bi-geo-alt-fill"></i> {{article.lieu}} <span></span></p>
+                          <h6 class="prix float-end">{{money(article.prix)}} FCFA</h6>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </ngx-slick-carousel>
+          </div>
+<!-- -------------------------------------------------------------------------- -->
+<div  *ngIf="AppartementALouer[0]"  class="block appartements à louer">
+  <button (click)="routeWithCat('Appartement à louer')" class="btn head">
+    <h3>Nos appartements à louer</h3>
+  <p><i class="bi bi-chevron-right"></i></p>
+  </button>
+
+  <ngx-slick-carousel class="carousel"
+    #slickModal="slick-carousel"
+    [config]="slideConfig2" >
+    <div ngxSlickItem class="slide" *ngFor="let article of AppartementALouer" >
+      <button (click)="route('article/view/'+replace(article.categorie)+'-'+article.id)"  class="btn container">
+        <div class="course">
+          <div class="course-image">
+              <img *ngIf="article.photo" [src]="article.photo[0]"  alt="photo de l'article">
+          </div>
+          <div class="info">
+              <h6 class="title float-start"> {{article.titre}}</h6>
+              <p class="categorie float-start"> {{article.categorie}}</p> <div></div>
+              <p class="p-trunc lieu float-start"><i class="bi bi-geo-alt-fill"></i> {{article.lieu}} <span></span></p>
+                <h6 class="prix float-end">{{money(article.prix)}} FCFA</h6>
+          </div>
+        </div>
+      </button>
+    </div>
+  </ngx-slick-carousel>
+</div>
+<!-- -------------------------------------------------------------------------- -->
+<div *ngIf="AppartementMeuble[0]"  class="block appartement meublé">
+  <button (click)="routeWithCat('Appartement meublé')" class="btn head">
+    <h3>Nos appartements meublés</h3>
+  <p><i class="bi bi-chevron-right"></i></p>
+  </button>
+
+  <ngx-slick-carousel class="carousel"
+    #slickModal="slick-carousel"
+    [config]="slideConfig2" >
+    <div ngxSlickItem class="slide" *ngFor="let article of AppartementMeuble" >
+      <button (click)="route('article/view/'+replace(article.categorie)+'-'+article.id)" class="btn container">
+        <div class="course">
+          <div class="course-image">
+              <img *ngIf="article.photo" [src]="article.photo[0]"  alt="photo de l'article">
+          </div>
+          <div class="info">
+              <h6 class="title float-start"> {{article.titre}}</h6>
+              <p class="categorie float-start"> {{article.categorie}}</p> <div></div>
+              <p class="p-trunc lieu float-start"><i class="bi bi-geo-alt-fill"></i> {{article.lieu}} <span></span></p>
+                <h6 class="prix float-end">{{money(article.prix)}} FCFA</h6>
+          </div>
+        </div>
+      </button>
+    </div>
+  </ngx-slick-carousel>
+</div>
+<!-- -------------------------------------------------------------------------- -->
+<div *ngIf="studioALouer[0]" class="block studioALouer">
+  <button (click)="routeWithCat('Studio à louer')" class="btn head">
+    <h3>Nos Studios à louer</h3>
+  <p><i class="bi bi-chevron-right"></i></p>
+  </button>
+
+  <ngx-slick-carousel class="carousel"
+    #slickModal="slick-carousel"
+    [config]="slideConfig2" >
+    <div ngxSlickItem class="slide" *ngFor="let article of studioALouer" >
+      <button (click)="route('article/view/'+replace(article.categorie)+'-'+article.id)" class="btn container">
+        <div class="course">
+          <div class="course-image">
+              <img *ngIf="article.photo" [src]="article.photo[0]"  alt="photo de l'article">
+          </div>
+          <div class="info">
+              <h6 class="title float-start"> {{article.titre}}</h6>
+              <p class="categorie float-start"> {{article.categorie}}</p> <div></div>
+              <p class="p-trunc lieu float-start"><i class="bi bi-geo-alt-fill"></i> {{article.lieu}} <span></span></p>
+                <h6 class="prix float-end">{{money(article.prix)}} FCFA</h6>
+          </div>
+        </div>
+      </button>
+    </div>
+  </ngx-slick-carousel>
+</div>
+<!-- ------------------------------------------------------------------------------------ -->
+<div *ngIf="studioMeuble[0]" class="block studioMeuble">
+  <button (click)="routeWithCat('Studio meublé')" class="btn head">
+    <h3>Nos Studios meublés</h3>
+  <p><i class="bi bi-chevron-right"></i></p>
+  </button>
+
+  <ngx-slick-carousel class="carousel"
+    #slickModal="slick-carousel"
+    [config]="slideConfig2" >
+    <div ngxSlickItem class="slide" *ngFor="let article of studioMeuble" >
+      <button  (click)="route('article/view/'+replace(article.categorie)+'-'+article.id)" class="btn container">
+        <div class="course">
+          <div class="course-image">
+              <img *ngIf="article.photo" [src]="article.photo[0]"  alt="photo de l'article">
+          </div>
+          <div class="info">
+              <h6 class="title float-start"> {{article.titre}}</h6>
+              <p class="categorie float-start"> {{article.categorie}}</p> <div></div>
+              <p class="p-trunc lieu float-start"><i class="bi bi-geo-alt-fill"></i> {{article.lieu}} <span></span></p>
+                <h6 class="prix float-end">{{money(article.prix)}}FCFA</h6>
+          </div>
+        </div>
+      </button>
+    </div>
+  </ngx-slick-carousel>
+</div>
+<!-- ------------------------------------------------------------------------------------ -->
+<div *ngIf="chambreALouer[0]" class="block chambreALouer">
+  <button (click)="routeWithCat('Chambre à louer')" class="btn head">
+    <h3>Nos chambres à louer</h3>
+  <p><i class="bi bi-chevron-right"></i></p>
+  </button>
+
+  <ngx-slick-carousel class="carousel"
+    #slickModal="slick-carousel"
+    [config]="slideConfig2" >
+    <div ngxSlickItem class="slide" *ngFor="let article of chambreALouer" >
+      <button (click)="route('article/view/'+replace(article.categorie)+'-'+article.id)" class="btn container">
+        <div class="course">
+          <div class="course-image">
+              <img *ngIf="article.photo" [src]="article.photo[0]"  alt="photo de l'article">
+          </div>
+          <div class="info">
+              <h6 class="title float-start"> {{article.titre}}</h6>
+              <p class="categorie float-start"> {{article.categorie}}</p> <div></div>
+              <p class="p-trunc lieu float-start"><i class="bi bi-geo-alt-fill"></i> {{article.lieu}} <span></span></p>
+                <h6 class="prix float-end">{{money(article.prix)}} FCFA</h6>
+          </div>
+        </div>
+      </button>
+    </div>
+  </ngx-slick-carousel>
+</div>
+          <!-- ------------------------------------------------------------------------------------ -->
+          <div  *ngIf="chambreMeuble[0]" class="block chambreMeuble">
+            <button (click)="routeWithCat('Chambre meublé')" class="btn head">
+              <h3>Nos chambres meublés</h3>
+            <p><i class="bi bi-chevron-right"></i></p>
+            </button>
+          
+            <ngx-slick-carousel class="carousel"
+              #slickModal="slick-carousel"
+              [config]="slideConfig2" >
+              <div ngxSlickItem class="slide" *ngFor="let article of chambreMeuble" >
+                <button (click)="route('article/view/'+replace(article.categorie)+'-'+article.id)" class="btn container">
+                  <div class="course">
+                    <div class="course-image">
+                        <img *ngIf="article.photo" [src]="article.photo[0]"  alt="photo de l'article">
+                    </div>
+                    <div class="info">
+                        <h6 class="title float-start"> {{article.titre}}</h6>
+                        <p class="categorie float-start"> {{article.categorie}}</p> <div></div>
+                        <p class="p-trunc lieu float-start"><i class="bi bi-geo-alt-fill"></i> {{article.lieu}} <span></span></p>
+                          <h6 class="prix float-end">{{money(article.prix)}} FCFA</h6>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </ngx-slick-carousel>
+          </div>
+<!-- -------------------------------------------------------------------------- -->
+<div  *ngIf="autre[0]" class="block autre">
+  <button (click)="routeWithCat('Autre')" class="btn head">
+    <h3>Autres</h3>
+  <p><i class="bi bi-chevron-right"></i></p>
+  </button>
+
+  <ngx-slick-carousel class="carousel"
+    #slickModal="slick-carousel"
+    [config]="slideConfig2" >
+    <div ngxSlickItem class="slide" *ngFor="let article of autre" >
+      <button (click)="route('article/view/'+replace(article.categorie)+'-'+article.id)" class="btn container">
+        <div class="course">
+          <div class="course-image">
+              <img *ngIf="article.photo" [src]="article.photo[0]"  alt="photo de l'article">
+          </div>
+          <div class="info">
+              <h6 class="title float-start"> {{article.titre}}</h6>
+              <p class="categorie float-start"> {{article.categorie}}</p> <div></div>
+              <p class="p-trunc lieu float-start"><i class="bi bi-geo-alt-fill"></i> {{article.lieu}} <span></span></p>
+                <h6 class="prix float-end">{{money(article.prix)}} FCFA</h6>
+          </div>
+        </div>
+      </button>
+    </div>
+  </ngx-slick-carousel>
+</div>
+        </div>
+<!-- ---------------------------------------------------------------------------- -->
+       
+</div>
+<br >
+<div *ngIf="smallMenu=='plus recents'" >
+  <div class="recent">
+    <p>Plus récentes ({{recents?.length}})</p>
+    <p>Toutes({{recents?.length}})</p>
+  </div>
+  <div *ngFor="let article of recents" >
+    <button (click)="route('article/view/'+replace(article.categorie)+'-'+article.id)" class="btn container">
+      <div class="course">
+        <div class="course-image">
+            <img *ngIf="article.photo" [src]="article.photo[0]"  alt="photo de l'article">
+        </div>
+        <div class="info">
+            <h6 class="title float-start"> {{article.titre}}</h6>
+            <p class="categorie float-start"> {{article.categorie}}</p> <div></div>
+            <p class="p-trunc lieu float-start"><i class="bi bi-geo-alt-fill"></i> {{article.lieu}} <span></span></p>
+              <h6 class="prix float-end">{{money(article.prix)}} FCFA</h6>
+        </div>
+      </div>
+    </button>
+  </div>
+  <br><br>
+  <div class="plus">
+    <button (click)="route('categories')"  class="btn"> Plus d'annonces  ></button>
+  </div>
+
+</div>
+</div>
+
+
+<div *ngIf="!start"  style="align-items: center; text-align: center;"> 
+  <br><br><br><br>
+  <div>
+    <div class="spinner-border text-purple" role="status">
+      <span class="visually-hidden">Loading...</span>
+  </div>
+  <p style="color: rgb(143, 139, 133);">Loading...</p>
+  </div>
+  <br><br><br><br>
+</div>
+<br><br><br>
+
+<br><br>
+<app-footer></app-footer>
+
+
+<div [ngStyle]="{display: getDisplay()}" class="  remonte fixed-bottom"><button (click)="rideUp()"class="btn rond"><i class="bi bi-chevron-bar-up"></i></button><br><br><br><br></div>
+<br><br>
+<div class="footer fixed-bottom">
+  <button class="btn btn1" (click)="route('accueil')"><i class="bi bi-house"></i><h6>Accueil</h6></button>
+  <button class="btn btn2" (click)="route('services')"><i class="bi bi-card-list"></i><h6>services</h6></button>
+  <button class="btn btn3" (click)="route('menu')"><i class="bi bi-list"></i><h6>Menu</h6></button>
+</div>

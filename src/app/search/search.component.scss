@@ -1,0 +1,311 @@
+a{
+    text-decoration: none;
+}
+
+//barre de navigation
+.bg-purple{
+    background: linear-gradient(70deg ,#7952b3 ,#46237b ) !important;
+   .navbar-brand{
+    font-weight: bold;
+   }
+   i{
+       color: white;
+       font-size: 20px;
+       margin-right: 10px;
+   }
+    .search {
+        color: white;
+        font-size: 20px;
+    }
+}
+// -----------------------------------
+
+.plus{
+    width: 100%;
+    text-align: center;
+    .btn{
+        width: 50%;
+        color: white;
+        font-weight: bold;
+        background-color:#8a64c4 ;
+        padding: 7px ;
+        margin: 0 auto;
+        
+    }
+
+}
+
+// recheche rapide
+.search{
+    background-color: #7952b3;
+    padding:15px;
+    border-radius: 25px;
+    h5{
+        color: white;
+    }
+    .btn{
+        border:1px solid white;
+        color:white;
+    }
+}
+
+// recherche populaires 
+.populaire{
+    background-color: #ebe6f4;
+    padding:10px;
+    border-radius: 25px;
+    h4{
+        color: #7e55bc;
+        margin-left: 5px;
+    }
+    .small-menu{
+        width: 100%;
+        margin: 0 auto;
+        justify-content: space-between;
+        .btn{
+            margin: 3px;
+            color: white;
+            border-radius: 15px;
+            background-color: #7e55bc;
+        }
+    }
+}
+//-----------------------------------------
+
+
+// stylte du filtre stricte
+    .filter{
+        width: 100%;
+        height:auto;
+        background: linear-gradient(70deg ,#7952b3 ,#46237b ) !important;
+        padding: 25px;
+        padding-top: 5px;
+        border-radius: 25px;
+        
+        .form{
+            display: flex;
+            justify-content: space-between;
+            .select{
+                width: 17%;
+            }
+        }
+        
+        h4{
+            color: white;
+            font-weight: bold;
+        }
+        .btn{
+            color: white;
+            font-weight: bold;
+            background-color:#8a64c4 ;
+            padding: 7px ;
+        }
+    }
+
+    .course{
+        background: rgb(255, 255, 255);
+        border-radius: 10px;
+        display: flex;
+        max-width: 100%;
+        max-height: 150px;
+        overflow: hidden;
+        width: 100%;
+    
+            .course-image{
+                background: #7e55bc;
+                border-radius: 10px;
+                color: #fff;
+                width: 150px;
+                position: relative;
+                img{
+                    width: 150px;
+                    height: 100%;
+                    border-radius: 10px;
+                    object-fit: cover;
+                }
+            }
+            .info{
+                padding: 30px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                width: 98%;
+                display: block;
+                .title{
+                    color: #7e55bc;
+                    width: 100%;
+                    text-align: start;
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 1;
+                    -webkit-box-orient: vertical  ;
+                }
+                .lieu{
+                    margin-top: -5px;
+                    width: 100%;
+                    text-align: start;
+                }
+                .categorie{
+                    margin-top: -6px;
+                    width: 100%;
+                    text-align: start;
+                }
+                .prix{
+                    color: #7e55bc;
+                }
+                p{
+                    i{
+                        color: #7e55bc;
+                    }
+    
+                }
+            }
+    
+    }
+
+    .error{
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 25px;
+        text-align: center;
+        .bi{
+            color: #7952b3;
+            font-size: 50px;
+            
+        }
+    
+        .error-detail{
+            color: #7952b3;
+            font-size: 30px;
+        }
+    
+        .error-recomentation{
+            margin-top: 15px;
+    
+            .error-recomentation-detail{
+                color: #DC3545;
+            }
+        }
+    }
+    
+    
+    
+.spinner-border{
+    // margin-top: 25%;
+    margin-top: 150px;
+    width: 70px;
+    height: 70px;
+    color: #7952b3;
+}
+
+    @media (max-width: 768px) {
+
+        .filter{
+            .form{
+                display: block;
+                .select{
+                    width: 100%;
+                    margin-bottom: 5px;
+                }
+    
+                
+            }
+    
+            .btn{
+                width: 100%;
+            }
+           
+        }
+      
+    
+      .cards_wrap .card_item {
+        width: 50%;
+      }
+    
+      .cont{
+        .filter{
+            .form{
+                display: block;
+                .select{
+                    width: 100%;
+                    margin-bottom: 5px;
+                }
+    
+                
+            }
+    
+            .btn{
+                width: 100%;
+            }
+           
+        }
+      }
+    }
+    ////////---------------------------------------------------------
+    
+
+   
+  @media screen and (min-width: 900px) {
+    nav{
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+
+  }
+  @media screen and (max-width: 400px) {
+    .plus{
+        width: 100%;
+        text-align: center;
+        .btn{
+            width: 50%;
+            font-size: 13px;
+            padding: 7px ;
+            
+        }
+    
+    }
+    .block{
+        h3{
+            font-size: 16px;
+        }   
+    }
+    .course{
+        border-radius: 5px;
+        max-width: 100%;
+        max-height: 100px;
+        width: 100%;
+    
+            .course-image{
+                border-radius: 5px;
+                width: 100px;
+                img{
+                    width: 100px;
+                    height: 100%;
+                    border-radius: 5px;
+                }
+            }
+            .info{
+                padding: 30px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                width: 98%;
+                .title{
+                    font-size: 14px;
+                }
+                .lieu{
+                    margin-top: -15px;
+                    font-size: 11px;
+                }
+                .categorie{
+                    margin-top: -6px;
+                    width: 100%;
+                    font-size: 12px;
+                }
+                .prix{
+                    font-size: 13px;
+                    margin-top: -10px;
+                }
+            }
+    
+    }
+ 
+  }

@@ -1,0 +1,482 @@
+a{
+    text-decoration: none;
+}
+.bg-purple{
+    background: linear-gradient(70deg ,#7952b3 ,#46237b ) !important;
+   .navbar-brand{
+    font-weight: bold;
+   }
+   i{
+       color: white;
+       font-size: 20px;
+       margin-right: 5px;
+   }
+
+}
+
+
+.course{
+    background: rgb(255, 255, 255);
+    // border-radius: 10px;
+    display: flex;
+    max-width: 100%;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 21px;
+
+        .course-image{
+            background: #7e55bc;
+            // border-radius: 10px;
+            // border-top-left-radius: 0;
+            // border-bottom-left-radius: 0px;
+            color: #fff;
+            width: 150px;
+            position: relative;
+            img{
+                width: 150px;
+                height: 100%;
+                // border-radius: 10px;
+                object-fit: cover;
+            }
+        }
+        .info{
+            padding: 30px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            width: 100%;
+           display: block;
+            .title{
+                color: #7e55bc;
+                width: 100%;
+                text-align: start;
+            }
+            .lieu{
+                width: 100%;
+                text-align: start;
+            }
+            .prix{
+                color: #7e55bc;
+            }
+            p{
+                i{
+                    color: #7e55bc;
+                }
+
+            }
+        }
+
+}
+
+.carousel{
+  margin: 0 auto;
+  max-width: 100%;
+//   min-height: 300px;
+//   height: auto;
+//   max-height: 700px;
+  img{
+      object-fit: contain;
+  }
+}
+.slider{
+    background-color: #7e55bc;
+    min-height: 100px;
+    max-height: 700px;
+    height: auto;
+    overflow: hidden;
+    transition: height 3s;
+    transition-timing-function: ease-in-out;
+}
+.contact1{
+    width: 100%;
+    background-color: #7e55bc;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.minav{
+    width: 100%;
+    margin: 0 auto;
+    height: auto;
+    border-radius: 5px;
+    padding:10px 0px 0px 10px;
+    // background-color: #e4e0eb;
+    .prix{
+        color: #7952b3;
+        font-weight: bold;
+        font-size: 25px;
+        i{
+            margin-right: 10px;
+        }
+    }
+    .title{
+        font-weight: bold;
+        margin-top: -20px;
+        font-size: 17px;
+    }
+    .lieu{
+        margin-top: -16px;
+        color: rgb(133, 133, 133);
+    }
+    .flex{
+        margin-top: -10px;
+        display: flex;
+        justify-content: space-between;
+        color: #7e55bc;
+        padding-right: 10px;
+    }
+}
+h2{
+    color: white;
+}
+.accordion-button{
+    background-color: #7e55bc;
+    color: white;
+    font-weight: bold;
+}
+
+.info{
+    // background-color: #e4e0eb;
+    padding:10px;
+    .inf{
+        display: flex;
+        justify-content: space-between;
+        i{
+            margin-right: 15px;
+            color: #7e55bc;
+            font-size: 25px;
+        }
+        p{
+            font-size: 20px;
+            display: flex;
+            margin-right: 30px;
+        }
+        span{
+            font-size: 20px;
+        }
+    }
+}
+
+.contact{
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 5px;
+    .btn{
+        color: #7952b3;
+        border: 1px solid #7e55bc;
+        background-color: white;
+        margin-bottom: 15px;
+        height: 50px;
+        // background-color: #7952b3;
+        i{
+            margin-right: 15px;
+        }
+    }
+
+ }
+
+ .contact0{
+  width: 80%;
+  height: 400px;
+  margin: 0 auto;
+  h5{
+    color: white;
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+
+ .vendeur{
+    // background-color: #ebe6f4;
+    padding:5px;
+    border-radius: 25px;
+    justify-content: space-between;
+    .btn{
+        display:flex;
+        .name{
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+    }
+    .rond{
+        margin: 3px;
+        color: white;
+        border-radius: 1000px;
+        background-color: #7e55bc;
+        .bi{
+            font-size: 50px;
+        }
+    }
+
+}
+
+//
+.course{
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+    display: flex;
+    max-width: 100%;
+    max-height: 150px;
+    overflow: hidden;
+    width: 100%;
+
+        .course-image{
+            background: #7e55bc;
+            border-radius: 10px;
+            color: #fff;
+            width: 150px;
+            position: relative;
+            img{
+                width: 150px;
+                height: 100%;
+                border-radius: 10px;
+                object-fit: cover;
+            }
+        }
+        .info{
+            padding: 30px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            width: 98%;
+            display: block;
+            .title{
+                color: #7e55bc;
+                width: 100%;
+                text-align: start;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical  ;
+            }
+            .lieu{
+                margin-top: -5px;
+                width: 100%;
+                text-align: start;
+            }
+            .categorie{
+                margin-top: -6px;
+                width: 100%;
+                text-align: start;
+            }
+            .prix{
+                color: #7e55bc;
+            }
+            p{
+                i{
+                    color: #7e55bc;
+                }
+
+            }
+        }
+
+}
+
+
+.slick-arrow{
+    background-color:#7e55bc ;
+}
+.error{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 25px;
+    text-align: center;
+    .bi{
+        color: #7952b3;
+        font-size: 50px;
+
+    }
+
+    .error-detail{
+        color: #7952b3;
+        font-size: 30px;
+    }
+
+    .error-recomentation{
+        margin-top: 15px;
+
+        .error-recomentation-detail{
+            color: #DC3545;
+        }
+    }
+}
+
+
+.spinner-border{
+    margin-top: 25%;
+    width: 70px;
+    height: 70px;
+    color: #7952b3;
+}
+
+
+.footer{
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    // background-color : #7e55bc;
+    background: linear-gradient(70deg ,#7952b3 ,#46237b );
+    button{
+        color: white;
+        padding-top: 5px;
+        padding-bottom: 7px;
+    }
+}
+.slick-carousel{
+    .slide{
+        display: inline-block;
+        width: 100%;
+    }
+}
+
+
+@media screen and (min-width: 900px) {
+    .course{
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 21px;
+    }
+    .carousel{
+        margin: 0 auto;
+        max-width: 100%;
+        min-height: 300px;
+        max-height: 700px;
+        background-color: #7e55bc;
+        img{
+            object-fit: cover;
+        }
+    }
+
+    .footer{
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+    nav{
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .minav{
+            font-size: 15px;
+        .prix{
+            font-size: 18px;
+        }
+        .title{
+            font-size: 13px;
+        }
+        .lieu{
+            font-size: 13px;
+        }
+        .flex{
+            font-size: 13px;
+        }
+    }
+    .vendeur{
+        // background-color: #ebe6f4;
+        .btn{
+            .rond{
+                i{
+                    font-size: 30px;
+                }
+            }
+            .name{
+                h5{
+                    font-size: 15px;
+                }
+                p{
+                    font-size: 13px;
+                }
+            }
+
+        }
+        .rond{
+            margin: 3px;
+            color: white;
+            border-radius: 1000px;
+            background-color: #7e55bc;
+            .bi{
+                font-size: 50px;
+            }
+        }
+
+    }
+    .info{
+        // background-color: #e4e0eb;
+        padding:10px;
+        .inf{
+            i{
+                font-size: 18px;
+            }
+            p{
+                font-size: 15px;
+                margin-right: 15px;
+            }
+            span{
+                font-size: 15px;
+            }
+        }
+    }
+
+    .block{
+        h3{
+            font-size: 16px;
+        }
+    }
+    .course{
+        border-radius: 5px;
+        max-width: 100%;
+        max-height: 100px;
+        width: 100%;
+
+            .course-image{
+                border-radius: 5px;
+                width: 100px;
+                img{
+                    width: 100px;
+                    height: 100%;
+                    border-radius: 5px;
+                }
+            }
+            .info{
+                padding: 30px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                width: 98%;
+                .title{
+                    font-size: 14px;
+                }
+                .lieu{
+                    margin-top: -15px;
+                    font-size: 11px;
+                }
+                .categorie{
+                    margin-top: -6px;
+                    width: 100%;
+                    font-size: 12px;
+                }
+                .prix{
+                    font-size: 13px;
+                    margin-top: -15px;
+                }
+            }
+
+    }
+
+    .footer{
+        height: 40px;
+        button{
+            font-size: 12px;
+            h6{
+                font-size: 10px;
+            }
+            font-weight: 100;
+            padding-top: 5px;
+            padding-bottom: 7px;
+        }
+    }
+
+  }
+

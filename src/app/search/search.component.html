@@ -1,0 +1,126 @@
+<!-- barre de navigation -->
+<nav class="navbar fixed-top navbar-dark  bg-purple">
+    <div class="container-fluid">
+        <a (click)="route('accueil')">
+            <span><i class="bi bi-chevron-left"></i></span>
+            <span class="navbar-brand mb-0 h1">Rechercher</span>
+        </a>
+     
+      <!-- <form class="d-flex">
+          <a class="search" href=""><i class="bi bi-search"></i></a>
+      </form> -->
+    </div>
+</nav>
+<!-- ------------------------- -->
+<br><br>
+<div *ngIf="searchView==true"  class="plus">
+  <button (click)="videArticle()"  class="btn"> <i class="bi bi-search"></i> Rechercher a nouveau </button>
+</div>
+<!-- recherche rapide -->
+<div *ngIf="!searchView" >
+  <br>
+  <div id="head" class="search">
+    <form class="form" [formGroup]="searchForm2" (ngSubmit)="onSearchArticle2()">
+      <h5><i class="bi bi-geo-alt-fill"></i> Recherche rapide</h5>
+    <div class="input-group mb-3">
+      <input (change)="validSearch()" type="text" placeholder="Tapez votre recherche" class="form-control" list="datalistOptions" formControlName="categorie">
+      <button class="btn  " type="button" [disabled]="searchForm2.invalid " 
+      type="submit"><i class="bi bi-search"></i></button>
+      <datalist id="datalistOptions">
+        <option *ngFor="let typeBien of typeBien" >{{typeBien}}</option>
+      </datalist>
+    </div>
+    </form>
+  </div>
+  <br>
+  <!-- recherche populaire -->
+  <div class="populaire">
+      <h4>Recherches populaires</h4>
+      <div class="small-menu">
+          <button (click)="routeWithCat(word)" *ngFor="let word of popularWords"  class="btn">{{word}}</button>
+        </div>
+  </div>
+  <!-- ------------------------------ -->
+  <br>
+  <!-- recheche stricte -->
+      <div class="filter  col-md-8 order-md-1 col-lg-7 text-center text-md-start">
+          <br>
+          <h4 class="mb-3">Trouver directement ce que vous cherchez !!!</h4>
+          <form class="form" [formGroup]="searchForm" (ngSubmit)="onSearchArticle()">
+              <div class="form-floating select" (change)="Chambre()">
+                  <select class="form-select" id="floatingSelect" aria-label="Floating label select example" formControlName="type">
+                    <option *ngFor="let typeBien of typeBien">{{typeBien}}</option>
+                  </select>
+                  <label for="floatingSelect">Type de bien</label>
+                </div>
+  
+                <div class="form-floating select"  *ngIf="!viewChambre">
+                  <select class="form-select" id="floatingSelect" aria-label="Floating label select example" formControlName="chambre">
+                    <option *ngFor="let chambre of chambre">{{chambre}}</option>
+                  </select>
+                  <label for="floatingSelect">Chambre</label>
+                </div>
+  
+                <div class="form-floating select">
+                  <select class="form-select" id="floatingSelect" aria-label="Floating label select example" formControlName="lieu">
+                    <option *ngFor="let lieu of lieu">{{lieu}}</option>
+                  </select>
+                  <label for="floatingSelect">Lieu</label>
+                </div>
+  
+                <div class="form-floating select">
+                  <select class="form-select" id="floatingSelect" aria-label="Floating label select example" formControlName="prix">
+                    <option  *ngFor="let prix of prix">{{prix}}</option>
+                  </select>
+                  <label for="floatingSelect">Prix</label>
+                </div>
+  
+                <button class="btn" [disabled]="searchForm.invalid " 
+                        type="submit">Trouvez</button>
+              </form>
+      </div>
+</div>
+
+    <br>
+    <div *ngIf="start==false && searchView==true" >
+      <div class="error" *ngIf="articleSearch.length==0">
+        <i class="bi bi-emoji-frown-fill"></i>
+        <p class="error-detail">Oups... Pas de résultats!!!</p>
+        <div class="error-recomentation">
+            <p class="error-recomentation-detail color-danger">
+                Désolé, Nous n'avons pas encore d'annonces correspondant à votre recherche.
+            </p>
+    
+            <p class="error-recomentation-proposition">Vous pouvez ajuster votre recherche en modifiant le budget ou le quartier.</p>
+        </div>
+    
+    
+        <br><br><br><br>
+    </div>
+      <div  *ngFor="let article of articleSearch" >
+        <button (click)="route('article/view/'+replace(article.categorie)+'-'+article.id)" class="btn container">
+          <div class="course">
+            <div class="course-image">
+                <img *ngIf="article.photo" [src]="article.photo[0]"  alt="photo de l'article">
+            </div>
+            <div class="info">
+                <h6 class="title float-start"> {{article.titre}}</h6>
+                <p class="categorie float-start"> {{article.categorie}}</p> <div></div>
+                <p class="p-trunc lieu float-start"><i class="bi bi-geo-alt-fill"></i> {{article.lieu}} <span></span></p>
+                  <h6 class="prix float-end">{{money(article.prix)}} FCFA</h6>
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+    <div *ngIf="start"  style="align-items: center; text-align: center;"> 
+      <br><br><br><br>
+      <div>
+        <div class="spinner-border text-purple" role="status">
+          <span class="visually-hidden">Loading...</span>
+      </div>
+      <p style="color: rgb(143, 139, 133);">Loading...</p>
+      </div>
+      <br><br><br><br>
+    </div>
+    <br><br><br>

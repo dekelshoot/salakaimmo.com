@@ -1,0 +1,77 @@
+<nav class="navbar fixed-top navbar-dark  bg-purple">
+    <div class="container-fluid">
+        <a (click)="route('menu')" >
+            <span><i class="bi bi-chevron-left"></i></span>
+            <span class="navbar-brand mb-0 h1">Se connecter</span>
+        </a>
+
+        <form class="d-flex">
+            <a (click)="route('search')" class="search" ><i class="bi bi-search"></i></a>
+          <!-- <button class="search" class="btn" type="submit"><i class="bi bi-search"></i></button> -->
+        </form>
+    </div>
+</nav>
+<br><br><br>
+<div id="head" class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <p class="brand">B</p>
+        <h1> Salakaimmo.com</h1>
+      </div>
+
+      <!-- Login Form -->
+      <form [formGroup]="signInForm" (ngSubmit)="onSubmit()" >
+        <input type="email" id="login" class="fadeIn second" name="login" placeholder="email"  formControlName = "email">
+        <input type="password" id="password" class="fadeIn third" name="password" formControlName = "password" placeholder="password">
+        <button  data-bs-toggle="modal" data-bs-target="#exampleModal"  type="submit" [disabled]="signInForm.invalid" class="btn btn-modal " value="Log In">Login</button>
+      </form>
+      <br>
+
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" (click)="route('accuel')"> Accueil</a>
+      </div>
+
+    </div>
+  </div>
+
+
+    <!-- Modal -->
+    <div  class="modal  fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog   modal-dialog-centered">
+          <div class="modal-content cont-modal">
+            <div class="modal-body">
+               <div *ngIf="modal==true"  class="head">
+                    <h5 class="modal-title" id="exampleModalLabel">Connexion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div *ngIf="!modal" (click)="route('menu')"   class="head">
+                  <h5 class="modal-title" id="exampleModalLabel">Connexion</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+                <br>
+                <div class="content">
+                    <div *ngIf="start==true"  class="spinner-border  spinner" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <div *ngIf="success==true" >
+                        <i class="bi text-success bi-check-circle"></i>
+                        <p>Connexion réussie</p>
+                    </div>
+                    <div *ngIf="error==true" >
+                        <i class="bi text-danger bi-x-circle"></i>
+                        <p>error</p>
+                        <p class="text-danger">{{ errorMessage}}</p>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+<br><br>
+<app-footer></app-footer>

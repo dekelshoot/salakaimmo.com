@@ -1,0 +1,144 @@
+
+.bg-purple{
+    background: linear-gradient(70deg ,#7952b3 ,#46237b ) !important;
+    .search {
+        color: white;
+        font-size: 20px;
+    }
+}
+
+.cont{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+
+.card {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows:  210px ;
+    grid-template-areas: "text" ;
+    width: 47%;
+    border-radius: 18px;
+    background: white;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    // font-family: roboto;
+    text-align: center;
+    transition: 0.5s ease;
+    // cursor: pointer;
+    // margin:25px;
+    margin-bottom: 20px;
+
+    .btn{
+        color: #7952b3 ;
+    }
+
+      .card-text {
+        grid-area: text;
+        grid-area: text;
+        margin: 25px;
+           p {
+            color: grey;
+            font-size:15px;
+            font-weight: 300;
+          }
+           h2 {
+            margin-top:0px;
+            color: #7952b3 ;
+            font-size:28px;
+          }
+
+          
+          
+      }
+  }
+  
+
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+  }
+  .Title{
+    color: white;
+    padding: 30px;
+    padding-bottom: 40px;
+    background: linear-gradient(70deg ,#7952b3 ,#46237b ) !important;
+}
+
+  @media screen and (max-width: 960px) {
+
+    .card{
+        width:90%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+
+    .card{
+        width:47%;
+    }
+}
+
+@media screen and (max-width: 640px) {
+
+    .card{
+        width:90%;
+    }
+}
+
+@media screen and (max-width: 420px) {
+
+    .card{
+        .card-text{
+            h2{
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+
+
+
+@media screen and (min-width: 900px) {
+
+  .footer{
+      margin-left: 20%;
+      margin-right: 20%;
+  }
+//   nav{
+//       margin-left: 20%;
+//       margin-right: 20%;
+//   }
+}
+
+
+
+
+
+
+.footer{
+    height: 55px;
+    display: flex;
+    justify-content: space-between;
+    // background-color : #7e55bc;
+    background: linear-gradient(70deg ,#7952b3 ,#46237b );
+    button{
+        color: white;
+        padding-top: 5px;
+        padding-left: 25px;
+        padding-right: 35px;
+        padding-bottom: 7px;
+        i{
+            font-size: px;
+        }
+    }
+    .btn3{
+        opacity: 0.6;
+    }
+    .btn1{
+        opacity: 0.6;
+    }
+}

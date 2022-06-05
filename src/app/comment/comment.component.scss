@@ -1,0 +1,88 @@
+a{
+    text-decoration: none;
+}
+.bg-purple{
+    background: linear-gradient(70deg ,#7952b3 ,#46237b ) !important;
+   .navbar-brand{
+    font-weight: bold;
+   }
+   i{
+       color: white;
+       font-size: 20px;
+       margin-right: 5px;
+   }
+    .search {
+        color: white;
+        font-size: 20px;
+    }
+}
+
+a{
+    text-decoration: none;
+
+}
+li{
+    text-decoration: none;
+
+}
+
+
+
+.purpel{
+    color:#7952b3;
+}
+
+
+
+.Title{
+    color: white;
+    padding: 30px;
+    padding-bottom: 40px;
+    background: linear-gradient(70deg ,#7952b3 ,#46237b ) !important;
+}
+
+
+.card-inner{
+    margin-left: 4rem;
+}
+
+.nom{
+    color:#7952b3;
+    font-weight: bold;
+}
+.contact{
+    color:#7952b3;
+    font-weight: bold;
+}
+.btn-purpel{
+    background-color:#7952b3;
+}
+
+.btn-purpel:visited{
+    background-color:#46237b ;
+}
+
+.card-footer{
+    border-radius: 0 0 15px 15px !important;
+        border-top: 0 !important;
+        .input-group{
+            .input-group-append{
+                height: 0px;
+            }
+        }
+}
+
+
+.text-purple{
+    width: 70px;
+    height: 70px;
+    color: #7952b3;
+}
+
+@media screen and (min-width: 900px) {
+  nav{
+      margin-left: 20%;
+      margin-right: 20%;
+  }
+
+}

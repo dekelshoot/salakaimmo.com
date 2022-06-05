@@ -1,0 +1,30 @@
+<nav class="navbar fixed-top navbar-dark  bg-purple">
+    <div class="container-fluid">
+        <a (click)="route('menu')">
+            <span><i class="bi bi-chevron-left"></i></span>
+            <span class="navbar-brand mb-0 h1">404</span>
+        </a>
+
+        <form class="d-flex">
+            <a (click)="route('search')" class="search" ><i class="bi bi-search"></i></a>
+          <!-- <button class="search" class="btn" type="submit"><i class="bi bi-search"></i></button> -->
+        </form>
+    </div>
+</nav>
+<br>
+<div class="error">
+    <i class="bi bi-emoji-frown-fill"></i>
+    <p class="error-detail">Erreur 404</p>
+    <p class="error-detail">Oups... Cette page n'existe pas!!!</p>
+    <div class="error-recomentation">
+        <p class="error-recomentation-detail color-danger">
+            Désolé, Nous n'avons pas trouver cette page.
+        </p>
+
+        <p class="error-recomentation-proposition">Veillez vérifier l’orthographe ou retourner a l’accueil <a (click)="route('accueil')">ICI</a>.</p>
+        <p class="redirection">Redirection dans {{time}} </p>
+    </div>
+
+
+    <br><br>
+</div>

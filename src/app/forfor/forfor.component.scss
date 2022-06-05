@@ -1,0 +1,66 @@
+a{
+    text-decoration: none;
+}
+.bg-purple{
+    background: linear-gradient(70deg ,#7952b3 ,#46237b ) !important;
+   .navbar-brand{
+    font-weight: bold;
+   }
+   i{
+       color: white;
+       font-size: 20px;
+       margin-right: 5px;
+   }
+    .search {
+        color: white;
+        font-size: 20px;
+    }
+}
+
+
+.error{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 25px;
+    text-align: center;
+    .bi{
+        color: #7952b3;
+        font-size: 50px;
+        
+    }
+
+    .error-detail{
+        color: #7952b3;
+        font-size: 30px;
+    }
+
+    .error-recomentation{
+        margin-top: 15px;
+
+        .error-recomentation-detail{
+            color: #DC3545;
+        }
+    }
+    .redirection{
+        font-size: 25px;
+    }
+    a{
+        text-decoration: underline;
+        color: #7952b3;
+    }
+    a:hover{
+        cursor: pointer;
+    }
+}
+
+
+
+
+@media screen and (min-width: 900px) {
+    nav{
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+  
+  }
+  

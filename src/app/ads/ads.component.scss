@@ -1,0 +1,126 @@
+a{
+    text-decoration: none;
+}
+.bg-purple{
+    background: linear-gradient(70deg ,#7952b3 ,#46237b ) !important;
+   .navbar-brand{
+    font-weight: bold;
+   }
+   i{
+       color: white;
+       font-size: 20px;
+       margin-right: 5px;
+   }
+}
+
+
+
+.spinner-border{
+  // margin-top: 25%;
+  margin-top: 80px;
+  width: 70px;
+  height: 70px;
+  color: #7952b3;
+}
+
+
+
+.cont2{
+    background-color: #ebe6f4;
+    padding:5px;
+    border-radius: 25px;
+    justify-content: space-between;
+    .btn{
+        display:flex;
+        .name{
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+    }
+    .rond{
+        margin: 3px;
+        color: white;
+        border-radius: 1000px;
+        background-color: #7e55bc;
+        .bi{
+            font-size: 50px;
+        }
+    }
+
+}
+
+
+@media screen and (min-width: 900px) {
+  nav{
+      margin-left: 20%;
+      margin-right: 20%;
+  }
+}
+
+.course{
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+    display: flex;
+    max-width: 100%;
+    max-height: 150px;
+    overflow: hidden;
+    width: 100%;
+
+        .course-image{
+            background: #7e55bc;
+            border-radius: 10px;
+            color: #fff;
+            width: 150px;
+            position: relative;
+            img{
+                width: 150px;
+                height: 100%;
+                border-radius: 10px;
+                object-fit: cover;
+            }
+        }
+        .info{
+            padding: 30px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            width: 98%;
+            display: block;
+            .title{
+                color: #7e55bc;
+                width: 100%;
+                text-align: start;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical  ;
+            }
+            .lieu{
+                margin-top: -5px;
+                width: 100%;
+                text-align: start;
+            }
+            .categorie{
+                margin-top: -6px;
+                width: 100%;
+                text-align: start;
+            }
+            .prix{
+                color: #7e55bc;
+            }
+            p{
+                i{
+                    color: #7e55bc;
+                }
+
+            }
+        }
+
+}
+.recent{
+    display: flex;
+    color:#7952b3;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: bold;
+}

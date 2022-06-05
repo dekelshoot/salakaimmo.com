@@ -1,0 +1,48 @@
+<nav class="navbar fixed-top navbar-dark  bg-purple">
+    <div class="container-fluid">
+        <a (click)="route('menu')">
+            <span><i class="bi bi-chevron-left"></i></span>
+            <span class="navbar-brand mb-0 h1">Annonces</span>
+        </a>
+    </div>
+</nav>
+<br id="head"><br>
+
+<div class="cont2">
+    <button (click)="route('apropos')" class="btn btn1">
+        <button class="btn rond"><i class="bi bi-person"></i></button>
+        <div class="name"><h5>{{dealer?.name}}</h5><p>{{dealer?.email}}</p><p>{{dealer?.tel}}</p></div>
+    </button>
+</div>
+
+<br ><br>
+<div >
+  <div class="recent">
+    <p>Toutes({{articles?.length}})</p>
+  </div>
+  <div *ngFor="let article of articles" >
+    <button (click)="route('article/view/'+replace(article.categorie)+'-'+article.id)" class="btn container">
+      <div class="course">
+        <div class="course-image">
+            <img [src]="article.photo[0]"  alt="photo de l'article">
+        </div>
+        <div class="info">
+            <h6 class="title float-start"> {{article.titre}}</h6>
+            <p class="categorie float-start"> {{article.categorie}}</p> <div></div>
+            <p class="p-trunc lieu float-start"><i class="bi bi-geo-alt-fill"></i> {{article.lieu}} <span></span></p>
+              <h6 class="prix float-end">{{money(article.prix)}} FCFA</h6>
+        </div>
+      </div>
+    </button>
+  </div>
+
+  <div *ngIf="start"  style="align-items: center; text-align: center;">
+    <br>
+    <div>
+      <div class="spinner-border text-purple" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    <p style="color: rgb(143, 139, 133);">Loading...</p>
+    </div>
+    <br><br>
+  </div>
