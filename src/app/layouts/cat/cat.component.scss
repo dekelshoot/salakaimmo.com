@@ -1,0 +1,84 @@
+.cat {
+  width: 100%;
+  height: 200px;
+  margin: 0 auto;
+  // background: rgb(0, 3, 36);
+  color: white;
+  background: linear-gradient(14deg, rgba(0, 3, 36, 1) 0%, rgba(9, 52, 121, 1) 49%, rgba(0, 149, 255, 1) 100%);
+  text-align: start;
+  border: none;
+  border-radius: 5px;
+  overflow: hidden;
+
+  .text {
+    // position: absolute;
+    padding: 15px 30px;
+    margin-top: 80px;
+
+
+    .title {
+      font-weight: 700;
+      font-size: 30px;
+      line-height: 25px;
+      margin-bottom: 5px;
+    }
+
+    .subtitle {
+      line-height: 20px;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .cat {
+    .text {
+      .title {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 25px;
+      }
+
+      .subtitle {
+        line-height: 20px;
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .cat {
+    width: 100%;
+    .text {
+      padding: 10px 20px;
+      margin-top: 110px;
+      .title {
+        font-weight: 700;
+        font-size: 25px;
+        line-height: 25px;
+      }
+
+      .subtitle {
+        line-height: 20px;
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+@media (max-width: 350px) {
+  .cat {
+    .text {
+      .title {
+        font-weight: 700;
+        font-size: 17px;
+        line-height: 15px;
+      }
+
+      .subtitle {
+        line-height: 15px;
+        font-size: 11px;
+      }
+    }
+  }
+}

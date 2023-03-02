@@ -1,0 +1,59 @@
+.content {
+  width: 70%;
+  margin: 0 auto;
+
+}
+
+.all {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  .btn {
+    color: white;
+    font-weight: bold;
+    border-radius: 0;
+    width: 90%;
+    background: linear-gradient(337deg, rgba(42, 129, 203, 1) 26%, rgb(98, 50, 171) 84%);
+  }
+}
+
+.plus {
+  width: 100%;
+  text-align: center;
+
+  .btn {
+    color: white;
+    font-weight: bold;
+    border-radius: 0;
+    width: 300px;
+    background: linear-gradient(337deg, rgba(42, 129, 203, 1) 26%, rgb(98, 50, 171) 84%);
+  }
+}
+
+// responsive
+@media screen and (max-width: 750px) {
+  .content {
+    width: 80%;
+  }
+}
+
+// responsive
+@media screen and (max-width: 600px) {
+  .content {
+    width: 90%;
+  }
+
+  .all {
+    width: 100%;
+  }
+}
+
+// responsive
+@media screen and (max-width: 400px) {
+  .content {
+    width: 98%;
+  }
+}

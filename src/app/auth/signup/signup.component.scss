@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap');
+
+
+a {
+  text-decoration: none;
+}
+
+.brand-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  .brand {
+    // margin: auto;
+    font-family: 'MonteCarlo', cursive;
+    font-weight: bold;
+    font-size: 60px;
+    color: rgba(42, 129, 203, 1);
+    ;
+    margin-bottom: 0;
+  }
+
+  .title {
+    margin: auto;
+
+    span {
+      font-size: 20px;
+      background: -webkit-linear-gradient(337deg, rgba(42, 129, 203, 1) 26%, rgb(98, 50, 171) 84%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      cursor: pointer;
+    }
+  }
+}
+
+.error {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+}
+
+form {
+  border: 1px solid rgba(42, 129, 203, 1);
+  padding: 15px;
+  border-radius: 10px;
+
+  label {
+    font-weight: 500;
+    margin-top: 15px;
+  }
+
+  input {
+    height: 40px;
+  }
+
+  span {
+    float: right;
+    font-size: 13px;
+    margin-top: 15px;
+  }
+
+  .input {
+    position: relative;
+    overflow: hidden;
+    width: 80px;
+    // height: 40px;
+
+    .btn {
+      cursor: pointer;
+      border: 1px solid black;
+      display: flex;
+
+      .bi {
+        font-size: 30px;
+      }
+    }
+
+    margin-bottom: 10px;
+  }
+
+  .input input[type=file] {
+    left: 0;
+    top: 0;
+    opacity: 0;
+    position: absolute;
+    font-size: 10px;
+    height: 75px;
+    width: 85px;
+    background-color: aqua;
+  }
+
+
+  .img {
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: space-between;
+    width: 100%;
+
+    .image {
+      width: 100px;
+      height: 100px;
+
+      .imag {
+        width: 100%;
+        height: 100%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        padding-top: 10%;
+
+        .progress {
+          width: 100%;
+          height: 10px;
+          margin: auto;
+          margin-top: 40px;
+        }
+      }
+    }
+  }
+
+  button {
+    width: 100%;
+    background: var(--purpelLinear);
+    color: white;
+
+    .spinner {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.new {
+  border: 1px solid rgba(42, 129, 203, 1);
+  padding: 15px;
+  border-radius: 10px;
+
+  p {
+    margin: auto;
+    width: auto;
+  }
+}
+
+
+@media (min-width: 500px) {
+  .container {
+    width: 400px;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,80 @@
+<!--                   ---------------------------   web------------------------------------ -->
+
+<div class="header-web  container-fluid mt-4">
+  <div class="row d-flex justify-content-center">
+    <div class="container-fluid ">
+      <div class="card p-4 mt-1">
+        <h3 class="heading mt-1 text-center">Salut! Comment pouvons-nous vous aider?</h3>
+        <div class="d-flex justify-content-center px-5">
+          <div class="recherche">
+            <app-search-bar></app-search-bar>
+            <!-- <a class=""><i class="bi bi-search"></i></a>
+            <input type="text"  placeholder="Rechercher un logement sur Salakaimmo.com ..." name="" /> -->
+          </div>
+          <!-- <span><button class="btn filter"><i class="bi bi-sliders"></i></button></span> -->
+        </div>
+        <div class="categorie  row  ">
+          <carousel [cellsToScroll]="2.5" [cellsToShow]="8.5" [autoplay]="false" [autoplayInterval]="4000"
+            [pauseOnHover]="true" [height]="110" [margin]="0" [arrowsOutside]="false">
+
+            <div (click)="this.routerService.routeByCat('fil-actualite')" class="carousel-cell ">
+              <div class="card-inner  d-flex flex-column align-items-center">
+                <div class="icon"><i class=" bi bi-grid-3x3-gap-fill"></i></div>
+                <div class="text-center mg-text"> <span class="mg-text">Tous</span>
+                </div>
+              </div>
+            </div>
+            <div *ngFor="let cat of categories let i=index" (click)="this.routerService.routeByCat(cat)"
+              class="carousel-cell ">
+              <div class="card-inner  d-flex flex-column align-items-center">
+                <div class="icon"><i class=" bi " [ngClass]="icons[i]"></i></div>
+                <div class="text-center mg-text"> <span class="mg-text">{{cat}}</span>
+                </div>
+              </div>
+            </div>
+
+          </carousel>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ----------------------------------mobile----------------------------------------------- -->
+<div class="header-mobile container-fluid">
+  <div class="row d-flex justify-content-center">
+    <div class="card p-1 mt-0">
+      <div class="categorie  row ">
+        <carousel [cellsToScroll]="2.5" [cellsToShow]="5.5" [autoplay]="false" [autoplayInterval]="2000"
+          [pauseOnHover]="true" [arrows]="false" [loop]="true" [height]="95" [margin]="0">
+
+
+          <button (click)="this.routerService.routeByCat('fil-actualite' )" class="btn btn col-md-2 carousel-cell ">
+            <div class="card-inner  d-flex flex-column align-items-center">
+              <div class="icon"><i class="bi bi-grid-3x3-gap-fill"></i></div>
+              <div class="text-center mg-text"> <span class="mg-text">Tous</span>
+              </div>
+            </div>
+          </button>
+
+          <button *ngFor="let cat of categories let i=index" (click)="this.routerService.routeByCat(cat)"
+            class="btn btn col-md-2 carousel-cell ">
+            <div class="card-inner  d-flex flex-column align-items-center">
+              <div class="icon"><i class="bi" [ngClass]="icons[i]"></i></div>
+              <div class="text-center mg-text"> <span class="mg-text">{{cat}}</span>
+              </div>
+            </div>
+          </button>
+
+          <button class="btn btn col-md-2 carousel-cell ">
+            <div class="card-inner  d-flex flex-column align-items-center">
+              <div class="icon"><i class="bi "></i></div>
+              <div class="text-center mg-text"> <span class="mg-text"></span>
+              </div>
+            </div>
+          </button>
+        </carousel>
+      </div>
+    </div>
+  </div>
+</div>

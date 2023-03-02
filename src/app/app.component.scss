@@ -1,0 +1,223 @@
+.actives {
+  color: black;
+}
+
+
+
+.progress {
+  width: 100%;
+  height: 5px;
+  margin: auto;
+  z-index: 10000000 !important;
+
+  .progress-bar {
+    background: linear-gradient(337deg, rgba(42, 129, 203, 1) 26%, rgb(98, 50, 171) 84%);
+  }
+}
+
+.sidebar {
+  display: flex;
+  background-color: rgb(249, 249, 251);
+}
+
+
+.sidebar__sidebar {
+  margin-top: 65px;
+  padding-top: 0px;
+  width: 16%;
+  margin-left: 5px;
+  background-color: rgb(253, 253, 254);
+  // background-color: aqua;
+  position: fixed;
+  height: 100%;
+  overflow-y: scroll;
+
+  .profil {
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    margin: 0 auto;
+
+    .picture-profil {
+      border: 10px solid #eee;
+      transition: all 0.2s ease-in-out;
+      width: 50px;
+      height: 50px;
+      border-radius: 50px;
+      margin: 0;
+      margin-right: 5px;
+    }
+
+    .name {
+      font-size: 13px;
+
+      .nom {
+        font-weight: 500;
+        margin-top: 15px;
+        line-height: 0;
+      }
+
+      .poste {
+        color: rgb(98, 98, 98);
+      }
+    }
+  }
+
+  .btn {
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+    // justify-content: space-between;
+    color: rgb(104, 104, 104);
+    border: 0;
+    font-size: 14px;
+
+    i {
+      position: relative;
+      float: left;
+      margin-right: 30px;
+    }
+
+    span {
+      float: left;
+    }
+  }
+
+  .btn:hover {
+    border: 0;
+    color: black;
+    background-color: rgb(235, 238, 241)
+  }
+
+  .actives {
+    color: black;
+    background-color: rgb(235, 238, 241)
+  }
+
+  /* overflow: scroll; */
+
+  .placeholder-side {
+    padding: 10px;
+
+    .placeholder-profil {
+      .placeholder {
+        height: 40px;
+      }
+    }
+  }
+}
+
+.sidebar__sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar__sidebar::-webkit-scrollbar-track {
+  background: rgb(233, 233, 233);
+}
+
+.sidebar__sidebar::-webkit-scrollbar-thumb {
+  background-color: rgb(173, 173, 173);
+  /* color of the scroll thumb */
+  border-radius: 20px;
+  /* roundness of the scroll thumb */
+}
+
+.sidebar__main {
+  /* Take the remaining width */
+  flex: 1;
+
+  /* Make it scrollable */
+  overflow: auto;
+  // background-color: yellow;
+  margin-left: 16%;
+
+}
+
+@import url('https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap');
+
+.mod {
+  position: fixed;
+  /* Stay in place */
+  z-index: 10000005;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background: linear-gradient(337deg, rgb(203, 224, 241) 26%, rgb(213, 207, 226) 84%);
+  ;
+  /* Fallback color */
+  padding-top: 10%;
+
+  .brand {
+    font-family: 'MonteCarlo', cursive;
+    font-weight: bold;
+    font-size: 700%;
+    background: -webkit-linear-gradient(337deg, rgba(42, 129, 203, 1) 26%, rgb(98, 50, 171) 84%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .loading {
+    font-size: 10px;
+  }
+
+  .title {
+    font-weight: bold;
+    background: -webkit-linear-gradient(337deg, rgba(42, 129, 203, 1) 26%, rgb(98, 50, 171) 84%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 150%;
+  }
+
+  .spinner {
+    width: 3rem;
+    height: 3rem;
+    background: -webkit-linear-gradient(337deg, rgba(42, 129, 203, 1) 26%, rgb(98, 50, 171) 84%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+}
+
+@media screen and (max-width: 720px) {
+  .mod {
+    padding-top: 30%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .mod {
+    padding-top: 40%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .mod {
+    padding-top: 50%;
+  }
+}
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1000px) {
+  .sidebar__sidebar {
+    display: none;
+  }
+
+  .sidebar__main {
+    margin-left: 0;
+  }
+
+}

@@ -1,0 +1,34 @@
+<div class="card-crud">
+  <div class="card-horizontal btn" (click)="this.routerService.routeArticle(article.id)">
+    <div class="card-image">
+      <img *ngIf="article.photo" [src]="article?.photo[0]" alt="" srcset="" />
+    </div>
+    <div class="card-content">
+      <p *ngIf="article.titre" class="card-style card-title">{{ article.titre }}</p>
+      <!-- <p class="card-style card-category">{{ article.categorie }}</p> -->
+      <p *ngIf="article.lieu " class="card-style card-lieu">
+        <i class="bi bi-geo-alt-fill"></i>{{ article.lieu }}
+      </p>
+      <p *ngIf="article.datePublication" class="card-date">{{toDate(article.datePublication) | date : 'd MMM y'}} à
+        {{toDate(article.datePublication)|
+        date:'h:mm'}}</p>
+      <p *ngIf="article.lieu " class="card-style card-vue">
+        {{ article.nombreVu }} <i class="bi bi-eye"></i>
+      </p>
+      <p *ngIf="article.prix" class="card-style card-prix">{{ money(article.prix) }}FCFA</p>
+    </div>
+  </div>
+  <div class="actions">
+    <button (click)="onEdit()" class="btn text-primary"> <span><i class="bi bi-pencil"></i> </span> Modifier</button>
+    <button (click)="onDelete()" class="btn text-danger"> <span><i class="bi bi-trash"></i></span> Supprimer</button>
+    <button (click)="onDisable()" class="btn text-warning"><span><i class="bi bi-eye-slash"></i></span>
+      Désactiver</button>
+    <button (click)="onShare()" class="btn text-success"> <span><i class="bi bi-share"></i></span> Partager</button>
+  </div>
+</div>
+
+
+<app-modal [loading]="loading" [success]="success" [error]="error" #modal [modalConfig]="modalConfig"
+  [modalConfigLoader]="modalConfigLoader">
+  <!-- corps du modal -->
+</app-modal>

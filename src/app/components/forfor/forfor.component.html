@@ -1,0 +1,19 @@
+<app-header-secondary route="404"></app-header-secondary>
+<br id="head">
+<div class="error">
+  <i class="bi bi-emoji-frown-fill"></i>
+  <p class="error-detail">Erreur 404</p>
+  <p class="error-detail">Oups... Cette page n'existe pas!!!</p>
+  <div class="error-recomentation">
+    <p class="error-recomentation-detail color-danger">
+      Désolé, Nous n'avons pas trouver cette page.
+    </p>
+
+    <p class="error-recomentation-proposition">Veillez vérifier l’orthographe ou retourner a l’accueil <a
+        (click)="this.routerService.back()">ICI</a>.</p>
+    <p class="redirection">Redirection dans {{time}} </p>
+  </div>
+
+
+  <br><br>
+</div>

@@ -1,0 +1,141 @@
+.title-slide {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+
+  .title {
+    font-weight: 500;
+    font-size: 30px;
+    background: -webkit-linear-gradient(337deg, rgba(42, 129, 203, 1) 26%, rgb(98, 50, 171) 84%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+  }
+
+  .plus {
+    margin-top: 20px;
+    background: -webkit-linear-gradient(337deg, rgba(42, 129, 203, 1) 26%, rgb(98, 50, 171) 84%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+  }
+}
+
+.all {
+  width: 100%;
+  text-align: center;
+
+  .btn {
+    color: white;
+    font-weight: bold;
+    border-radius: 0;
+    width: 300px;
+    background: linear-gradient(337deg, rgba(42, 129, 203, 1) 26%, rgb(98, 50, 171) 84%);
+  }
+}
+
+
+
+
+@media screen and (max-width: 600px) {
+  .title-slide {
+    overflow: hidden;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+
+    .title {
+      font-weight: 500;
+      font-size: 17px;
+      background: -webkit-linear-gradient(337deg, rgba(42, 129, 203, 1) 26%, rgb(98, 50, 171) 84%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+    }
+
+    .plus {
+      margin-top: 5px;
+      font-size: 13px;
+      background: -webkit-linear-gradient(337deg, rgba(42, 129, 203, 1) 26%, rgb(98, 50, 171) 84%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      cursor: pointer;
+    }
+  }
+}
+
+
+@media screen and (max-width: 300px) {
+
+  .title-slide {
+    margin-bottom: 10px;
+
+    .title {
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .plus {
+      margin-top: 5px;
+      font-size: 10px;
+    }
+  }
+
+  .slide-property-mobile {
+
+    .cards {
+
+      .card {
+        .card-image {
+          width: 100%;
+          height: 120px;
+
+          img {
+            width: 100%;
+            height: 120px;
+          }
+        }
+
+        .card-content {
+          margin-top: 10px;
+          width: 100%;
+
+          .card-style {
+            font-size: 12px;
+            line-height: 15px;
+          }
+
+          .card-title {
+            font-size: 14px;
+            font-weight: 500;
+            -webkit-line-clamp: 1;
+            margin-bottom: 1px;
+          }
+
+          .card-prix {
+            font-size: 15px;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+
+  }
+
+
+  .all {
+    width: 100%;
+    text-align: center;
+
+    .btn {
+      color: white;
+      font-weight: 500;
+      border-radius: 0;
+      font-size: 13px;
+      width: 80%;
+      background: linear-gradient(337deg, rgba(42, 129, 203, 1) 26%, rgb(98, 50, 171) 84%);
+    }
+  }
+
+}

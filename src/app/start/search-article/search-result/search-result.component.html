@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container-fluid">
+    <button class="btn canvas" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+      aria-controls="offcanvasScrolling">
+      <i class="bi bi-list"></i>
+    </button>
+
+    <a class="navbar-brand b-0 h1"> Recherche</a>
+
+    <div class="recherche ">
+      <app-search-bar [search]="query"></app-search-bar>
+    </div>
+  </div>
+</nav>
+
+<br id="head" /><br><br>
+
+<div *ngIf="result" infinite-scroll [infiniteScrollDistance]="distance" [infiniteScrollThrottle]="throttle"
+  (scrolled)="onScroll()">
+  <app-article-list [articles]="articles" [loader]="loader"></app-article-list>
+</div>
+
+<app-error *ngIf="!result" [title]="error.title" [errorMessage]="error.errorMessage" [instruction]="error.instruction"
+  [rout]="error.rout"></app-error>
+
+<app-menu-footer></app-menu-footer>

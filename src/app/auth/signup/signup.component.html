@@ -1,0 +1,94 @@
+<app-header routeActive="S'inscrire"></app-header>
+<br id="head">
+<div class="container">
+  <div class="brand-container">
+    <p class="brand">B</p>
+    <p class="title"> Inscrivez-vous sur<span>Salakaimmo.com</span></p>
+  </div>
+  <br>
+  <div class="error" *ngIf="error==true">
+    <p class="text-danger">{{ errorMessage}} </p>
+  </div>
+  <div class="error" *ngIf="success==true">
+    <p class="text-success">Connexion réussit</p>
+  </div>
+  <!-- Login Form -->
+  <form class="form-horizontal" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <div class="control-group">
+      <label class="control-label" for="name">Nom d'utilisateur:</label>
+      <div class="controls">
+        <input id="name" name="name" type="text" class="form-control input-medium" placeholder="nom d'utilisateur"
+          formControlName="name" required="">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="email">Adresse e-mail:</label>
+      <div class="controls">
+        <input id="email" name="login" type="email" class="form-control input-medium" placeholder="mail@gmail.com"
+          formControlName="email" required="">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="email">tel:</label>
+      <div class="controls">
+        <input id="phoneNumber" name="phoneNumber" type="phoneNumber" class="form-control input-medium"
+          placeholder="+237********" formControlName="phoneNumber" required="">
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="passwordinput">Mot de passe: </label>
+      <div class="controls">
+        <input id="password" class="form-control input-medium" name="password" type="password" placeholder="********"
+          formControlName="password" required="">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="passwordinput">Vérifier le mot de passe: </label>
+      <div class="controls">
+        <input id="password2" class="form-control input-medium" name="password" type="password" placeholder="********"
+          formControlName="password2" required="">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="passwordinput">photo de profil: </label>
+      <div class="input">
+        <button class="btn btn"><i class="bi bi-camera"></i><i class="bi bi-plus"></i> </button>
+        <input type="file" (change)="detectFiles($event)" type="file" multiple accept="image/*" formControlName="photo">
+      </div>
+    </div>
+
+    <div class="img" *ngIf="url!=''">
+      <div class="image">
+        <div class="imag" [ngStyle]="{'background-image': 'url(' + url + ')'}">
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" [ngStyle]="{'width': charge+'%'}" aria-valuenow="25"
+              aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="signin"></label>
+      <div class="controls">
+        <button *ngIf="loading==false && success==false" [disabled]="signUpForm.invalid" id="signin" name="signin"
+          class="btn" type="submit">S'inscrire</button>
+        <button id="signin" *ngIf="loading==true" name="signin" class="btn btn-success" type="submit">
+          <div *ngIf="start==true" class="spinner-border  spinner" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </button>
+        <button *ngIf="success==true" name="signin" class="btn btn-success" type="submit">Inscription
+          réussit</button>
+      </div>
+    </div>
+  </form>
+  <br>
+
+</div>
+
+<br><br><br>

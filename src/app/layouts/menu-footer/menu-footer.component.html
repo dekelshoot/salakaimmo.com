@@ -1,0 +1,27 @@
+<nav class="slidemenu fixed-bottom">
+  <!-- Item 1 -->
+
+  <input type="radio" (click)="this.routerService.route('accueil')" name="slideItem" id="slide-item-1"
+    class="slide-toggle" [checked]="rout == '/accueil'" />
+  <label for="slide-item-1"><i class="icon bi bi-house"></i><span>Accueil</span></label>
+
+  <!-- Item 2-->
+
+  <input type="radio" (click)="this.routerService.route('article/categories')" name="slideItem" id="slide-item-2"
+    class="slide-toggle" [checked]="rout == '/article/categories'" />
+  <label for="slide-item-2"><i class="icon bi bi-card-list"></i><span>Catégories</span></label>
+
+  <!-- Item 3 -->
+
+  <input type="radio" (click)="this.routerService.route('/article/recherche')" name="slideItem" id="slide-item-3"
+    class="slide-toggle" [checked]="rout == '/article/recherche'" />
+  <label for="slide-item-3"><i class="icon bi bi-search"></i><span>Recherche</span></label>
+
+  <!-- Item 4 -->
+
+  <input type="radio" (click)="this.routerService.route('menu')" name="slideItem" id="slide-item-4" class="slide-toggle"
+    [checked]="rout == '/menu'" />
+  <label for="slide-item-4"><i class="icon bi bi-list"></i><span>Menu</span></label>
+
+  <!-- <div class="clear"></div> -->
+</nav>

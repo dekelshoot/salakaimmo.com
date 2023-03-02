@@ -1,0 +1,147 @@
+<app-header-secondary route="Recherche"></app-header-secondary>
+<br id="head" />
+
+<div *ngIf="true" class="search-container container">
+  <div class="title">Salakaimmo.com</div>
+
+  <div class=" form-group form-floating mb-3">
+    <div class="recherche ">
+      <!-- <a class=""><i class="bi bi-search"></i></a>
+        <input type="text"  list="datalistOptions" id="exampleDataList"  placeholder="Rechercher  sur Salakaimmo.com ..." name="" /> -->
+      <app-search-bar></app-search-bar>
+    </div>
+  </div>
+
+  <div class="boutons">
+    <button class="btn" (click)="this.routerService.route('article/fil-actualite')">Les plus récents</button>
+    <button class="btn" (click)="this.routerService.route('article/categories')">Catégories</button>
+  </div>
+  <div class="populaire ">
+    <p class="title">Recherche populaire</p>
+    <div class="mots">
+      <button class="mot btn" *ngFor="let mot of mots; let i = index" (click)="this.routerService.routeByCat(mot)"
+        [ngStyle]="{ 'background-color': color[i] }">
+        {{ mot }}
+      </button>
+    </div>
+  </div>
+
+  <div class="direct ">
+    <p class="title">Recherche directe</p>
+    <div class="filter  col-md-8 order-md-1 col-lg-7 text-center ">
+      <br>
+      <h4 class="mb-3">Trouver directement ce que vous cherchez !!!</h4>
+      <form class="form" [formGroup]="searchForm" (ngSubmit)="onSearchArticle()">
+        <div class="form-floating select" (change)="Chambre()">
+          <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
+            formControlName="type">
+            <option *ngFor="let typeBien of typeBien">{{typeBien}}</option>
+          </select>
+          <label for="floatingSelect">Type de bien</label>
+        </div>
+
+        <div class="form-floating select" *ngIf="!viewChambre">
+          <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
+            formControlName="chambre">
+            <option *ngFor="let chambre of chambre">{{chambre}}</option>
+          </select>
+          <label for="floatingSelect">Chambre</label>
+        </div>
+
+        <div class="form-floating select">
+          <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
+            formControlName="lieu">
+            <option *ngFor="let lieu of lieu">{{lieu}}</option>
+          </select>
+          <label for="floatingSelect">Lieu</label>
+        </div>
+
+        <div class="form-floating select">
+          <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
+            formControlName="prix">
+            <option *ngFor="let prix of prix">{{prix}}</option>
+          </select>
+          <label for="floatingSelect">Prix</label>
+        </div>
+
+        <button class="btn" [disabled]="searchForm.invalid " type="submit">Trouver</button>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+
+<br />
+
+<br /><br />
+<!--                   ---------------------------   web------------------------------------ -->
+<div class="header web card" *ngIf="false">
+  <h2 class="heading">Tous nos articles</h2>
+  <div class="filter d-flex">
+    <div class="d-flex">
+      <select class="form-select" aria-label="Default select example">
+        <option selected>Catégiries</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+      <select class="form-select" aria-label="Default select example">
+        <option selected>Quartiers</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+      <select class="form-select" aria-label="Default select example">
+        <option selected>Prix</option>
+        <option value="1">plus cher au moin cher</option>
+        <option value="2">moin cher au moin plus</option>
+      </select>
+    </div>
+    <button class="refresh btn"><i class="bi bi-arrow-clockwise"></i></button>
+  </div>
+</div>
+
+<!--                   ---------------------------   mobile------------------------------------ -->
+<div class="result" *ngIf="false">
+  <div class="cards" *ngFor="let article of articles">
+    <button class="card btn">
+      <div class="card-image">
+        <img [src]="article.photo[0]" alt="" srcset="" />
+      </div>
+      <div class="card-content">
+        <p class="card-title">{{ article.titre }}</p>
+        <p class="card-category">{{ article.categorie }}</p>
+        <p class="card-date">
+          {{ article.datePublication | date: "d MMM y" }} à
+          {{ article.datePublication | date: "h:mm" }}
+        </p>
+        <p class="card-lieu">
+          <i class="bi bi-geo-alt-fill"></i>{{ article.lieu }}
+        </p>
+      </div>
+      <div class="card-prix">{{ article.prix }}</div>
+    </button>
+  </div>
+</div>
+
+<div class="result2" *ngIf="false">
+  <div class="cards" *ngFor="let article of articles">
+    <button class="card btn">
+      <div class="card-image">
+        <img [src]="article.photo[0]" alt="" srcset="" />
+      </div>
+      <div class="card-content">
+        <p class="card-style card-title">{{ article.titre }}</p>
+        <p class="card-style card-category">{{ article.categorie }}</p>
+        <!-- <p class="card-date">26 aout à 20h18</p> -->
+        <p class="card-style card-lieu">
+          <i class="bi bi-geo-alt-fill"></i>{{ article.lieu }}
+        </p>
+        <p class="card-style card-prix">{{ article.prix }}FCFA</p>
+      </div>
+    </button>
+  </div>
+</div>
+
+<br /><br /><br />

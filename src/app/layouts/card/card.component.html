@@ -1,0 +1,15 @@
+<div class="card-vertical btn" (click)="this.routerService.routeArticle(article.id)">
+  <div class="card-image">
+    <img *ngIf="article.photo" [src]="article?.photo[0]" alt="" srcset="" />
+  </div>
+  <div class="card-content">
+    <p *ngIf="article.titre" class="card-style card-title">{{ article.titre }}</p>
+    <!-- <p class="card-style card-category">{{ article.categorie }}</p> -->
+    <p *ngIf="article.lieu " class="card-style card-lieu">
+      <i class="bi bi-geo-alt-fill"></i>{{ article.lieu }}
+    </p>
+    <p *ngIf="article.datePublication" class="card-date">{{toDate(article.datePublication) | date : 'd MMM y'}} à
+      {{toDate(article.datePublication)| date:'h:mm'}}</p>
+    <p *ngIf="article.prix" class="card-style card-prix">{{ money(article.prix) }}FCFA</p>
+  </div>
+</div>

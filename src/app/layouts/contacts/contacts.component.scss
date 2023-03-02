@@ -1,0 +1,26 @@
+.contact {
+  .btn {
+    width: 70%;
+    color: #fff;
+    background: linear-gradient(337deg, rgba(42, 129, 203, 1) 26%, rgba(70, 35, 123, 1) 84%);
+    margin-bottom: 15px;
+    height: 50px;
+    border-radius: 0;
+
+    i {
+      margin-right: 15px;
+    }
+  }
+
+  .tel {
+    color: black;
+    background: rgb(222, 222, 222);
+    font-weight: 500;
+    font-size: 25px;
+  }
+
+  .tel:hover {
+    border: none;
+  }
+
+}

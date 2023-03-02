@@ -1,0 +1,29 @@
+.error {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 25px;
+  text-align: center;
+
+  .bi {
+    font-size: 50px;
+    background: -webkit-linear-gradient(337deg, rgba(42, 129, 203, 1) 26%, rgb(98, 50, 171) 84%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+  }
+
+  .error-detail {
+    background: -webkit-linear-gradient(337deg, rgba(42, 129, 203, 1) 26%, rgb(98, 50, 171) 84%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 30px;
+  }
+
+  .error-recomentation {
+    margin-top: 15px;
+
+    .error-recomentation-detail {
+      color: #DC3545;
+    }
+  }
+}

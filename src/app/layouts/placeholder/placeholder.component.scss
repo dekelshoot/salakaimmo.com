@@ -1,0 +1,49 @@
+// placeholder
+
+.placeholder-all {
+  width: 95%;
+  margin: 0 auto;
+  .web{
+    display: flex;
+    justify-content: space-between;
+    .image{
+      .placeholder{
+        height: 100px;
+      }
+    }
+    .card-body{
+      .buton{
+        .placeholder{
+          height: 30px;
+        }
+      }
+    }
+  }
+  .mobile{
+    display: none;
+    justify-content: space-between;
+    .card{
+      width: 48%;
+
+      .image{
+        margin-bottom:-10px;
+        .placeholder{
+          height: 100px;
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .placeholder-all {
+    .web {
+      display: none;
+    }
+    .mobile {
+      display: flex;
+    }
+  }
+
+}

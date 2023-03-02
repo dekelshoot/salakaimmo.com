@@ -1,0 +1,31 @@
+<app-header-secondary route="Annonces"></app-header-secondary>
+<br id="head">
+<div class="all">
+  <button class=" btn" (click)="this.routerService.route('ads')"><i class="bi bi-eye"></i> Annonces</button>
+  <button class=" btn" disabled><i class="bi bi-eye-slash"></i>
+    Désactivées</button>
+</div>
+<div class="content" *ngIf="result">
+  <app-card-crud-disable *ngFor="let article of articles" [article]="article"></app-card-crud-disable>
+</div>
+
+<div class="content" *ngIf="articles.length==0 && result==true">
+  <app-card-crud-placeholder></app-card-crud-placeholder>
+  <app-card-crud-placeholder></app-card-crud-placeholder>
+  <app-card-crud-placeholder></app-card-crud-placeholder>
+  <app-card-crud-placeholder></app-card-crud-placeholder>
+  <app-card-crud-placeholder></app-card-crud-placeholder>
+  <app-card-crud-placeholder></app-card-crud-placeholder>
+</div>
+
+<br>
+<app-loader *ngIf="loader"></app-loader>
+<br>
+<div class="plus" *ngIf="!loader && articles.length>0">
+  <button class=" btn" (click)="onScroll()"><i class="bi bi-plus"></i> Afficher plus</button>
+</div>
+
+<app-error *ngIf="!result" [title]="error.title" [errorMessage]="error.errorMessage" [instruction]="error.instruction"
+  [rout]="error.rout"></app-error>
+
+<br>

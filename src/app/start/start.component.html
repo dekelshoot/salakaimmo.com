@@ -1,0 +1,217 @@
+<!-- ------------Header---------------- -->
+<app-header></app-header>
+
+<div id="head">
+  <!-- ------------accueil-brar---------------- -->
+  <app-accueil-bar></app-accueil-bar>
+  <!-- ---------Etapes pour le logement   -->
+  <app-stapes></app-stapes>
+
+  <!-- logements -->
+  <br>
+  <div class="all">
+    <button class=" btn" (click)="this.routerService.route('article/fil-actualite')"><i
+        class="bi bi-grid-3x3-gap-fill"></i> Tous les
+      logements</button>
+  </div>
+  <br>
+  <!-- ----------------------------------------web  --------------------- -->
+  <div class="web">
+
+    <div class="Appartement-a-louer" *ngIf="displaySlide.articleRecent">
+      <br>
+      <div class="title-slide">
+        <span class="title">Les plus récents</span>
+        <span (click)="this.routerService.route('article/fil-actualite')" class="plus">Afficher plus ></span>
+      </div>
+      <app-top-article [articles]="articleRecent"></app-top-article>
+    </div>
+    <!-- Apppartement  à louer-->
+    <div class="Appartement-a-louer" *ngIf="displaySlide.AppartementALouer">
+      <br>
+      <div class="title-slide">
+        <span class="title">Nos appartements à louer</span>
+        <span (click)="this.routerService.routeByCat('Appartement à louer')" class="plus">Afficher plus ></span>
+      </div>
+      <app-slide-article [articles]="AppartementALouer"></app-slide-article>
+    </div>
+
+    <!-- Apppartement  à louer-->
+    <div class="Appartement-a-louer" *ngIf="displaySlide.AppartementMeuble">
+      <br>
+      <div class="title-slide">
+        <span class="title">Nos appartements meublés</span>
+        <span (click)="this.routerService.routeByCat('Appartement meublé')" class="plus">Afficher plus ></span>
+      </div>
+      <!-- slide-property web-->
+      <app-slide-article [articles]="AppartementMeuble"></app-slide-article>
+    </div>
+
+    <!-- Apppartement  à vendre-->
+    <div class="Appartement-a-louer" *ngIf="displaySlide.AppartementAVendre">
+      <br>
+      <div class="title-slide">
+        <span class="title">Nos appartements à vendre</span>
+        <span (click)="this.routerService.routeByCat('Appartement à vendre')" class="plus">Afficher plus ></span>
+      </div>
+      <!-- slide-property web-->
+      <app-slide-article [articles]="AppartementAVendre"></app-slide-article>
+    </div>
+
+    <!-- Maison à louer -->
+    <div class="Maison-a-louer" *ngIf="displaySlide.MaisonALouer">
+      <br>
+      <div class="title-slide">
+        <span class="title">Nos maisons à louer</span>
+        <span class="plus" (click)="this.routerService.routeByCat('Maison à louer')">Afficher plus ></span>
+      </div>
+      <!-- slide-property web-->
+      <app-slide-article [articles]="MaisonALouer"></app-slide-article>
+    </div>
+    <!-- Maison meublé-->
+    <div class="Maison-a-louer" *ngIf="displaySlide.MaisonMeuble">
+      <br>
+      <div class="title-slide">
+        <span class="title">Nos maisons à meublées</span>
+        <span class="plus" (click)="this.routerService.routeByCat('Maison meublé')">Afficher plus ></span>
+      </div>
+      <!-- slide-property web-->
+      <app-slide-article [articles]="MaisonMeuble"></app-slide-article>
+    </div>
+    <!-- Maison à vendre -->
+    <div class="Maison-a-vendre" *ngIf="displaySlide.MaisonAVendre">
+      <br>
+      <div class="title-slide">
+        <span class="title">Nos maisons à vendre</span>
+        <span class="plus" (click)="this.routerService.routeByCat('Maison à vendre')">Afficher plus ></span>
+      </div>
+      <!-- slide-property web-->
+      <app-slide-article [articles]="MaisonAVendre"></app-slide-article>
+    </div>
+    <!-- Studio à louer -->
+    <div class="studio-a-louer" *ngIf="displaySlide.studioALouer">
+      <br>
+      <div class="title-slide">
+        <span class="title">Nos studios à louer</span>
+        <span class="plus" (click)="this.routerService.routeByCat('Studio à louer')">Afficher plus ></span>
+      </div>
+      <!-- slide-property web-->
+      <app-slide-article [articles]="studioALouer"></app-slide-article>
+    </div>
+
+    <!-- Studio meublés -->
+    <div class="studio-a-louer" *ngIf="displaySlide.studioMeuble">
+      <br>
+      <div class="title-slide">
+        <span class="title">Nos studios meublés</span>
+        <span class="plus" (click)="this.routerService.routeByCat('Studio meublé')">Afficher plus ></span>
+      </div>
+      <!-- slide-property web-->
+      <app-slide-article [articles]="studioMeuble"></app-slide-article>
+    </div>
+    <!-- Chambre à louer -->
+    <div class="boutique-a-louer" *ngIf="displaySlide.Boutique">
+      <br>
+      <div class="title-slide">
+        <span class="title">Nos boutiques à louer</span>
+        <span class="plus" (click)="this.routerService.routeByCat('Boutique à louer')">Afficher plus ></span>
+      </div>
+      <!-- slide-property web-->
+      <app-slide-article [articles]="Boutique"></app-slide-article>
+    </div>
+    <!-- Terrain à vendre -->
+    <div class="terrain-a-vendre" *ngIf="displaySlide.Terrain">
+      <br>
+      <div class="title-slide">
+        <span class="title">Nos terrains à vendre</span>
+        <span class="plus" (click)="this.routerService.routeByCat('Terrain')">Afficher plus ></span>
+      </div>
+      <!-- slide-property web-->
+      <app-slide-article [articles]="Terrain"></app-slide-article>
+    </div>
+    <!-- Chambre à louer -->
+    <div class="fond-de-commerce-a-louer" *ngIf="displaySlide.FondCommerce">
+      <br>
+      <div class="title-slide">
+        <span class="title">Nos fonds de commerce</span>
+        <span class="plus" (click)="this.routerService.routeByCat('Fond de commerce')">Afficher plus ></span>
+      </div>
+      <!-- slide-property web-->
+      <app-slide-article [articles]="FondCommerce"></app-slide-article>
+    </div>
+    <!-- Chambre à louer -->
+    <div class="chambre-a-louer" *ngIf="displaySlide.chambreALouer">
+      <br>
+      <div class="title-slide">
+        <span class="title">Nos chambres à louer</span>
+        <span class="plus" (click)="this.routerService.routeByCat('Chambre à louer')">Afficher plus ></span>
+      </div>
+      <!-- slide-property web-->
+      <app-slide-article [articles]="chambreALouer"></app-slide-article>
+    </div>
+
+    <!-- Chambre meublées -->
+    <div class="chambre-a-louer" *ngIf="displaySlide.chambreMeuble">
+      <br>
+      <div class="title-slide">
+        <span class="title">Nos chambres meublées</span>
+        <span class="plus" (click)="this.routerService.routeByCat('Chambre meublé')">Afficher plus ></span>
+      </div>
+      <!-- slide-property web-->
+      <app-slide-article [articles]="chambreMeuble"></app-slide-article>
+    </div>
+
+    <!-- Entrepot -->
+    <div class="Entrepot" *ngIf="displaySlide.Entrepot">
+      <br>
+      <div class="title-slide">
+        <span class="title">Nos Entrepots</span>
+        <span class="plus" (click)="this.routerService.routeByCat('Entrepot')">Afficher plus ></span>
+      </div>
+      <!-- slide-property web-->
+      <app-slide-article [articles]="Entrepot"></app-slide-article>
+    </div>
+
+    <!-- Magasin -->
+    <div class="Magasin" *ngIf="displaySlide.Magasin">
+      <br>
+      <div class="title-slide">
+        <span class="title">Nos Magasins</span>
+        <span class="plus" (click)="this.routerService.routeByCat('Magasin')">Afficher plus ></span>
+      </div>
+      <!-- slide-property web-->
+      <app-slide-article [articles]="Magasin"></app-slide-article>
+    </div>
+
+    <!-- Usine -->
+    <div class="Usine" *ngIf="displaySlide.Usine">
+      <br>
+      <div class="title-slide">
+        <span class="title">Nos Usines</span>
+        <span class="plus" (click)="this.routerService.routeByCat('Usine')">Afficher plus ></span>
+      </div>
+      <!-- slide-property web-->
+      <app-slide-article [articles]="Usine"></app-slide-article>
+    </div>
+
+    <!-- Autre -->
+    <div class="Autre" *ngIf="displaySlide.Autre">
+      <br>
+      <div class="title-slide">
+        <span class="title">Autres</span>
+        <span class="plus" (click)="this.routerService.routeByCat('Magasin')">Afficher plus ></span>
+      </div>
+      <!-- slide-property web-->
+      <app-slide-article [articles]="Autre"></app-slide-article>
+    </div>
+
+  </div>
+</div>
+
+<br>
+<div class="all">
+  <button class=" btn" (click)="this.routerService.route('article/fil-actualite')"> <i
+      class="bi bi-grid-3x3-gap-fill"></i>
+    Tous les logements</button>
+</div>
+<br>

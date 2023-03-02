@@ -1,0 +1,19 @@
+<app-header-secondary route="Catégories"></app-header-secondary>
+<br id="head" />
+<div class="title">
+  <p>Toutes les Catégories</p>
+</div>
+<!-- <div class="categories ">
+  <div class="categorie btn" *ngFor="let categorie of categories; let i = index" (click)="byCat(categorie)"
+    [ngStyle]="{ 'background-color': color[i] }">
+    <p class="title">{{ categorie }}</p>
+    <i class="bi" [ngClass]="icons[i]"></i>
+  </div>
+</div> -->
+
+<div class="categories2">
+  <app-cat class="categorie" [background]="color[i]" [title]="categories[i]" [subTitle]="subTitle[i]"
+    *ngFor="let categorie of categories; let i = index"></app-cat>
+</div>
+
+<br /><br /><br />

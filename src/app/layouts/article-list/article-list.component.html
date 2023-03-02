@@ -1,0 +1,11 @@
+<app-modal-filter></app-modal-filter>
+<div class="list" *ngIf="articles">
+  <app-card class="card-list" *ngFor="let article of articles" [article]="article"></app-card>
+</div>
+
+
+<div class="list" *ngIf="articles.length==0">
+  <app-card-placehover class="card-list" *ngFor="let place of placehover"></app-card-placehover>
+</div>
+
+<app-loader *ngIf="loader && articles.length!=0"></app-loader>

@@ -1,0 +1,71 @@
+<div class="sidebar">
+  <!-- Sidebar -->
+  <aside class="sidebar__sidebar" *ngIf="start==true">
+    <div class="profil">
+      <img class="picture-profil" src="../../../assets/profil.jpeg">
+      <div class="name">
+        <p class="nom">Dekel shoot</p>
+        <span class="poste">Directeur de la digitalisation</span>
+      </div>
+    </div>
+    <button class="btn " (click)="this.routerService.route('accueil')" [ngClass]="{'actives': rout == '/accueil' }"><i
+        class="bi bi-house"></i> <span>Accueil</span></button>
+    <button class="btn" (click)="this.routerService.route('/article/categories')"
+      [ngClass]="{'actives':rout == '/article/categories'}"><i
+        class="icon bi bi-card-list"></i><span>Catégories</span></button>
+    <button class="btn" (click)="this.routerService.route('/article/recherche')"
+      [ngClass]="{'actives':rout == '/article/recherche'}"><i
+        class="icon bi bi-search"></i><span>Recherche</span></button>
+    <button class="btn" (click)="this.routerService.route('/article/new')" *ngIf="isAuth"
+      [ngClass]="{'actives':rout == '/article/new'}"><i class="bi bi-upload"></i><span>Publier</span></button>
+    <br>
+    <button class="btn"><i class="bi bi-box-arrow-in-right"></i><span>Diaspora</span></button>
+    <button class="btn"><i class="bi bi-box-arrow-in-right"></i><span>Services</span></button>
+    <button class="btn"><i class="bi bi-chat-square-text"></i><span>Commantaires</span></button>
+    <button class="btn"><i class="bi bi-info"></i><span>Apropos</span></button>
+    <button class="btn"><i class="bi bi-headset"></i><span>Contacts</span></button>
+    <button class="btn"><i class="bi bi-person-rolodex"></i><span>Agents</span></button>
+    <button class="btn"><i class="bi bi-envelope"></i><span>Newsletter</span></button>
+    <button class="btn"><i class="bi bi-list-task"></i><span>Contrats</span></button>
+    <button class="btn"><i class="bi bi-card-checklist"></i><span>Conseils</span></button>
+    <button class="btn"><i class="bi bi-laptop"></i><span>Développeur</span></button>
+
+  </aside>
+
+  <aside class="sidebar__sidebar col-12" *ngIf="start==false">
+    <br>
+    <div class="placeholder-side">
+      <p class="card-text placeholder-glow placeholder-profil">
+        <span class="placeholder col-12 bg-secondary"></span>
+      </p>
+      <br><br>
+      <p class="card-text placeholder-glow placeholder-cat" *ngFor="let i of placeholder">
+        <span class="placeholder col-12 bg-secondary"></span>
+      </p>
+    </div>
+    <br><br>
+  </aside>
+
+  <!-- Main -->
+  <div class="sidebar__main">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<div class="progress fixed-top" *ngIf="chargement!=0">
+  <div class="progress-bar" role="progressbar" [ngStyle]="{'width': chargement+'%'}" aria-valuenow="25"
+    aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+
+<div class="mod text-center" *ngIf="start">
+  <p class="brand">B</p>
+  <p class="loading">Loading...</p>
+  <p class="title fixed-bottom">Salakaimmo.com</p>
+  <!-- <div class="spinner-border  spinner" role="status">
+      <span class="visually-hidden">Loading...</span>
+  </div>
+   -->
+</div>
+
+<br><br>
+<app-toaster></app-toaster>

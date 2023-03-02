@@ -1,0 +1,177 @@
+.title {
+  width: 90%;
+  margin: 0 auto;
+
+  p {
+    font-weight: bold;
+    font-size: 30px;
+  }
+}
+
+.categories2 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  justify-content: space-between;
+  margin: 0 auto;
+  gap: 3px;
+  .categorie {
+    width: 49%;
+    transition: all 1s;
+  }
+}
+
+@media (max-width: 600px) {
+  .title {
+    width: 95%;
+    p {
+
+      font-size: 20px;
+    }
+  }
+  .categories2{
+    width: 95%;
+    .categorie {
+      width: 100%;
+    }
+  }
+}
+
+// .categories {
+//   display: flex;
+//   flex-wrap: wrap;
+//   width: 90%;
+//   margin: 0 auto;
+//   // transition: width 1s linear;
+//   justify-content: space-between;
+
+//   .categorie {
+//     margin: 5px;
+//     background-color: aqua;
+//     width: 19%;
+//     height: 190px;
+//     border-radius: 5px;
+//     transition: all 1s;
+
+//     // transition: width 0.4s linear;
+//     .title {
+//       color: white;
+//       font-weight: bold;
+//       font-size: 25px;
+//       text-align: left;
+//     }
+
+//     .bi {
+//       width: 100%;
+//       color: white;
+//       font-size: 40px;
+//       // position: sticky;
+//       // bottom: -25px;
+//       // right: -75px;
+//     }
+
+//   }
+
+//   .categorie:hover {
+//     transform: scale(1.1);
+//   }
+// }
+
+// @media (max-width: 1130px) {
+//   .categories {
+//     .categorie {
+//       width: 23.5%;
+//     }
+//   }
+// }
+
+// @media (max-width: 920px) {
+//   .title {
+//     width: 95%;
+//     margin-left: 10px;
+//   }
+
+//   .categories {
+//     width: 100%;
+//     margin: 0 auto;
+
+//     .categorie {
+//       width: 23.5%;
+
+//       .title {
+//         margin: 0;
+//       }
+//     }
+//   }
+// }
+
+// @media (max-width: 750px) {
+//   .categories {
+//     .categorie {
+//       width: 23.5%;
+//       height: 150px;
+
+//       .title {
+//         margin: 0;
+//         font-size: 20px;
+//       }
+//     }
+//   }
+// }
+
+// @media (max-width: 700px) {
+//   .title {
+//     p {
+//       font-size: 25px;
+//     }
+//   }
+
+//   .categories {
+//     .categorie {
+//       width: 30%;
+
+//       .title {
+//         font-size: 17px;
+//       }
+//     }
+
+//   }
+// }
+
+// @media (max-width: 447px) {
+//   .title {
+//     p {
+//       font-size: 20px;
+//     }
+//   }
+
+//   .categories {
+//     .categorie {
+//       width: 46%;
+//       height: 120px;
+
+//       .title {
+//         font-size: 17px;
+//       }
+//     }
+//   }
+// }
+
+// @media (max-width: 300px) {
+//   .title {
+//     p {
+//       font-size: 18px;
+//     }
+//   }
+
+//   .categories {
+//     .categorie {
+//       width: 45%;
+//       height: 120px;
+
+//       .title {
+//         font-size: 13px;
+//       }
+//     }
+//   }
+// }

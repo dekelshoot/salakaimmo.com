@@ -1,0 +1,31 @@
+<aside class="sidebar" *ngIf="start==true">
+  <div class="profil">
+    <img class="picture-profil" src="../../../assets/profil.jpeg">
+    <div class="name">
+      <p class="nom">Dekel shoot</p>
+      <span class="poste">Directeur de la digitalisation</span>
+    </div>
+  </div>
+  <button class="btn " (click)="this.routerService.route('accueil')" [ngClass]="{'actives':rout == '/accueil' }"><i
+      class="bi bi-house"></i> <span>Accueil</span></button>
+  <button class="btn" (click)="this.routerService.route('/article/categories')"
+    [ngClass]="{'actives':rout == '/article/categories'}"><i
+      class="icon bi bi-card-list"></i><span>Catégories</span></button>
+  <button class="btn" (click)="this.routerService.route('/article/recherche')"
+    [ngClass]="{'actives':rout == '/article/recherche'}"><i
+      class="icon bi bi-search"></i><span>Recherche</span></button>
+  <button class="btn" (click)="this.routerService.route('/article/new')"
+    [ngClass]="{'actives':rout == '/article/new'}"><i class="bi bi-upload"></i><span>Publier</span></button>
+  <br>
+  <button class="btn"><i class="bi bi-box-arrow-in-right"></i><span>Diaspora</span></button>
+  <button class="btn"><i class="bi bi-box-arrow-in-right"></i><span>Services</span></button>
+  <button class="btn"><i class="bi bi-chat-square-text"></i><span>Commantaires</span></button>
+  <button class="btn"><i class="bi bi-info"></i><span>Apropos</span></button>
+  <button class="btn"><i class="bi bi-headset"></i><span>Contacts</span></button>
+  <button class="btn"><i class="bi bi-person-rolodex"></i><span>Agents</span></button>
+  <button class="btn"><i class="bi bi-envelope"></i><span>Newsletter</span></button>
+  <button class="btn"><i class="bi bi-list-task"></i><span>Contrats</span></button>
+  <button class="btn"><i class="bi bi-card-checklist"></i><span>Conseils</span></button>
+  <button class="btn"><i class="bi bi-laptop"></i><span>Développeur</span></button>
+
+</aside>

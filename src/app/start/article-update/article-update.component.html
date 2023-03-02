@@ -1,0 +1,150 @@
+<app-header-secondary route="Nouvelle annonce"></app-header-secondary>
+<br id="head">
+<br id="head">
+<div *ngIf="start">
+  <div class="container cont">
+    <div class="head">
+      <p class="title">Nouvelle Annonce</p>
+    </div>
+    <hr>
+    <form [formGroup]="articleForm" (ngSubmit)="onSaveProperty()" (change)="ngOnChanges()">
+      <div class="user-details">
+
+        <div class=" form-group form-floating mb-3">
+          <input type="text" class="form-control" placeholder="Titre" formControlName="titre">
+          <label for="floatingInput">Titre</label>
+        </div>
+
+        <div class=" form-group   form-floating mb-3">
+          <textarea class="form-control description " placeholder="Description de l'annonce"
+            formControlName="description"></textarea>
+          <label for="floatingTextarea2">Description de l'annonce</label>
+        </div>
+
+        <div class=" form-group form-floating mb-3">
+          <select class=" form-select form-select-sm" style="height: 55px" aria-label="Floating label select example"
+            formControlName="categorie">
+            <option *ngFor="let category of category">{{category}}</option>
+          </select>
+          <label for="floatingSelect">Catégorie</label>
+        </div>
+
+        <div class=" form-group form-floating mb-3"
+          *ngIf="articleForm.value.categorie == 'Appartement à louer' || articleForm.value.categorie == 'Chambre meublé' || articleForm.value.categorie == 'Maison meublé' || articleForm.value.categorie == 'Appartement à vendre' || articleForm.value.categorie == 'Appartement meublé' || articleForm.value.categorie == 'Maison à louer' || articleForm.value.categorie == 'Maison à vendre' || articleForm.value.categorie == 'Chambre à louer' || articleForm.value.categorie == 'Studio à louer' || articleForm.value.categorie == 'Studio meublé' ">
+          <input type="text" class="form-control" placeholder="nombre de pièce" formControlName="detailPiece">
+          <label for="floatingInput">Détails des pièces</label>
+        </div>
+
+        <div class=" form-group form-floating mb-3"
+          *ngIf="articleForm.value.categorie == 'Appartement à louer' || articleForm.value.categorie == 'Magasin' || articleForm.value.categorie == 'Entrepot' || articleForm.value.categorie == 'Usine'  || articleForm.value.categorie == 'Fond de commerce' || articleForm.value.categorie == 'Chambre meublé' || articleForm.value.categorie == 'Maison meublé' || articleForm.value.categorie == 'Appartement meublé'  || articleForm.value.categorie == 'Maison à louer' || articleForm.value.categorie == 'Chambre à louer' || articleForm.value.categorie == 'Studio à louer' || articleForm.value.categorie == 'Studio meublé' || articleForm.value.categorie == 'Terrain' ||  articleForm.value.categorie ==='Boutique' ">
+          <input type="texte" class="form-control" placeholder="nombre de pièce" formControlName="modalite">
+          <label for="floatingInput">Modalités</label>
+        </div>
+
+        <div class=" form-group form-floating mb-3"
+          *ngIf="articleForm.value.categorie == 'Appartement à louer' || articleForm.value.categorie == 'Maison meublé' || articleForm.value.categorie == 'Appartement à vendre' || articleForm.value.categorie == 'Appartement meublé'  || articleForm.value.categorie == 'Maison à louer' || articleForm.value.categorie == 'Maison à vendre' ">
+          <input type="number" class="form-control" placeholder="nombre de pièce" formControlName="nombrePiece">
+          <label for="floatingInput">nombre de pièce</label>
+        </div>
+
+        <div class=" form-group form-floating mb-3"
+          *ngIf="articleForm.value.categorie == 'Appartement à louer' || articleForm.value.categorie == 'Maison meublé' || articleForm.value.categorie == 'Appartement meublé' || articleForm.value.categorie == 'Appartement à vendre'  || articleForm.value.categorie == 'Maison à louer' || articleForm.value.categorie == 'Maison à vendre' ">
+          <input type="number" class="form-control" placeholder="nombre de pièce" formControlName="nombreChambre">
+          <label for="floatingInput">nombre de chambre</label>
+        </div>
+
+        <div class=" form-group form-floating mb-3"
+          *ngIf="articleForm.value.categorie == 'Appartement à louer'  || articleForm.value.categorie == 'Magasin' || articleForm.value.categorie == 'Entrepot' || articleForm.value.categorie == 'Usine' || articleForm.value.categorie == 'Fond de commerce'  || articleForm.value.categorie == 'Chambre meublé' || articleForm.value.categorie == 'Maison meublé' || articleForm.value.categorie == 'Appartement à vendre' || articleForm.value.categorie == 'Appartement meublé'  || articleForm.value.categorie == 'Maison à louer' || articleForm.value.categorie == 'Maison à vendre' || articleForm.value.categorie == 'Chambre à louer' || articleForm.value.categorie == 'Studio à louer' || articleForm.value.categorie == 'Studio meublé' || articleForm.value.categorie == 'Terrain'  ||  articleForm.value.categorie ==='Boutique' ">
+          <input type="text" class="form-control" placeholder="nombre de pièce" formControlName="accessibilite">
+          <label for="floatingInput">Accessibilité</label>
+        </div>
+
+        <div class=" form-group form-floating mb-3"
+          *ngIf="articleForm.value.categorie == 'Appartement à louer' || articleForm.value.categorie == 'Chambre meublé' || articleForm.value.categorie == 'Maison meublé' || articleForm.value.categorie == 'Appartement meublé'  || articleForm.value.categorie == 'Maison à louer' || articleForm.value.categorie == 'Maison à vendre' || articleForm.value.categorie == 'Chambre à louer' || articleForm.value.categorie == 'Studio à louer' || articleForm.value.categorie == 'Studio meublé'  ">
+          <input type="text" class="form-control" placeholder="nombre de pièce" formControlName="securite">
+          <label for="floatingInput">Sécurité</label>
+        </div>
+
+        <div class=" form-group form-floating mb-3"
+          *ngIf="articleForm.value.categorie == 'Appartement à louer' || articleForm.value.categorie == 'Chambre meublé' || articleForm.value.categorie == 'Maison meublé' || articleForm.value.categorie == 'Appartement à vendre' || articleForm.value.categorie == 'Appartement meublé'  || articleForm.value.categorie == 'Maison à louer' || articleForm.value.categorie == 'Maison à vendre' || articleForm.value.categorie == 'Chambre à louer' || articleForm.value.categorie == 'Studio à louer' || articleForm.value.categorie == 'Studio meublé' ">
+          <input type="text" class="form-control" placeholder="nombre de pièce" formControlName="parking">
+          <label for="floatingInput">Parking</label>
+        </div>
+
+        <div class=" form-group form-floating mb-3"
+          *ngIf="articleForm.value.categorie == 'Appartement à louer' || articleForm.value.categorie == 'Chambre meublé' || articleForm.value.categorie == 'Maison meublé' || articleForm.value.categorie == 'Appartement meublé'   || articleForm.value.categorie == 'Maison à louer' || articleForm.value.categorie == 'Chambre à louer' || articleForm.value.categorie == 'Studio à louer' || articleForm.value.categorie == 'Studio meublé' ">
+          <input type="text" class="form-control" placeholder="nombre de pièce" formControlName="eauElectricite">
+          <label for="floatingInput">Eau et élèctricité</label>
+        </div>
+
+        <div class=" form-group form-floating mb-3"
+          *ngIf="articleForm.value.categorie == 'Appartement à vendre'  || articleForm.value.categorie == 'Magasin' || articleForm.value.categorie == 'Entrepot' || articleForm.value.categorie == 'Usine' || articleForm.value.categorie == 'Fond de commerce'   || articleForm.value.categorie == 'Maison à vendre' || articleForm.value.categorie == 'Terrain'||  articleForm.value.categorie ==='Boutique'  ">
+          <input type="number" class="form-control" placeholder="Superficie" formControlName="superficie">
+          <label for="floatingInput">Superficie m<sup>2</sup></label>
+        </div>
+
+
+        <!-- <br>
+        <div class="input">
+          <button class="btn btn"><i class="bi bi-camera"></i><i class="bi bi-plus"></i> </button>
+          <input type="file" (change)="detectFiles($event)" type="file" multiple accept="image/*"
+            formControlName="photo">
+        </div>
+
+        <p>image {{nomberFile}}/8</p>
+        <div class="img">
+          <div *ngFor="let url  of urls , let i='index'" class="image">
+            <div class="imag" [ngStyle]="{'background-image': 'url(' + url + ')'}">
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" [ngStyle]="{'width': charge[i]+'%'}" aria-valuenow="25"
+                  aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+      <br>
+      <div class=" form-group mb-3">
+
+
+        <br>
+
+        <div class=" form-group form-floating mb-3">
+          <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search..."
+            formControlName="lieu">
+          <datalist id="datalistOptions">
+            <option *ngFor="let location of location">{{location}}</option>
+          </datalist>
+          <label for="floatingSelect" class="form-label">Lieu</label>
+        </div>
+
+        <div class=" form-group form-floating mb-3">
+          <input type="number" class="form-control" id="floatingInput" placeholder="Prix" formControlName="prix">
+          <label for="floatingInput">Prix FCFA</label>
+        </div>
+
+
+
+
+
+      </div>
+
+      <!-- <button class="btn button btn-primary" [disabled]="articleForm.invalid " type="submit" data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop_publication">
+        <p>Publier l'annonce</p>
+      </button> -->
+      <button *ngIf="loading==false" class="btn button btn-primary" type="submit" [disabled]="articleForm.invalid ">
+        <p>Modifier l'annonce</p>
+      </button>
+      <button *ngIf="loading==true" class="btn button btn-success" disabled>
+        <div class="spinner-border  spinner" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </button>
+
+
+    </form>
+
+
+
+  </div>

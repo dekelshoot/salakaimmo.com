@@ -1,0 +1,51 @@
+<ng-template #modal>
+  <div class="modal-header">
+    <h5 class="modal-title">{{ modalConfig.modalTitle }}</h5>
+  </div>
+  <div class="modal-body">
+    <p>{{ modalConfig.modalBody }}</p>
+    <!-- <ng-content></ng-content> -->
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary " (click)="close()"
+      *ngIf="modalConfig.hideCloseButton === undefined || !modalConfig.hideCloseButton()"
+      [disabled]="modalConfig.disableCloseButton !== undefined && modalConfig.disableCloseButton()">
+      {{ modalConfig.closeButtonLabel }}
+    </button>
+
+    <button type="button" class="btn  btn-outline-danger" (click)="validate()"
+      *ngIf="modalConfig.hideValidateButton === undefined || !modalConfig.hideValidateButton()"
+      [disabled]="modalConfig.disableValidateButton !== undefined && modalConfig.disableValidateButton()">
+      {{ modalConfig.validateButtonLabel }}
+    </button>
+  </div>
+</ng-template>
+
+
+<ng-template #modalLoader>
+  <div class="modal-header">
+    <h5 class="modal-title">{{ modalConfigLoader.modalTitle }}</h5>
+  </div>
+  <div class="modal-body">
+    <p *ngIf="loading">{{ modalConfigLoader.modalBody }}</p>
+    <div *ngIf="loading" class="spinner-border text-danger" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div *ngIf="success">
+      <i class="bi text-success bi-check-circle"></i>
+      <p>{{modalConfigLoader.success}}</p>
+    </div>
+    <div *ngIf="error">
+      <i class="bi text-danger bi-x-circle"></i>
+      <p class="text-danger">{{modalConfigLoader.error}}</p>
+    </div>
+    <!-- <ng-content></ng-content> -->
+  </div>
+  <div class="modal-footer" *ngIf="!loading">
+    <button type="button" class="btn  btn-outline-primary" (click)="validateLoader()"
+      *ngIf="modalConfigLoader.hideValidateButton === undefined || !modalConfigLoader.hideValidateButton()"
+      [disabled]="modalConfigLoader.disableValidateButton !== undefined && modalConfigLoader.disableValidateButton()">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ modalConfigLoader.validateButtonLabel }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </button>
+  </div>
+</ng-template>

@@ -1,0 +1,168 @@
+<!-- <app-header this.routerService.routeActive="Menu"></app-header> -->
+<app-header-secondary route="Menu"></app-header-secondary>
+<br id="head" />
+<p></p>
+<div class="containt">
+
+  <button class="profil btn" *ngIf="dealer">
+    <img class="picture-profil" [src]="dealer.photo" loading="lazy">
+    <div class="name">
+      <p class="nom">{{dealer.name}}</p>
+      <p class="poste">{{dealer.poste}}</p>
+    </div>
+  </button>
+
+  <div class="profil-plaholder" aria-hidden="true" *ngIf="loadingDealer">
+    <p class=" card-text placeholder-glow picture-profil-plaholder">
+      <span class="placeholder col-12 image"></span>
+    </p>
+    <div class="name-plaholder ">
+      <p class="card-text placeholder-glow  nom-plaholder">
+        <span class="placeholder col-10 "></span>
+      </p>
+
+      <p class=" card-text placeholder-glow  poste-plaholder">
+        <span class="placeholder col-7 "></span>
+      </p>
+    </div>
+  </div>
+
+
+  <p class="title">Connexion</p>
+  <div class="connexion">
+    <button class="btn" *ngIf="isAuth==false" (click)="this.routerService.route('auth/sign-in')"><i
+        class="bi bi-box-arrow-in-right"></i><span>Sign-in</span></button>
+    <button class="btn" (click)="signOut()" *ngIf="isAuth==true"><i
+        class="bi bi-box-arrow-in-left"></i><span>Sign-out</span></button>
+    <button class="btn" [disabled]="!isAuth" (click)="this.routerService.route('article/new')"><i
+        class="bi bi-upload"></i><span>Publier</span></button>
+    <button class="btn" [disabled]="!isAuth" (click)="this.routerService.route('ads')"><i
+        class="bi bi-megaphone"></i><span>Annonces</span></button>
+  </div>
+
+
+  <p class="title">Tous les raccourcis</p>
+
+  <div class="shortcuts">
+
+    <div class="shortcut">
+      <i class="bi bi-airplane left"></i>
+      <div class="middle">
+        <p class="titre">Diaspora</p>
+        <p class="subtitle">Nos services pour la diaspora</p>
+      </div>
+      <i class="bi bi-chevron-right right"></i>
+    </div>
+
+    <div class="shortcut">
+      <i class="bi bi-box-arrow-in-right  left"></i>
+      <div class="middle">
+        <p class="titre">Services</p>
+        <p class="subtitle">Nos services suplémentaires</p>
+      </div>
+      <i class="bi bi-chevron-right right"></i>
+    </div>
+
+    <div class="shortcut">
+      <i class="bi bi-card-checklist left"></i>
+      <div class="middle">
+        <p class="titre">Conseils</p>
+        <p class="subtitle">Bénéfissiez de nos conseils</p>
+      </div>
+      <i class="bi bi-chevron-right right"></i>
+    </div>
+
+    <div class="shortcut">
+      <i class="bi bi-chat-square-text left"></i>
+      <div class="middle">
+        <p class="titre">Commantaires</p>
+        <p class="subtitle">Laissez nous vos commantaires</p>
+      </div>
+      <i class="bi bi-chevron-right right"></i>
+    </div>
+
+    <div class="shortcut">
+      <i class="bi bi-headset left"></i>
+      <div class="middle">
+        <p class="titre">Contacts</p>
+        <p class="subtitle">contacter nous ici</p>
+      </div>
+      <i class="bi bi-chevron-right right"></i>
+    </div>
+
+  </div>
+
+
+  <div class="title-agent">
+    <span class="title">Nos agents</span>
+    <span class="plus">Afficher tout ></span>
+  </div>
+  <div class="containt-agent" *ngIf="dealers">
+    <div class="card-agent" *ngFor="let dealer of dealers">
+      <div class="card-image">
+        <img [src]="dealer.photo" loading="lazy" />
+      </div>
+      <div class="card-content">
+        <p class="card-title-1">{{dealer.name}}</p>
+        <p class="card-title">{{dealer.poste}}</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- placeholder agent immobilier -->
+  <div class="containt-agent" *ngIf="loadingDealers">
+    <div class="card-agent" aria-hidden="true" *ngFor="let place of placeholder">
+      <p class=" card-text placeholder-glow">
+        <span class="placeholder col-12 image"></span>
+      </p>
+      <div class="card-content">
+        <p class="card-title card-text placeholder-glow">
+          <span class="placeholder col-7"></span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="shortcuts">
+    <div class="shortcut">
+      <i class="bi bi-list-task left"></i>
+      <div class="middle">
+        <p class="titre">Contrats</p>
+        <p class="subtitle">Prenez acte de nos contrats</p>
+      </div>
+      <i class="bi bi-chevron-right right"></i>
+    </div>
+
+    <div class="shortcut">
+      <i class="bi bi-info-circle  left"></i>
+      <div class="middle">
+        <p class="titre">Apropos</p>
+        <p class="subtitle">Apropos de nous</p>
+      </div>
+      <i class="bi bi-chevron-right right"></i>
+    </div>
+
+    <div class="shortcut">
+      <i class="bi bi-envelope left"></i>
+      <div class="middle">
+        <p class="titre">Newsletter</p>
+        <p class="subtitle">Inscrivez vous à notre newsletter</p>
+      </div>
+      <i class="bi bi-chevron-right right"></i>
+    </div>
+
+    <div class="shortcut">
+      <i class="bi bi-laptop  left"></i>
+      <div class="middle">
+        <p class="titre">Développeur</p>
+        <p class="subtitle">Contacter le développeur</p>
+      </div>
+      <i class="bi bi-chevron-right right"></i>
+    </div>
+
+  </div>
+
+  <br><br>

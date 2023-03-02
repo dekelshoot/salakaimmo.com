@@ -1,0 +1,18 @@
+<carousel class="slide-property web " [cellsToScroll]="carouselWeb.cellsToScroll"
+  [cellsToShow]="carouselWeb.cellsToShow" [autoplay]="carouselWeb.autoplay"
+  [autoplayInterval]="carouselWeb.autoplayInterval" [pauseOnHover]="carouselWeb.pauseOnHover"
+  [height]="carouselWeb.height" [margin]="carouselWeb.margin" [counter]="true"
+  [arrowsOutside]="carouselWeb.arrowsOutside" arrowsTheme="dark" [loop]=true>
+  <div class="cards carousel-cell " *ngFor="let article of data">
+    <app-card [article]="article"></app-card>
+  </div>
+</carousel>
+
+<carousel class="slide-property mobile " [cellsToScroll]="carouselMobile.cellsToScroll"
+  [cellsToShow]="carouselMobile.cellsToShow" [autoplay]="carouselMobile.autoplay" [arrows]="false"
+  [autoplayInterval]="carouselMobile.autoplayInterval" [pauseOnHover]="carouselMobile.pauseOnHover"
+  [height]="carouselMobile.height" [margin]="carouselMobile.margin" [counter]="true" [loop]=true>
+  <div class="cards carousel-cell " *ngFor="let article of data">
+    <app-card [article]="article"></app-card>
+  </div>
+</carousel>

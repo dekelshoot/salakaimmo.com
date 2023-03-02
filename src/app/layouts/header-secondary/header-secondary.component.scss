@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500&family=Oswald:wght@700&display=swap');
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+hr {
+  width: 100%;
+  color: rgb(98, 50, 171);
+  // margin: 0;
+}
+
+.navbar {
+  z-index: 99999;
+  box-shadow: 2px 6px 10px -8px rgba(106, 42, 203, 1);
+  -webkit-box-shadow: 2px 6px 10px -8px rgba(106, 42, 203, 1);
+  -moz-box-shadow: 2px 6px 10px -8px rgba(106, 42, 203, 1);
+  background-color: #fff;
+
+  .navbar-brand {
+    font-family: 'Kanit', sans-serif;
+    font-size: 20px;
+    background: -webkit-linear-gradient(337deg, rgba(42, 129, 203, 1) 26%, rgb(98, 50, 171) 84%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+
+  }
+}

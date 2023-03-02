@@ -1,0 +1,16 @@
+<div class="error">
+  <i class="bi bi-emoji-frown-fill"></i>
+  <p class="error-detail">{{title}}</p>
+  <div class="error-recomentation">
+    <p class="error-recomentation-detail color-danger">
+      {{errorMessage}}
+    </p>
+
+    <p class="error-recomentation-proposition">{{instruction}} <a style="color:rgb(0, 81, 255); cursor:pointer;"
+        (click)="this.routerService.route(rout)">ici</a>
+    </p>
+  </div>
+
+
+  <br><br>
+</div>

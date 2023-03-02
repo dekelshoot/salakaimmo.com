@@ -1,0 +1,9 @@
+<app-header-secondary [route]="category"></app-header-secondary>
+<br id="head">
+<div *ngIf="result" infinite-scroll [infiniteScrollDistance]="distance" [infiniteScrollThrottle]="throttle"
+  (scrolled)="onScroll()">
+  <app-article-list [articles]="articles" [loader]="loader"></app-article-list>
+</div>
+
+<app-error *ngIf="!result" [title]="error.title" [errorMessage]="error.errorMessage" [instruction]="error.instruction"
+  [rout]="error.rout"></app-error>

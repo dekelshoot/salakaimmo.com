@@ -1,0 +1,17 @@
+
+<div class="slide" *ngIf="articles.length>0">
+  <app-card
+  *ngFor="let article of articles"
+  [article]="article"
+  class="card-slide"
+  ></app-card>
+</div>
+
+
+<div class="slide" *ngIf="articles.length==0">
+  <app-card-placehover
+  *ngFor="let place of placeholder"
+  class="card-slide"
+  ></app-card-placehover>
+</div>
+

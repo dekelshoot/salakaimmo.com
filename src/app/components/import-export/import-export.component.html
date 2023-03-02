@@ -1,0 +1,7 @@
+<app-header-secondary route="Import/Export"></app-header-secondary>
+<div class="content">
+  <button class="btn import" (click)="onImportData()"><i class="bi bi-arrow-bar-down"></i> Importer les données</button>
+  <button class="btn export" (click)="onExportData()"><i class="bi bi-arrow-bar-up"></i> Exporter les données</button>
+</div>
+<br><br>
+<app-loader *ngIf="loader"></app-loader>

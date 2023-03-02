@@ -1,0 +1,379 @@
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container-fluid">
+    <a *ngIf="article" class="navbar-brand b-0 h1" (click)="this.routerService.back()"><i
+        class="bi bi-arrow-left-circle-fill"></i>
+      {{article.categorie }}</a>
+    <a *ngIf="!article" class="navbar-brand b-0 h1" (click)="this.routerService.back()"><i
+        class="bi bi-arrow-left-circle-fill"></i>
+      <span class="placeholder col-10 bg-secondary" style=" height: 20px; widht:150px;"></span></a>
+  </div>
+</nav>
+
+
+<br id="head"><br><br class="head">
+<div class="breadcrumb-content ">
+  <hr *ngIf="article" class="breadcrumb">
+  <nav *ngIf="article" class="breadcrumb"
+    style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+    aria-label="breadcrumb">
+    <ol class="breadcrumb min-nav container">
+      <li class="breadcrumb-item"><a (click)="this.routerService.back()">Accueil</a></li>
+      <li class="breadcrumb-item "><a
+          (click)="this.routerService.routeByCat('Appartement à louer')">{{article.categorie}}</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{article.titre}}</li>
+    </ol>
+  </nav>
+
+  <hr *ngIf="article" class="breadcrumb">
+
+  <nav *ngIf="!article" class="breadcrumb" style="width:100%;">
+    <p class="card-text placeholder-glow " style="width:80%; margin:0 auto;">
+      <span class="placeholder col-10 bg-secondary" style=" height: 20px;"></span>
+    </p>
+  </nav>
+
+</div>
+
+
+
+<div class="containt container">
+  <div class="detail-du-haut">
+    <div *ngIf="article" class="carousels">
+      <div class="title title-top">
+        <p class="title">{{article.titre}} </p>
+        <div class="plus">
+          <span class="date">{{toDate(article.datePublication) | date : 'd MMM y'}} à {{toDate(article.datePublication)
+            |
+            date:'h:mm'}}
+          </span>
+          <span class="vue"> <i class="bi bi-eye-fill"></i> {{article.nombreVu}} vues</span>
+        </div>
+      </div>
+      <div class="slider">
+        <carousel class="slide-property web " [cellsToScroll]="carouselWeb.cellsToScroll"
+          [cellsToShow]="carouselWeb.cellsToShow" [autoplay]="carouselWeb.autoplay"
+          [autoplayInterval]="carouselWeb.autoplayInterval" [pauseOnHover]="carouselWeb.pauseOnHover" [counter]="true"
+          [height]="carouselWeb.height" [margin]="carouselWeb.margin" [arrowsOutside]="carouselWeb.arrowsOutside"
+          arrowsTheme="light" [dots]="true" [loop]=true>
+          <div class="cards carousel-cell " *ngFor="let link of article.photo">
+            <img [src]="link" [alt]="article.titre" loading="lazy">
+          </div>
+          <div class="cards carousel-cell contact ">
+            <h5>Cette annonce vous intéresse?</h5>
+            <a [href]="hrefTel"><button class="btn "> <i class="bi bi-telephone-fill"></i>
+                Appeler</button></a>
+            <a [href]="hrefSms"><button class="btn "><i class="bi bi-chat-square-dots-fill"></i>
+                SMS</button></a>
+            <a [href]="hrefWa"><button class="btn "><i class="bi bi-whatsapp"></i>
+                Whatsapp</button></a>
+            <a [href]="hrefMail"><button class="btn "><i class="bi bi-envelope-fill"></i>
+                Email</button></a>
+          </div>
+        </carousel>
+      </div>
+      <div class="minav">
+        <p class="title">{{article.titre}} </p>
+        <p class="categorie">Catégorie: {{article.categorie}}</p>
+        <p class="lieu">Lieu: <i class="bi bi-geo-alt-fill"></i>{{article.lieu}} - Yaoundé </p>
+        <p class="prix">Prix: {{article.prix}} FCFA</p>
+
+      </div>
+    </div>
+
+    <!-- placeholder -->
+    <div *ngIf="!article" class="carousels">
+      <p class="card-text placeholder-glow " style="width:80%; margin:0 auto; margin-bottom: 10px;margin-top: 10px;">
+        <span class="placeholder col-8 bg-secondary" style=" height: 20px;"></span>
+      </p>
+      <p class="card-text placeholder-glow " style="width:80%; margin:0 auto; margin-bottom: 10px;">
+        <span class="placeholder col-5 bg-secondary" style=" height: 20px;"></span>
+      </p>
+      <p class="card-text placeholder-glow " style="width:100%; margin:0 auto; margin-bottom: 10px;">
+        <span class="placeholder col-12 bg-secondary" style=" height: 250px;"></span>
+      </p>
+
+      <p class="card-text placeholder-glow " style="width:80%; margin:0 auto; margin-bottom: 5px;">
+        <span class="placeholder col-5 bg-secondary" style=" height: 20px;"></span>
+      </p>
+      <p class="card-text placeholder-glow " style="width:80%; margin:0 auto; margin-bottom: 5px;">
+        <span class="placeholder col-8 bg-secondary" style=" height: 20px;"></span>
+      </p>
+      <p class="card-text placeholder-glow " style="width:80%; margin:0 auto; margin-bottom: 10px;">
+        <span class="placeholder col-5 bg-secondary" style=" height: 20px;"></span>
+      </p>
+
+    </div>
+
+
+    <div *ngIf="dealer" class="sidebar-caracteristique">
+      <button class="prix btn">{{article.prix}} FCFA</button>
+      <hr>
+      <div class="profil">
+        <img class="picture-profil" [src]="dealer.photo" loading="lazy" style="width: 100px;height:100px;">
+        <div class="name">
+          <p class="nom">{{dealer.name}}</p>
+          <!-- <span class="poste">{{dealer.poste}}</span> -->
+          <span class="poste">{{dealer.email}}</span>
+          <p class="poste">{{dealer.poste}}</p>
+        </div>
+      </div>
+      <hr>
+      <div class="contact">
+        <a class="btn" [href]="hrefWa"><i class="bi bi-whatsapp float-start"></i> Whatsapp</a>
+        <a class="btn" [href]="hrefTel"><i class="bi bi-telephone-fill float-start"></i> Téléphone</a>
+        <a class="btn" [href]="hrefSms"><i class="bi bi-chat-square-dots-fill float-start"></i> SMS</a>
+        <a class="btn" [href]="hrefMail"><i class="bi bi-envelope-fill float-start"></i> Email</a>
+        <button class="btn tel" (click)="scroolToSection('contact')">Afficher le contact</button>
+        <p class="detail-redirection">Veuillez s'il vous plait mentionner a l'agent que vous avez vu son annonce sur
+          Salaka
+          immo.</p>
+      </div>
+    </div>
+
+    <!-- placeholder -->
+    <div *ngIf="!dealer" class="sidebar-caracteristique">
+      <div class="contact">
+        <p class="card-text placeholder-glow " style="width:80%; margin:0 auto;">
+          <span class="placeholder col-10 bg-secondary" style=" height: 30px;"></span>
+        </p>
+        <br>
+        <p class="card-text placeholder-glow " style="width:80%; margin:0 auto;">
+          <span class="placeholder col-10 bg-secondary" style=" height: 60px;"></span>
+        </p>
+        <br>
+        <p class="card-text placeholder-glow " style="width:80%; margin:0 auto; margin-bottom: 10px;">
+          <span class="placeholder col-10 bg-secondary" style=" height: 30px;"></span>
+        </p>
+        <p class="card-text placeholder-glow " style="width:80%; margin:0 auto; margin-bottom: 10px;">
+          <span class="placeholder col-10 bg-secondary" style=" height: 30px;"></span>
+        </p>
+        <p class="card-text placeholder-glow " style="width:80%; margin:0 auto; margin-bottom: 10px;">
+          <span class="placeholder col-10 bg-secondary" style=" height: 30px;"></span>
+        </p>
+        <p class="card-text placeholder-glow " style="width:80%; margin:0 auto; margin-bottom: 10px;">
+          <span class="placeholder col-10 bg-secondary" style=" height: 30px;"></span>
+        </p>
+      </div>
+    </div>
+
+  </div>
+  <br>
+  <div class="detail-du-bas">
+    <div *ngIf="article" class="detail">
+      <table class="table">
+        <tbody>
+          <tr
+            *ngIf="article.modalite && article.categorie=='Appartement à louer' || article.categorie=='Appartement meublé' || article.categorie=='Maison à louer' || article.categorie=='Maison meublé' || article.categorie=='Studio à louer' || article.categorie=='Studio meublé'|| article.categorie=='Chambre à louer' || article.categorie=='Chambre meublé' || article.categorie=='Boutique' || article.categorie=='Fond de commerce' || article.categorie=='Entrepot' || article.categorie=='Usine' || article.categorie=='Magasin' ">
+            <th scope="row"><i class=" bi bi-cash"></i></th>
+            <td>Loyer: </td>
+            <td>{{article.modalite}}</td>
+          </tr>
+          <tr *ngIf="article.prix">
+            <th scope="row"><i class=" bi bi-cash"></i></th>
+            <td>Prix: </td>
+            <td>{{money(article.prix)}} FCFA</td>
+          </tr>
+          <tr
+            *ngIf="article.nombreChambre && article.categorie!='Terrain'&& article.categorie!='Terrain' && article.categorie!='Entrepot' &&  article.categorie!='Studio à louer' &&  article.categorie!='Studio meublé' &&  article.categorie!='Chambre à louer' &&  article.categorie!='Chambre meublé' &&  article.categorie!='Boutique' &&  article.categorie!='Fond de commerce' &&  article.categorie!='Usine' &&  article.categorie!='Magasin'">
+            <th scope="row"><i class=" bi bi-door-open"></i></th>
+            <td>Chambre: </td>
+            <td>{{article.nombreChambre}} chambres</td>
+          </tr>
+          <tr
+            *ngIf="article.nombrePiece &&  article.categorie!='Terrain'&& article.categorie!='Terrain' && article.categorie!='Entrepot' &&  article.categorie!='Studio à louer' &&  article.categorie!='Studio meublé' &&  article.categorie!='Chambre à louer' &&  article.categorie!='Chambre meublé' &&  article.categorie!='Boutique' &&  article.categorie!='Fond de commerce' &&  article.categorie!='Usine' &&  article.categorie!='Magasin'">
+            <th scope="row"><i class=" bi bi-door-closed"></i></th>
+            <td>Pièces: </td>
+            <td>{{article.nombrePiece}} Pièces</td>
+          </tr>
+          <tr
+            *ngIf="article.detailPiece && article.categorie!='Terrain'&& article.categorie!='Terrain' && article.categorie!='Entrepot'  &&  article.categorie!='Boutique' &&  article.categorie!='Fond de commerce' &&  article.categorie!='Usine' &&  article.categorie!='Magasin'">
+            <th scope="row"><i class=" bi bi-card-list"></i></th>
+            <td>Détails: </td>
+            <td>{{article.detailPiece}}</td>
+          </tr>
+          <tr *ngIf="article.lieu">
+            <th scope="row"><i class=" bi bi-geo-alt"></i></th>
+            <td>Lieu: </td>
+            <td>{{article.lieu}} - Yaoundé</td>
+          </tr>
+          <tr *ngIf="article.accessibilite">
+            <th scope="row"><i class=" bi bi-sign-turn-left"></i></th>
+            <td>Accessibilité: </td>
+            <td>{{article.accessibilite}}</td>
+          </tr>
+          <tr
+            *ngIf="article.securite &&  article.categorie!='Terrain'&& article.categorie!='Terrain' && article.categorie!='Entrepot' &&  article.categorie!='Boutique' &&  article.categorie!='Fond de commerce' &&  article.categorie!='Usine' &&  article.categorie!='Magasin'">
+            <th scope="row"><i class=" bi bi-person"></i></th>
+            <td>Sécurité: </td>
+            <td>{{article.securite}}</td>
+          </tr>
+          <tr
+            *ngIf="article.parking &&  article.categorie!='Terrain'&& article.categorie!='Terrain' && article.categorie!='Entrepot' &&  article.categorie!='Boutique' &&  article.categorie!='Fond de commerce' &&  article.categorie!='Usine' &&  article.categorie!='Magasin'">
+            <th scope="row"><i class=" bi bi-car-front"></i></th>
+            <td>Parking: </td>
+            <td>{{article.parking}}</td>
+          </tr>
+          <tr
+            *ngIf="article.eauElectricite && article.categorie!='Terrain' && article.categorie!='Maison à vendre' && article.categorie!='Terrain' && article.categorie!='Entrepot' &&  article.categorie!='Boutique' &&  article.categorie!='Fond de commerce' &&  article.categorie!='Usine' &&  article.categorie!='Magasin'">
+            <th scope="row"><i class=" bi bi-droplet"></i></th>
+            <td>Eau élèctricité: </td>
+            <td>{{article.eauElectricite}}</td>
+          </tr>
+          <tr
+            *ngIf="article.superficie &&  article.categorie=='Terrain' || article.categorie=='Maison à vendre' || article.categorie=='Entrepot' ||  article.categorie=='Boutique' ||  article.categorie=='Fond de commerce' ||  article.categorie=='Usine' ||  article.categorie=='Magasin'">
+            <th scope="row"><i class=" bi bi-rulers"></i></th>
+            <td>Superficie: </td>
+            <td>{{article.superficie}} m²</td>
+          </tr>
+          <tr
+            *ngIf="article.modalite && article.categorie!='Maison à vendre' && article.categorie!='Appartement à vendre'  ">
+            <th scope="row"><i class=" bi bi-cash-stack"></i></th>
+            <td>Modalités: </td>
+            <td>{{article.modalite}} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- placeholder -->
+    <div *ngIf="!article" class="detail">
+      <p class="card-text placeholder-glow " style="width:100%; margin:0 auto; margin-bottom: 10px;">
+        <span class="placeholder col-12 bg-secondary" style=" height: 20px;"></span>
+      </p>
+      <p class="card-text placeholder-glow " style="width:100%; margin:0 auto; margin-bottom: 10px;">
+        <span class="placeholder col-12 bg-secondary" style=" height: 3px;"></span>
+      </p>
+      <p class="card-text placeholder-glow " style="width:100%; margin:0 auto; margin-bottom: 10px;">
+        <span class="placeholder col-12 bg-secondary" style=" height: 20px;"></span>
+      </p>
+      <p class="card-text placeholder-glow " style="width:100%; margin:0 auto; margin-bottom: 10px;">
+        <span class="placeholder col-12 bg-secondary" style=" height: 3px;"></span>
+      </p>
+      <p class="card-text placeholder-glow " style="width:100%; margin:0 auto; margin-bottom: 10px;">
+        <span class="placeholder col-12 bg-secondary" style=" height: 20px;"></span>
+      </p>
+      <p class="card-text placeholder-glow " style="width:100%; margin:0 auto; margin-bottom: 10px;">
+        <span class="placeholder col-12 bg-secondary" style=" height: 3px;"></span>
+      </p>
+      <p class="card-text placeholder-glow " style="width:100%; margin:0 auto; margin-bottom: 10px;">
+        <span class="placeholder col-12 bg-secondary" style=" height: 20px;"></span>
+      </p>
+
+    </div>
+
+    <div *ngIf="article" class="sidebar-description">
+      <p class="title">Description: </p>
+      <p class="description">{{article.description}}</p>
+    </div>
+
+    <div *ngIf="!article" class="sidebar-description">
+      <p class="card-text placeholder-glow " style="width:100%; margin:0 auto; margin-bottom: 10px;">
+        <span class="placeholder col-6 bg-secondary" style=" height: 20px;"></span>
+      </p>
+      <br>
+      <p class="card-text placeholder-glow " style="width:100%; margin:0 auto; margin-bottom: 10px;">
+        <span class="placeholder col-12 bg-secondary" style=" height: 10px;"></span>
+      </p>
+      <p class="card-text placeholder-glow " style="width:100%; margin:0 auto; margin-bottom: 10px;">
+        <span class="placeholder col-12 bg-secondary" style=" height: 10px;"></span>
+      </p>
+      <p class="card-text placeholder-glow " style="width:100%; margin:0 auto; margin-bottom: 10px;">
+        <span class="placeholder col-12 bg-secondary" style=" height: 10px;"></span>
+      </p>
+      <p class="card-text placeholder-glow " style="width:100%; margin:0 auto; margin-bottom: 10px;">
+        <span class="placeholder col-12 bg-secondary" style=" height: 10px;"></span>
+      </p>
+
+    </div>
+
+  </div>
+  <br *ngIf="article">
+  <div class="detail-contact" *ngIf="dealer">
+    <div class="profil">
+      <img class="picture-profil" [src]="dealer.photo" loading="lazy" style="width: 100px;height:100px;">
+      <div class="name">
+        <p class="nom">{{dealer.name}}</p>
+        <!-- <span class="poste">{{dealer.poste}}</span> -->
+        <span class="poste">{{dealer.email}}</span>
+        <p class="poste">{{dealer.poste}}</p>
+      </div>
+    </div>
+    <div class="contact">
+      <p class="title">Contacts</p>
+      <a class="btn" [href]="hrefWa"><i class="bi bi-whatsapp float-start"></i> Whatsapp</a>
+      <a class="btn" [href]="hrefTel"><i class="bi bi-telephone-fill float-start"></i> Téléphone</a>
+      <a class="btn" [href]="hrefSms"><i class="bi bi-chat-square-dots-fill float-start"></i> SMS</a>
+      <a class="btn" [href]="hrefMail"><i class="bi bi-envelope-fill float-start"></i> Email</a>
+      <a class="btn tel">+{{dealer.phoneNumber}}</a>
+      <p class="detail-redirection">Veuillez s'il vous plait mentionner a l'agent que vous avez vu son annonce sur
+        Salakaimmo.com</p> -->
+      <!-- <app-contacts [data]="contacts"></app-contacts> -->
+    </div>
+
+    <div class="sidebar-conseil">
+      <p class="title">Nos Conseils</p>
+      <ul class="conseil">
+        <li>Veuillez s'il vous plait mentionner a l'agent que vous avez vu son annonce sur Salakaimmo.com</li>
+        <li>Veuillez s'il vous plait mentionner a l'agent que vous avez vu son annonce sur Salakaimmo.com</li>
+        <li>Veuillez s'il vous plait mentionner a l'agent que vous avez vu son annonce sur Salakaimmo.com</li>
+      </ul>
+    </div>
+  </div>
+  <br>
+  <!-- ---------Etapes pour le logement   -->
+  <app-stapes *ngIf="article"></app-stapes>
+  <br>
+  <div class="similaire" *ngIf="article">
+    <p class="title">Annonces similaires</p>
+    <app-slide-article [articles]="sameArticle" *ngIf="!errorSimilaire"></app-slide-article>
+    <div *ngIf="errorSimilaire" class="error">
+      <i class="bi bi-emoji-frown-fill"></i>
+      <p class="error-detail">Oups... Pas d'annonces similaires!!!</p>
+      <div class="error-recomentation">
+        <p class="error-recomentation-detail color-danger">
+          Désolé, Nous n'avons pas encore d'annonces similaires.
+        </p>
+
+        <p class="error-recomentation-proposition">Veuillez réessayer ultérieurement.</p>
+      </div>
+
+
+      <br><br>
+    </div>
+  </div>
+
+</div>
+
+<!-- ------------------------menu---------------------------------- -->
+<nav class="slidemenu fixed-bottom">
+  <!-- Item 1 -->
+
+  <input type="radio" (click)="this.routerService.route('accueil')" name="slideItem" id="slide-item-1"
+    class="slide-toggle" [checked]="true" />
+  <label for="slide-item-1"><a [href]="hrefWa"><i class="icon bi bi-whatsapp"></i><span>WhatsApp</span></a></label>
+
+  <!-- Item 2-->
+
+  <input type="radio" (click)="this.routerService.route('categories')" name="slideItem" id="slide-item-2"
+    class="slide-toggle" [checked]="true" />
+  <label for="slide-item-2"><a [href]="hrefTel"><i
+        class="icon bi bi-telephone-fill"></i><span>Téléphone</span></a></label>
+
+  <!-- Item 3 -->
+
+  <input type="radio" (click)="this.routerService.route('recherche')" name="slideItem" id="slide-item-3"
+    class="slide-toggle" [checked]="true" />
+  <label for="slide-item-3"><a [href]="hrefSms"><i
+        class="icon bi bi-chat-square-dots-fill"></i><span>Message</span></a></label>
+
+  <!-- Item 4 -->
+
+  <input type="radio" (click)="this.routerService.route('menu')" name="slideItem" id="slide-item-4" class="slide-toggle"
+    [checked]="true" />
+
+  <label for="slide-item-4"> <a [href]="hrefMail"> <i class="icon bi bi-envelope-fill"></i><span>E-mail</span> </a>
+  </label>
+  <!-- <div class="clear"></div> -->
+</nav>
+
+<br><br><br>

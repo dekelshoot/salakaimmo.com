@@ -1,0 +1,57 @@
+a{
+  text-decoration: none;
+}
+
+
+
+.error{
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 25px;
+  text-align: center;
+  .bi{
+    background: -webkit-linear-gradient(337deg, rgba(42, 129, 203, 1) 26%, rgb(98, 50, 171) 84%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+      font-size: 50px;
+
+  }
+
+  .error-detail{
+    background: -webkit-linear-gradient(337deg, rgba(42, 129, 203, 1) 26%, rgb(98, 50, 171) 84%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+      font-size: 30px;
+  }
+
+  .error-recomentation{
+      margin-top: 15px;
+
+      .error-recomentation-detail{
+          color: #DC3545;
+      }
+  }
+  .redirection{
+      font-size: 25px;
+  }
+  a{
+      text-decoration: underline;
+      background: -webkit-linear-gradient(337deg, rgba(42, 129, 203, 1) 26%, rgb(98, 50, 171) 84%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  a:hover{
+      cursor: pointer;
+  }
+}
+
+
+
+
+@media screen and (min-width: 900px) {
+  nav{
+      margin-left: 20%;
+      margin-right: 20%;
+  }
+
+}

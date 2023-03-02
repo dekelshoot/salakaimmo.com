@@ -1,0 +1,17 @@
+.content {
+  display: flex;
+  width: 100%;
+  margin-top: 30%;
+  gap: 10px;
+  justify-content: center;
+  vertical-align: middle;
+
+  .btn {
+    background: var(--purpelLinear);
+    color: white;
+  }
+
+  .import {}
+
+  .export {}
+}
