@@ -1,17 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { interval, Subscription } from 'rxjs';
 import { RouterService } from './services/router.service';
 import { AuthService } from './services/auth.service';
 import { FirebaseConfigService } from './services/firebase-config.service';
+import { NewsletterComponent } from './layouts/newsletter/newsletter.component';
+import { ModalConfig } from './layouts/newsletter/modal.config';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
+
+// firebase deploy --only hosting:admin-salakaimmo
 // @Directive({ selector: 'img' })
 export class AppComponent implements OnInit {
+  @ViewChild('modal') private modal!: NewsletterComponent
   placeholder = ["", "", "", "", "", "", ""]
   title = 'salakaimmo';
   start = true;
@@ -21,6 +26,19 @@ export class AppComponent implements OnInit {
   chargement!: number;
   counterSubscription!: Subscription;
 
+  public modalConfig: ModalConfig = {
+    modalTitle: "",
+    modalBody: "",
+    validateButtonLabel: "",
+    closeButtonLabel: "",
+
+    onValidate: () => {
+      return true
+    },
+    onClose: () => {
+      return false
+    },
+  }
   // firebase hosting:channel:deploy 1
   //firebase deploy --only hosting:salakaimmo
   constructor(
@@ -68,6 +86,14 @@ export class AppComponent implements OnInit {
   }
   ngOnDestroy() {
     this.counterSubscription.unsubscribe;
+  }
+
+  async openModal() {
+    return await this.modal.open()
+  }
+
+  onNewsLetter() {
+    this.openModal().then((decision) => { })
   }
 
 }

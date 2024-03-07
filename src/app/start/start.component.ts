@@ -13,6 +13,8 @@ import { CategoryService } from '../services/category.service';
   styleUrls: ['./start.component.scss'],
 })
 export class StartComponent implements OnInit {
+  hrefTel = "tel:" + "+23798684872";
+  hrefWa = "http://wa.me/" + "+23798684872" + "?text=je%20vous%20contacte%20depuis%20salakaimmo.com%20";
   articleRecent: Article[] = [];
   choixEquipe: Article[] = [];
   MaisonALouer: Article[] = [];
@@ -96,7 +98,7 @@ export class StartComponent implements OnInit {
 
   ngOnInit(): void {
     // this.articleService.startAccueil()
-    this.routerService.setRoute('/accueil');
+    this.routerService.setRoute('/');
     document.getElementById('head')?.scrollIntoView();
     this.windows = window.innerWidth;
     this.category = this.arraysService.category2;
@@ -322,70 +324,5 @@ export class StartComponent implements OnInit {
 
   }
 
-  recent() {
-    this.recents = []
-    for (let i of this.MaisonAVendre) {
-      let a: Article = i
-      this.recents.push(i)
-    }
-    for (let i of this.MaisonALouer) {
-      let a: Article = i
-      this.recents.push(i)
-    }
-    // for (let i of this.AppartementALouer){
-    //   let a:Article=i
-    //    this.recents.push(i)
-    // }
-    for (let i of this.AppartementMeuble) {
-      let a: Article = i
-      this.recents.push(i)
-    }
-    for (let i of this.studioALouer) {
-      let a: Article = i
-      this.recents.push(i)
-    }
-    for (let i of this.studioMeuble) {
-      let a: Article = i
-      this.recents.push(i)
-    }
-    for (let i of this.chambreALouer) {
-      let a: Article = i
-      this.recents.push(i)
-    }
-    for (let i of this.chambreMeuble) {
-      let a: Article = i
-      this.recents.push(i)
-    }
-    for (let i of this.Terrain) {
-      let a: Article = i
-      this.recents.push(i)
-    }
-    for (let i of this.Entrepot) {
-      let a: Article = i
-      this.recents.push(i)
-    }
-    for (let i of this.FondCommerce) {
-      let a: Article = i
-      this.recents.push(i)
-    }
-    for (let i of this.Boutique) {
-      let a: Article = i
-      this.recents.push(i)
-    }
-  }
 
-  //remonter en haut-----------------------------------------------
-  rideUp() {
-    document.getElementById("head")?.scrollIntoView();
-  }
-  rideUp2(id: string) {
-    document.getElementById(id)?.scrollIntoView();
-  }
-  getDisplay() {
-    if (this.scroll == false) {
-      return "none"
-    } else {
-      return "block"
-    }
-  }
 }

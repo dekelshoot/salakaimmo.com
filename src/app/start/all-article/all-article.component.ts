@@ -25,9 +25,15 @@ export class AllArticleComponent implements OnInit {
   placeholder2 = ['', ''];
   windows: any;
   loader = false;
-  throttle = 0;
-  distance = 2;
-  page = 1;
+  result!: Boolean
+
+
+  error = {
+    title: " Oups... Pas d'annonces !!!",
+    errorMessage: " Une erreur est survenue.",
+    instruction: "Veuillez recharger la page. ",
+    rout: "/accueil"
+  }
 
   constructor(
     private routes: ActivatedRoute,
@@ -45,6 +51,12 @@ export class AllArticleComponent implements OnInit {
       (data: any) => {
         this.loader = false;
         this.articles = data
+        document.getElementById("head")?.scrollIntoView();
+        if (this.articles.length > 0) {
+          this.result = true
+        } else {
+          this.result = false;
+        }
       }, (error: any) => {
         console.log(error)
       }
@@ -59,7 +71,6 @@ export class AllArticleComponent implements OnInit {
       (data: any) => {
         this.loader = false;
         this.articles.push(...data)
-        console.log(this.articles)
       }, (error: any) => {
         this.loader = false;
         console.log(error)

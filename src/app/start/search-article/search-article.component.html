@@ -4,30 +4,14 @@
 <div *ngIf="true" class="search-container container">
   <div class="title">Salakaimmo.com</div>
 
-  <div class=" form-group form-floating mb-3">
+  <!-- <div class=" form-group form-floating mb-3">
     <div class="recherche ">
-      <!-- <a class=""><i class="bi bi-search"></i></a>
-        <input type="text"  list="datalistOptions" id="exampleDataList"  placeholder="Rechercher  sur Salakaimmo.com ..." name="" /> -->
       <app-search-bar></app-search-bar>
     </div>
-  </div>
-
-  <div class="boutons">
-    <button class="btn" (click)="this.routerService.route('article/fil-actualite')">Les plus récents</button>
-    <button class="btn" (click)="this.routerService.route('article/categories')">Catégories</button>
-  </div>
-  <div class="populaire ">
-    <p class="title">Recherche populaire</p>
-    <div class="mots">
-      <button class="mot btn" *ngFor="let mot of mots; let i = index" (click)="this.routerService.routeByCat(mot)"
-        [ngStyle]="{ 'background-color': color[i] }">
-        {{ mot }}
-      </button>
-    </div>
-  </div>
+  </div> -->
 
   <div class="direct ">
-    <p class="title">Recherche directe</p>
+    <!-- <p class="title">Recherche directe</p> -->
     <div class="filter  col-md-8 order-md-1 col-lg-7 text-center ">
       <br>
       <h4 class="mb-3">Trouver directement ce que vous cherchez !!!</h4>
@@ -69,14 +53,31 @@
     </div>
 
   </div>
+
+  <!-- <div class="boutons">
+    <button class="btn" (click)="this.routerService.route('article/fil-actualite')">Les plus récents</button>
+    <button class="btn" (click)="this.routerService.route('article/categories')">Catégories</button>
+  </div> -->
+
+  <div class="populaire ">
+    <p class="title">Recherche populaire</p>
+    <div class="mots">
+      <button class="mot btn" *ngFor="let mot of mots; let i = index" (click)="this.routerService.routeByCat(mot)"
+        [ngStyle]="{ 'background-color': color[i] }">
+        {{ mot }}
+      </button>
+    </div>
+  </div>
+
+
 </div>
 
 
 <br />
 
-<br /><br />
+<!-- <br /><br /> -->
 <!--                   ---------------------------   web------------------------------------ -->
-<div class="header web card" *ngIf="false">
+<!-- <div class="header web card" *ngIf="false">
   <h2 class="heading">Tous nos articles</h2>
   <div class="filter d-flex">
     <div class="d-flex">
@@ -100,10 +101,10 @@
     </div>
     <button class="refresh btn"><i class="bi bi-arrow-clockwise"></i></button>
   </div>
-</div>
+</div> -->
 
 <!--                   ---------------------------   mobile------------------------------------ -->
-<div class="result" *ngIf="false">
+<!-- <div class="result" *ngIf="false">
   <div class="cards" *ngFor="let article of articles">
     <button class="card btn">
       <div class="card-image">
@@ -134,7 +135,6 @@
       <div class="card-content">
         <p class="card-style card-title">{{ article.titre }}</p>
         <p class="card-style card-category">{{ article.categorie }}</p>
-        <!-- <p class="card-date">26 aout à 20h18</p> -->
         <p class="card-style card-lieu">
           <i class="bi bi-geo-alt-fill"></i>{{ article.lieu }}
         </p>
@@ -142,6 +142,6 @@
       </div>
     </button>
   </div>
-</div>
+</div> -->
 
 <br /><br /><br />

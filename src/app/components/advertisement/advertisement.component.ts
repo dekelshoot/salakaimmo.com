@@ -28,6 +28,7 @@ export class AdvertisementComponent implements OnInit {
 
   ngOnInit(): void {
     document.getElementById('head')?.scrollIntoView();
+    this.routerService.setRoute("/ads");
     this.articleService.getArticleByUser().then(
       (data: any) => {
         this.articles = data;

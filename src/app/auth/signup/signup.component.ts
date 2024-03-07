@@ -45,7 +45,7 @@ export class SignupComponent implements OnInit {
     user.email = this.signUpForm.get('email')?.value;
     user.name = this.signUpForm.get('name')?.value;
     user.password = this.signUpForm.get('password')?.value;
-    user.phoneNumber = this.signUpForm.get('password')?.value;
+    user.phoneNumber = this.signUpForm.get('phoneNumber')?.value;
     user.poste = "Digital manager"
     if (this.fileUrl) {
       user.photo = this.fileUrl;

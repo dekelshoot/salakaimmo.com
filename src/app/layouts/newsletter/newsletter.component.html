@@ -1,0 +1,38 @@
+<ng-template #modal style="z-index: 999999;">
+  <div class="modal-dialog modal-newsletter">
+    <div class="modal-content">
+      <form [formGroup]="newsLetterForm" (ngSubmit)="onSaveNewsLetter()">
+        <div class="modal-header">
+          <h4>REJOIGNEZ NOTRE NEWSLETTER</h4>
+          <button class="close btn" (click)="close()"><span>&times;</span></button>
+        </div>
+        <div class="modal-body text-center">
+          <p>Abonnez-vous à notre newsletter pour recevoir les dernières nouvelles et des offres exclusives chaque
+            semaine. Pas de spam.</p>
+          <div class="form-group">
+            <input *ngIf="choice=='email' " type="email" class="form-control" placeholder="Entrer votre Email"
+              formControlName="email">
+
+            <input *ngIf="choice=='phoneNumber' " type="number" class="form-control"
+              placeholder="Entrer votre Numéro de téléphone" formControlName="phoneNumber">
+
+            <div class="footer-choice" *ngIf="choice=='email'" (click)="onChangeChoice('phoneNumber')">
+              <a> M'abonner avec mon numéro de téléphone > </a>
+            </div>
+            <div class="footer-choice" *ngIf="choice=='phoneNumber'" (click)="onChangeChoice('email')">
+              <a> M'abonner avec mon Email ></a>
+            </div>
+            <input *ngIf="!loading" type="submit" class="btn btn-primary btn-block" value="S'abonner"
+              [disabled]="newsLetterForm.invalid ">
+            <button *ngIf="loading==true" id="post" class="btn btn-primary btn-block" disabled>
+              <div class="spinner-border  spinner" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </button>
+          </div>
+          <div class="footer-link" (click)="close()"><a>Non merci</a></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</ng-template>

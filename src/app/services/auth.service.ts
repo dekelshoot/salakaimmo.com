@@ -2,8 +2,6 @@ import { Injectable, OnInit } from '@angular/core';
 import { getAuth, signOut, updateProfile, setPersistence, signInWithEmailAndPassword, createUserWithEmailAndPassword, browserSessionPersistence, browserLocalPersistence } from "firebase/auth";
 import { Subject } from 'rxjs';
 import { Dealer } from '../models/dealer.model';
-import { DealerService } from './dealer.service';
-import { VisitorService } from './visitor.service';
 import { User } from '../models/user.model';
 import { doc, getDoc, getFirestore, setDoc } from "firebase/firestore";
 import { EventTypes } from '../models/event-types';
@@ -139,6 +137,7 @@ export class AuthService {
       const docRef = doc(db, "dealers", id);
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
+        this.dealer = docSnap.data();
         resolve(docSnap.data());
       } else {
         reject("le vendeur n'existe pas")

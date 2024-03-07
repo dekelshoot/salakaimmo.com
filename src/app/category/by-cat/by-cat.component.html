@@ -1,9 +1,14 @@
 <app-header-secondary [route]="category"></app-header-secondary>
 <br id="head">
-<div *ngIf="result" infinite-scroll [infiniteScrollDistance]="distance" [infiniteScrollThrottle]="throttle"
-  (scrolled)="onScroll()">
+<div *ngIf="result">
   <app-article-list [articles]="articles" [loader]="loader"></app-article-list>
 </div>
+
+<div class="plus" *ngIf="!loader && articles.length>0">
+  <button class=" btn" (click)="onScroll()"><i class="bi bi-plus"></i> Afficher plus</button>
+</div>
+
+<br>
 
 <app-error *ngIf="!result" [title]="error.title" [errorMessage]="error.errorMessage" [instruction]="error.instruction"
   [rout]="error.rout"></app-error>

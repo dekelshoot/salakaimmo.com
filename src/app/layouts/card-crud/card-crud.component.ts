@@ -124,10 +124,27 @@ export class CardCrudComponent implements OnInit {
     })
 
   }
-  onShare() {
+  // onShare() {
+  //   const title = this.article.titre;
+  //   const url = 'http://localhost:4200/article/view/' + this.article.id
+  //   if (navigator.share) {
+  //     navigator.share({ title: title, url: url });
+  //   } else {
+  //     alert('impossible')
+  //     navigator.share({ title: title, url: url });
+  //   }
+  // }
 
-    console.log("Partage................................................................", this.article)
+  async onShare() {
+    const title = this.article.titre;
+    const url = 'http://www.salakaimmo.com/article/view/' + this.article.id
+    try {
+      await navigator.share({ title: title, url: url })
+    } catch (error) {
+      alert("Le partage n'est pas pris en charge par votre navigateur ")
+    }
   }
+
   onDisable() {
     this.modalConfig = {
       ...this.modalConfig,

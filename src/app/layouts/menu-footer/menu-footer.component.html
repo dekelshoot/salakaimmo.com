@@ -2,7 +2,7 @@
   <!-- Item 1 -->
 
   <input type="radio" (click)="this.routerService.route('accueil')" name="slideItem" id="slide-item-1"
-    class="slide-toggle" [checked]="rout == '/accueil'" />
+    class="slide-toggle" [checked]="rout == '/accueil' || rout == '/' " />
   <label for="slide-item-1"><i class="icon bi bi-house"></i><span>Accueil</span></label>
 
   <!-- Item 2-->

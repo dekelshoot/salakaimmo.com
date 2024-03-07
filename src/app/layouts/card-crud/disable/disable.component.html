@@ -11,7 +11,7 @@
       </p>
       <p *ngIf="article.datePublication" class="card-date">{{toDate(article.datePublication) | date : 'd MMM y'}} à
         {{toDate(article.datePublication)|
-        date:'h:mm'}}</p>
+        date:'h:mm a'}}</p>
       <p *ngIf="article.prix" class="card-style card-prix">{{ money(article.prix) }}FCFA</p>
     </div>
   </div>

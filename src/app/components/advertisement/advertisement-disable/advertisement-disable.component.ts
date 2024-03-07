@@ -28,6 +28,7 @@ export class AdvertisementDisableComponent {
 
   ngOnInit(): void {
     document.getElementById('head')?.scrollIntoView();
+    this.routerService.setRoute("/ads");
     this.articleService.getArticleDisableByUser().then(
       (data: any) => {
         this.articles = data;
@@ -50,7 +51,7 @@ export class AdvertisementDisableComponent {
   onScroll() {
     console.log("scroll")
     this.loader = true;
-    this.articleService.getNextPageByUser().then(
+    this.articleService.getNextPageDisableByUser().then(
       (data: any) => {
         this.loader = false;
         this.articles.push(...data)

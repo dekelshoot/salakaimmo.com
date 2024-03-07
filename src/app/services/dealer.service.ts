@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
-import { getDocs, doc, getDoc, getFirestore, query, collection } from 'firebase/firestore';
+import { getDocs, doc, getDoc, getFirestore, query, collection, setDoc, updateDoc } from 'firebase/firestore';
 import { getDatabase, ref, onValue } from "firebase/database";
 import { Dealer } from '../models/dealer.model';
 import { FirebaseConfigService } from './firebase-config.service';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DealerService {
   dealers: Dealer[] = [];
-  dealer!: Dealer;
+  dealer!: any;
   app: any;
   constructor(private firebaseConfigService: FirebaseConfigService) { }
 
@@ -39,6 +40,7 @@ export class DealerService {
       const docRef = doc(db, "dealers", id);
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
+        this.dealer = docSnap.data();
         resolve(docSnap.data());
       } else {
         reject("le vendeur n'existe pas")
@@ -57,6 +59,7 @@ export class DealerService {
       if (querySnapshot.docs) {
         querySnapshot.forEach((doc) => {
           data.push(doc.data());
+          console.log(data)
         });
         resolve(data);
       } else {
@@ -64,4 +67,41 @@ export class DealerService {
       }
     });
   }
+
+  /**
+* mettre a jour un profil
+*/
+  updateProfile(data: User, id: string) {
+    const app = this.firebaseConfigService.app
+    const db = getFirestore(app);
+    return new Promise(async (resolve, reject) => {
+      const docRef = doc(db, "dealers", id);
+      await updateDoc(docRef, {
+        ...data
+      }).then(() => {
+        resolve("update successfully")
+      }).catch((error) => {
+        reject(error);
+      })
+    });
+  }
+
+  /**
+* mettre a jour la photo de profil
+*/
+  updateProfilePicture(data: any, id: string) {
+    const app = this.firebaseConfigService.app
+    const db = getFirestore(app);
+    return new Promise(async (resolve, reject) => {
+      const docRef = doc(db, "dealers", id);
+      await updateDoc(docRef, {
+        ...data
+      }).then(() => {
+        resolve("update successfully")
+      }).catch((error) => {
+        reject(error);
+      })
+    });
+  }
+
 }

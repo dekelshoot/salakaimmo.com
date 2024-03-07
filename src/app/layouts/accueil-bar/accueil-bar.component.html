@@ -8,22 +8,20 @@
         <div class="d-flex justify-content-center px-5">
           <div class="recherche">
             <app-search-bar></app-search-bar>
-            <!-- <a class=""><i class="bi bi-search"></i></a>
-            <input type="text"  placeholder="Rechercher un logement sur Salakaimmo.com ..." name="" /> -->
           </div>
-          <!-- <span><button class="btn filter"><i class="bi bi-sliders"></i></button></span> -->
         </div>
         <div class="categorie  row  ">
           <carousel [cellsToScroll]="2.5" [cellsToShow]="8.5" [autoplay]="false" [autoplayInterval]="4000"
             [pauseOnHover]="true" [height]="110" [margin]="0" [arrowsOutside]="false">
 
-            <div (click)="this.routerService.routeByCat('fil-actualite')" class="carousel-cell ">
+            <div (click)="this.routerService.route('article/fil-actualite')" class="carousel-cell ">
               <div class="card-inner  d-flex flex-column align-items-center">
                 <div class="icon"><i class=" bi bi-grid-3x3-gap-fill"></i></div>
                 <div class="text-center mg-text"> <span class="mg-text">Tous</span>
                 </div>
               </div>
             </div>
+
             <div *ngFor="let cat of categories let i=index" (click)="this.routerService.routeByCat(cat)"
               class="carousel-cell ">
               <div class="card-inner  d-flex flex-column align-items-center">

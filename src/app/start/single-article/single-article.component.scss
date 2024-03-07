@@ -18,6 +18,12 @@ hr {
   -moz-box-shadow: 2px 6px 10px -8px rgba(106, 42, 203, 1);
   background-color: #fff;
 
+  .share {
+    background: -webkit-linear-gradient(337deg, rgba(42, 129, 203, 1) 26%, rgb(98, 50, 171) 84%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
   .navbar-brand {
     font-family: 'Kanit', sans-serif;
     font-size: 25px;
@@ -640,6 +646,21 @@ hr {
       }
     }
   }
+}
+
+@media (max-width: 600px) {
+
+  .navbar {
+    .navbar-brand {
+      font-size: 20px;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+
+    }
+  }
+
 }
 
 

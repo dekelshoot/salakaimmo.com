@@ -1,0 +1,32 @@
+<app-header-secondary route="Contrats"></app-header-secondary>
+<br id="head">
+
+<div class="container py-2">
+  <!-- For Demo Purpose-->
+  <header class="text-center mb-5">
+    <h1 class="display-4 font-weight-bold">Contrats de salakaimmo.com</h1>
+    <p class="font-italic text-muted mb-0">Une liste de tous nos contrats.</p>
+  </header>
+
+  <!-- Second Row [Team]-->
+  <h2 class="font-weight-bold mb-2">Nos contrats</h2>
+
+  <div class="detail">
+    <table class="table" *ngIf="contrats">
+      <tbody>
+        <tr *ngFor="let contrat of contrats let i=index">
+          <th scope="row"><i class=" bi bi-file-earmark-pdf"></i></th>
+          <td>{{contrat.title}}</td>
+          <td> <a [href]="contrat.photo" [download]="contrat.title"><i class="bi bi-download"></i></a> </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<app-spinner *ngIf="!contrats"></app-spinner>
+
+
+<app-error *ngIf="error" title="Oups... " errorMessage="Une erreur est survenue."
+  instruction="Veuillez recharger la page."></app-error>

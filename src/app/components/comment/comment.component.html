@@ -1,0 +1,83 @@
+<app-header-secondary route="Commentaires"></app-header-secondary>
+<br id="head">
+
+<!-- Main Body -->
+<section>
+  <div class="row content">
+    <div class="new">
+      <form id="algin-form" [formGroup]="commentForm" (ngSubmit)="onSaveComment()">
+        <div class="form-group">
+          <h4>Laissez un commentaire</h4>
+          <label for="message">Message</label>
+          <textarea name="msg" id="" msg cols="30" rows="5" class="form-control" formControlName="message"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="name">Nom</label>
+          <input type="text" name="name" id="fullname" class="form-control" >
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail ou Tel</label>
+          <input type="text" name="email" id="email" class="form-control" formControlName="contact">
+        </div>
+        <br>
+        <div class="form-inline">
+          <input type="checkbox" name="check" id="checkbx" class="mr-1" formControlName="newletter">
+          <label for="subscribe"> Abonnez-moi à la newletter</label>
+        </div>
+        <br>
+        <div class="form-group">
+          <button id="post" *ngIf="loading==false" class="btn  " type="submit" [disabled]="commentForm.invalid ">
+            Poster un commentaire
+          </button>
+          <button *ngIf="loading==true" id="post" class="btn" disabled>
+            <div class="spinner-border  spinner" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </button>
+        </div>
+      </form>
+    </div>
+
+
+    <div class="comments" *ngIf="comments.length>0">
+      <div class="comment mt-4 text-justify float-left" *ngFor="let comment of comments">
+        <img src="../../../assets/logo.jpeg" alt="" class="rounded-circle" width="40" height="40">
+        <h4>{{comment.name}}</h4>
+        <span> le {{toDate(comment.datePublication) | date : 'd MMM y'}} à {{toDate(comment.datePublication)|
+          date:'h:mm a'}}</span>
+        <br>
+        <p>{{comment.message}}</p>
+      </div>
+
+    </div>
+
+    <div class="comments" *ngIf="comments.length==0">
+      <div class="comment-placholder mt-4 text-justify float-left" *ngFor="let place  of placeholder">
+        <h4 class="card-title placeholder-glow">
+          <span class="placeholder col-6"></span>
+        </h4>
+        <p class="card-text placeholder-glow">
+          <span class="placeholder col-12"></span>
+          <span class="placeholder col-12"></span>
+          <span class="placeholder col-6"></span>
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<br>
+<app-loader *ngIf="loading"></app-loader>
+<br>
+
+<div class="plus" *ngIf="!loading && comments.length>0">
+  <button class=" btn" (click)="onScroll()"><i class="bi bi-plus"></i> Afficher plus</button>
+</div>
+
+<app-error *ngIf="!result" [title]="error.title" [errorMessage]="error.errorMessage"
+  [instruction]="error.instruction"></app-error>
+
+<br>
+<br>

@@ -7,7 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { StartComponent } from './start/start.component';
 import { AccueilBarComponent } from './layouts/accueil-bar/accueil-bar.component';
 import { ArraysService } from './services/arrays.service';
-import { AboutComponent } from './about/about.component';
+import { AboutComponent } from './components/about/about.component';
 import { CategoryComponent } from './category/category.component';
 import { SingleArticleComponent } from './start/single-article/single-article.component';
 import { AllArticleComponent } from './start/all-article/all-article.component';
@@ -23,16 +23,15 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PlaceholderComponent } from './layouts/placeholder/placeholder.component';
 import { SearchResultComponent } from './start/search-article/search-result/search-result.component';
 import { SearchService } from './services/search.service';
-import { FooterComponent } from './header/footer/footer.component';
+import { FooterComponent } from './layouts/footer/footer.component';
 import { StapesComponent } from './layouts/stapes/stapes.component';
-import { ContactsComponent } from './layouts/contacts/contacts.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
 import { ConseilsComponent } from './layouts/conseils/conseils.component';
 import { ArticleScrollComponent } from './layouts/article-scroll/article-scroll.component';
 import { CardComponent } from './layouts/card/card.component';
 import { ArticleListComponent } from './layouts/article-list/article-list.component';
 import { MenuFooterComponent } from './layouts/menu-footer/menu-footer.component';
 import { CatComponent } from './layouts/cat/cat.component';
-import { CardMenuComponent } from './layouts/card-menu/card-menu.component';
 import { SearchBarComponent } from './layouts/search-bar/search-bar.component';
 import { SidebarComponent } from './layouts/sidebar/sidebar.component';
 import { CardHorizontalComponent } from './layouts/card-horizontal/card-horizontal.component';
@@ -47,7 +46,6 @@ import { FileService } from './services/file.service';
 import { ToastService } from './services/toast.service';
 import { ToastComponent } from './layouts/toast/toast.component';
 import { ToasterComponent } from './layouts/toaster/toaster.component';
-import { PaginationService } from './services/pagination.service';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { LoaderComponent } from './layouts/loader/loader.component';
 import { ImportExportComponent } from './components/import-export/import-export.component';
@@ -65,6 +63,18 @@ import { ModalGuardService } from './services/modal-guard.service';
 import { AdvertisementDisableComponent } from './components/advertisement/advertisement-disable/advertisement-disable.component';
 import { DisableComponent } from './layouts/card-crud/disable/disable.component';
 import { ArticleUpdateComponent } from './start/article-update/article-update.component';
+import { CommentComponent } from './components/comment/comment.component';
+import { NewsletterComponent } from './layouts/newsletter/newsletter.component';
+import { LeadsService } from './services/leads.service';
+import { ProfilComponent } from './components/profil/profil.component';
+import { EditComponent } from './components/profil/edit/edit.component';
+import { AgentsComponent } from './components/agents/agents.component';
+import { AgentComponent } from './components/agents/agent/agent.component';
+import { OrganigrammeComponent } from './components/organigramme/organigramme.component';
+import { SpinnerComponent } from './layouts/spinner/spinner.component';
+import { ContratsComponent } from './components/contrats/contrats.component';
+import { ServicesComponent } from './components/services/services.component';
+// import { PixelModule } from "ngx-multi-pixel";
 
 
 @NgModule({
@@ -95,7 +105,6 @@ import { ArticleUpdateComponent } from './start/article-update/article-update.co
     ArticleListComponent,
     MenuFooterComponent,
     CatComponent,
-    CardMenuComponent,
     SearchBarComponent,
     SidebarComponent,
     CardHorizontalComponent,
@@ -118,9 +127,22 @@ import { ArticleUpdateComponent } from './start/article-update/article-update.co
     AdvertisementDisableComponent,
     DisableComponent,
     ArticleUpdateComponent,
+    CommentComponent,
+    NewsletterComponent,
+    ProfilComponent,
+    EditComponent,
+    AgentsComponent,
+    AgentComponent,
+    OrganigrammeComponent,
+    SpinnerComponent,
+    ContratsComponent,
+    FooterComponent,
+    ServicesComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
+
     AppRoutingModule,
     IvyCarouselModule,
     ReactiveFormsModule,
@@ -135,11 +157,12 @@ import { ArticleUpdateComponent } from './start/article-update/article-update.co
     SearchService,
     FileService,
     ToastService,
-    PaginationService,
     ImportexportService,
     RouterService,
     AuthGuardService,
-    ModalGuardService
+    ModalGuardService,
+    LeadsService,
+    ContratsComponent
   ],
   bootstrap: [AppComponent]
 })

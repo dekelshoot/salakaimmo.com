@@ -48,6 +48,7 @@ export class ArticleNewComponent implements OnInit {
 
   ngOnInit(): void {
     document.getElementById("head")?.scrollIntoView();
+    this.routerService.setRoute("/article/new");
     this.initForm();
     if (localStorage.getItem("salakaImmoDataNewArticle") != null) {
       let data1: any = localStorage.getItem("salakaImmoDataNewArticle")

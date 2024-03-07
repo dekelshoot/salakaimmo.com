@@ -440,6 +440,43 @@ export class ArticleService {
     })
   }
 
+  getNextPageDisableByUser() {
+    return new Promise<any>(async (resolve, reject) => {
+      // Get the last visible document
+      const lastVisible = this.querySnapshot.docs[this.querySnapshot.docs.length - 1];
+
+      if (this.querySnapshot) {
+        const lastVisible = this.querySnapshot.docs[this.querySnapshot.docs.length - 1];
+      } else {
+        reject()
+      }
+      const app = this.firebaseConfigService.app
+      const db = getFirestore(app);
+      const articleRef = collection(db, "disables");
+      let id = localStorage.getItem("salakaimmouser")
+      // Construct a new query starting at this document,
+      // get the next 25 cities.
+      const next = query(articleRef,
+        where("dealerId", "==", id),
+        orderBy("datePublication", "desc"),
+        startAfter(lastVisible),
+        limit(18));
+
+      const querySnapshot = await getDocs(next);
+      this.first = next;
+      this.querySnapshot = querySnapshot;
+      let data: any = []
+      querySnapshot.forEach((doc) => {
+        data.push(doc.data());
+      });
+      if (data) {
+        resolve(data);
+      } else {
+        reject("Cette article n'existe pas")
+      }
+    })
+  }
+
 
   /**
   * récuperer les articles de la page suivante (pour la pagination) mais pour les catégories

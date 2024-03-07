@@ -1,0 +1,28 @@
+<app-header-secondary route="Profile"></app-header-secondary>
+<br id="head">
+
+<div class="container  d-flex justify-content-center" *ngIf="dealer">
+  <div class="card p-4">
+    <div class=" image d-flex flex-column justify-content-center align-items-center"> <button
+        class="btn profil btn-secondary">
+        <div class="input" *ngIf="!fileUploading">
+          <button class="btn btn"><i class="bi bi-pencil-square"></i></button>
+          <input type="file" (change)="detectFiles($event)" type="file" accept="image/*" formControlName="photo">
+        </div>
+        <img *ngIf="!fileUploading" [src]="dealer.photo" loading="lazy" height="100" width="100" />
+        <app-spinner *ngIf="fileUploading"></app-spinner>
+      </button> <span class="name mt-3">{{dealer.name}}</span> <span class="idd">{{dealer.email}}</span><span
+        class="idd">{{dealer.phoneNumber}}</span>
+      <div class="d-flex flex-row justify-content-center align-items-center gap-2"> <span
+          class="idd1">{{dealer.poste}}</span> <span><i class="fa fa-copy"></i></span> </div>
+      <div (click)="routerService.route('edit')" class=" d-flex mt-2"> <button class="btn1 btn-dark">Editer le
+          Profile</button> </div>
+    </div>
+  </div>
+</div>
+
+
+<app-spinner *ngIf="!dealer"></app-spinner>
+
+
+<br><br><br><br>

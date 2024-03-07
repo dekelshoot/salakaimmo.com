@@ -1,10 +1,12 @@
-export class Comment{
-    id!:number;
-    comment!:string;
-    contact!:string;
-    author!:string;
-    like!:number;
-    constructor(){
+export class Comment {
+  id!: string;
+  message!: string;
+  contact!: string;
+  name!: string;
+  newletter!: boolean;
+  like!: number;
+  datePublication!: any;
+  constructor() {
 
-    }
- }
+  }
+}

@@ -1,0 +1,42 @@
+<app-header-secondary route="Agents"></app-header-secondary>
+<br id="head">
+
+
+<div class="container py-2">
+  <!-- For Demo Purpose-->
+  <header class="text-center mb-5">
+    <h1 class="display-4 font-weight-bold">Équipe salakaimmo.com</h1>
+    <p class="font-italic text-muted mb-0">Une liste de toute l'équipe salakaimmo.com.</p>
+  </header>
+
+  <!-- Second Row [Team]-->
+  <h2 class="font-weight-bold mb-2">Notre équipe</h2>
+
+  <div class="row pb-5 mb-4" *ngIf="dealers && !error ">
+    <div class="col-lg-3 col-md-6 mb-4 mb-lg-0" *ngFor="let dealer of dealers"
+      (click)="this.routerService.route('/agents/'+dealer.id)">
+      <!-- Card-->
+      <div class="card shadow-sm border-0 rounded">
+        <div class="card-body p-0"><img [src]="dealer.photo" loading="lazy" alt="" class="w-100 card-img-top">
+          <div class="p-4">
+            <h5 class="mb-0">{{dealer.name}}</h5>
+            <p class="small text-muted">{{dealer.poste}}</p>
+            <a (click)="this.routerService.route('/agents/'+dealer.id)">Afficher plus de détail >> </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<app-spinner *ngIf="!dealers"></app-spinner>
+
+
+<app-error *ngIf="error" title="Oups... " errorMessage="Une erreur est survenue."
+  instruction="Veuillez recharger la page."></app-error>
+
+
+
+<br><br><br><br>

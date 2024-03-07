@@ -1,0 +1,73 @@
+<app-header-secondary route="Contacts"></app-header-secondary>
+<br id="head">
+
+<div class="container py-2">
+  <!-- For Demo Purpose-->
+  <header class="text-center mb-5">
+    <h1 class="display-4 font-weight-bold">Contacts de salakaimmo.com</h1>
+    <p class="font-italic text-muted mb-0">Contacter nous.</p>
+  </header>
+
+  <div class="container px-4 py-5" id="hanging-icons">
+    <h2 class="pb-2 border-bottom">Contactez-nous</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+
+      <div class="col d-flex align-items-start mb-2">
+        <div
+          class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <i class="bi bi-whatsapp"></i>
+        </div>
+        <div>
+          <h3 class="fs-2">Whatsapp</h3>
+          <p>Laissez-nous un message sur WhatsApp pour échanger avec un agent. 24h/24h sur WhatsApp !</p>
+          <a [href]="hrefWa" class="btn btn-primary">
+            WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div class="col d-flex align-items-start mb-2">
+        <div
+          class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <i class="bi bi-envelope"></i>
+        </div>
+        <div>
+          <h3 class="fs-2">Par e-mail</h3>
+          <p>Laissez-nous un mail ici. Nous répondons généralement dans un délai de 2 jours.</p>
+          <a [href]="hrefMail" class="btn btn-primary">
+            E-mail
+          </a>
+        </div>
+      </div>
+
+      <div class="col d-flex align-items-start mb-2">
+        <div
+          class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <i class="bi bi-telephone"></i>
+        </div>
+        <div>
+          <h3 class="fs-2">Par téléphone </h3>
+          <p>Le centre de relation clientèle Salakaimmo.com est à votre disposition de 09h à 21h.</p>
+          <a [href]="hrefTel" class="btn btn-primary">
+            Appeler
+          </a>
+        </div>
+      </div>
+
+      <div class="col d-flex align-items-start mb-2">
+        <div
+          class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <i class="bi bi-telephone"></i>
+        </div>
+        <div>
+          <h3 class="fs-2">Par SMS </h3>
+          <p>Laissez-nous un message par SMS pour échanger avec un agent. 24h/24h par SMS !</p>
+          <a [href]="hrefSms" class="btn btn-primary">
+            SMS
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

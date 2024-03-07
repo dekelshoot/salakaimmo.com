@@ -1,0 +1,59 @@
+<app-header-secondary route="Agent"></app-header-secondary>
+<br id="head">
+
+<div class="padding" *ngIf="dealer && !error">
+  <div class="card user-card-full">
+    <div class="row m-l-0 m-r-0">
+      <div class="col-sm-4 bg-c-lite-green user-profile">
+        <div class="card-block text-center text-white">
+          <div class="m-b-25">
+            <img [src]="dealer.photo" loading="lazy" width="150" height="150" class="img-radius"
+              alt="User-Profile-Image">
+          </div>
+          <h6 class="f-w-600">{{dealer.name}}</h6>
+          <p>{{dealer.poste}}</p>
+        </div>
+      </div>
+      <div class="col-sm-8">
+        <div class="card-block">
+          <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
+          <div class="row">
+            <div class="col-sm-6">
+              <p class="m-b-10 f-w-600">Email</p>
+              <a [href]="hrefMail">
+                <h6 class="text-muted f-w-400">{{dealer.email}} <i class="bi bi-envelope"></i></h6>
+              </a>
+            </div>
+            <div class="col-sm-6">
+              <p class="m-b-10 f-w-600">Phone</p>
+              <a [href]="hrefTel">
+                <h6 class="text-muted f-w-400">{{dealer.phoneNumber}} <i class="bi bi-telephone-forward"></i></h6>
+              </a>
+            </div>
+          </div>
+          <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Plus</h6>
+          <div class="row">
+            <div class="col-sm-6">
+              <p class="m-b-10 f-w-600">Poste</p>
+              <h6 class="text-muted f-w-400">{{dealer.poste}}</h6>
+            </div>
+          </div>
+
+          <div class="all row">
+            <a [href]="hrefWa">
+              <button class=" btn col-sm-6"><i class="bi bi-whatsapp"></i> Contacter</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<app-spinner *ngIf="!dealer"></app-spinner>
+
+<app-error *ngIf="error" title="Oups... " errorMessage="Une erreur est survenue."
+  instruction="Veuillez recharger la page."></app-error>
+
+<br><br><br><br>

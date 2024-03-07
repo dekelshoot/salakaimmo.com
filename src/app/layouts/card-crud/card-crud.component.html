@@ -11,7 +11,7 @@
       </p>
       <p *ngIf="article.datePublication" class="card-date">{{toDate(article.datePublication) | date : 'd MMM y'}} à
         {{toDate(article.datePublication)|
-        date:'h:mm'}}</p>
+        date:'h:mm a'}}</p>
       <p *ngIf="article.lieu " class="card-style card-vue">
         {{ article.nombreVu }} <i class="bi bi-eye"></i>
       </p>
@@ -23,7 +23,8 @@
     <button (click)="onDelete()" class="btn text-danger"> <span><i class="bi bi-trash"></i></span> Supprimer</button>
     <button (click)="onDisable()" class="btn text-warning"><span><i class="bi bi-eye-slash"></i></span>
       Désactiver</button>
-    <button (click)="onShare()" class="btn text-success"> <span><i class="bi bi-share"></i></span> Partager</button>
+    <button type="share" (click)="onShare()" class="btn text-success"> <span><i class="bi bi-share"></i></span>
+      Partager</button>
   </div>
 </div>
 

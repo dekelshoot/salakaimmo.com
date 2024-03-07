@@ -41,7 +41,18 @@
   }
 }
 
+.plus {
+  width: 100%;
+  text-align: center;
 
+  .btn {
+    color: white;
+    font-weight: bold;
+    border-radius: 0;
+    width: 300px;
+    background: linear-gradient(337deg, rgba(42, 129, 203, 1) 26%, rgb(98, 50, 171) 84%);
+  }
+}
 
 .result {
   margin: 0 auto;

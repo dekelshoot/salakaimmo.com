@@ -6,6 +6,8 @@
     <a *ngIf="!article" class="navbar-brand b-0 h1" (click)="this.routerService.back()"><i
         class="bi bi-arrow-left-circle-fill"></i>
       <span class="placeholder col-10 bg-secondary" style=" height: 20px; widht:150px;"></span></a>
+    <a *ngIf="article" class="share" (click)="onShare()"><i class="bi bi-share"></i>
+      Partager </a>
   </div>
 </nav>
 
@@ -298,23 +300,21 @@
         <p class="poste">{{dealer.poste}}</p>
       </div>
     </div>
-    <div class="contact">
+    <div class="contact" id="contact ">
       <p class="title">Contacts</p>
       <a class="btn" [href]="hrefWa"><i class="bi bi-whatsapp float-start"></i> Whatsapp</a>
       <a class="btn" [href]="hrefTel"><i class="bi bi-telephone-fill float-start"></i> Téléphone</a>
       <a class="btn" [href]="hrefSms"><i class="bi bi-chat-square-dots-fill float-start"></i> SMS</a>
       <a class="btn" [href]="hrefMail"><i class="bi bi-envelope-fill float-start"></i> Email</a>
-      <a class="btn tel">+{{dealer.phoneNumber}}</a>
+      <a class="btn tel">{{dealer.phoneNumber}}</a>
       <p class="detail-redirection">Veuillez s'il vous plait mentionner a l'agent que vous avez vu son annonce sur
-        Salakaimmo.com</p> -->
+        Salakaimmo.com</p>
       <!-- <app-contacts [data]="contacts"></app-contacts> -->
     </div>
 
     <div class="sidebar-conseil">
       <p class="title">Nos Conseils</p>
       <ul class="conseil">
-        <li>Veuillez s'il vous plait mentionner a l'agent que vous avez vu son annonce sur Salakaimmo.com</li>
-        <li>Veuillez s'il vous plait mentionner a l'agent que vous avez vu son annonce sur Salakaimmo.com</li>
         <li>Veuillez s'il vous plait mentionner a l'agent que vous avez vu son annonce sur Salakaimmo.com</li>
       </ul>
     </div>

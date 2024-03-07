@@ -59,6 +59,7 @@ export class SingleArticleComponent implements OnInit {
       (data: any) => {
         this.article = data;
         this.start = true;
+        document.getElementById("head")?.scrollIntoView();
         this.dealerService.getSingleDealer(this.article.dealerId).then(
           (data: any) => {
             this.dealer = data;
@@ -112,13 +113,23 @@ export class SingleArticleComponent implements OnInit {
   getDealerInfo(dealer: any) {
     //gerer les lien de contact avec le client
     this.hrefWa = "http://wa.me/" + dealer?.phoneNumber + "?text=j'ai%20vu%20votre%20annonce%20sur%20salakaimmo%20" + window.location + "%20S'il%20vous%20plait%20,%20envoyez%20moi%20plus%20d'%20information%20à%20ce%20sujet%20";
-    this.hrefTel = "tel:+" + dealer?.phoneNumber;
+    this.hrefTel = "tel:" + dealer?.phoneNumber;
     this.hrefSms = "sms:/" + "+" + dealer?.phoneNumber + "/?body=j'ai vu votre annonce sur salakaimmo " + window.location + " S'il vous plait , envoyez moi plus d' information à ce sujet";
     this.hrefMail = "mailto:" + dealer?.email + "?subject=Recherche de logement&body=j'ai vu votre annonce sur salakaimmo " + window.location + " S'il vous plait , envoyez moi plus d' information à ce sujet "
 
   }
   reaload() {
     this.ngOnInit();
+  }
+
+  async onShare() {
+    const title = this.article.titre;
+    const url = 'http://www.salakaimmo.com/article/view/' + this.article.id
+    try {
+      await navigator.share({ title: title, url: url })
+    } catch (error) {
+      alert("Le partage n'est pas pris en charge par votre navigateur ")
+    }
   }
 
 

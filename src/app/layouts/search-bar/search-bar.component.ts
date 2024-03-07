@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, AfterViewInit, Renderer2, EventEmitter, I
 import { ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { ArraysService } from '../../services/arrays.service';
+import { RouterService } from 'src/app/services/router.service';
 @Component({
   selector: 'app-search-bar',
   templateUrl: './search-bar.component.html',
@@ -25,7 +26,8 @@ export class SearchBarComponent implements OnInit {
   webLink!: any;
 
   constructor(private renderer: Renderer2,
-    private router: Router, private arraysService: ArraysService) { }
+    private router: Router, private arraysService: ArraysService,
+    public routerService: RouterService) { }
 
   ngOnInit() {
     this.suggestions = this.arraysService.search

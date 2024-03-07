@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit {
   rout!: string;
   displaySearch = false;
   isAuth = false;
+  isStart!: boolean;
   constructor(public router: Router, private authService: AuthService, public routerService: RouterService,) { }
 
   ngOnInit(): void {
@@ -25,6 +26,11 @@ export class HeaderComponent implements OnInit {
       this.isAuth = false;
     }
     this.rout = this.router.url;
+    if (this.rout == '/' || this.rout == '/accueil') {
+      this.isStart = true;
+    } else {
+      this.isStart = false;
+    }
   }
 
 

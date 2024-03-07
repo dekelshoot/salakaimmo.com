@@ -1,0 +1,152 @@
+.content {
+  width: 100%;
+  display: flex;
+  margin: 0 auto;
+  flex-wrap: wrap;
+
+  .new {
+    width: 40%;
+    margin-top: 25px;
+
+    #align-form {
+      width: 100%;
+      margin-top: 20px;
+
+      .form-group {
+        width: 100%;
+
+        p a {
+          color: rgb(111, 111, 111);
+        }
+      }
+    }
+  }
+
+  .comments {
+    width: 60%;
+    padding-top: -20px;
+
+    .comment-placholder {
+      width: 100%;
+      border: 1px solid rgb(174, 174, 174);
+      background-color: rgba(255, 255, 255, 0.973);
+      float: left;
+      border-radius: 5px;
+      padding: 15px;
+
+      .placeholder {
+        color: #d1d1d1;
+      }
+    }
+  }
+}
+
+#profile {
+  background-color: unset;
+
+}
+
+#post {
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  background: linear-gradient(337deg, rgba(42, 129, 203, 1) 26%, rgb(98, 50, 171) 84%);
+
+  .spinner {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.comment {
+  border: 1px solid rgb(174, 174, 174);
+  background-color: rgba(255, 255, 255, 0.973);
+  float: left;
+  border-radius: 5px;
+  padding: 15px;
+
+  img {
+    margin-right: 15px;
+    position: static;
+  }
+
+}
+
+.comment h4,
+.comment span,
+.darker h4,
+.darker span {
+  display: inline;
+}
+
+.comment p,
+.comment span,
+.darker p,
+.darker span {
+  color: rgb(121, 121, 121);
+}
+
+h1,
+h4 {
+  color: rgb(107, 110, 128);
+  font-weight: bold;
+}
+
+label {
+  color: rgb(121, 121, 121);
+}
+
+
+
+
+
+#checkbx {
+  background-color: black;
+}
+
+.form-group input,
+.form-group textarea {
+  background-color: rgb(241, 241, 241);
+  border: 1px solid rgb(174, 174, 174);
+  border-radius: 12px;
+}
+
+form {
+  border: 1px solid rgb(186, 186, 186);
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.plus {
+  width: 100%;
+  text-align: center;
+
+  .btn {
+    color: white;
+    font-weight: bold;
+    border-radius: 0;
+    width: 300px;
+    background: linear-gradient(337deg, rgba(42, 129, 203, 1) 26%, rgb(98, 50, 171) 84%);
+  }
+}
+
+// responsive
+@media screen and (max-width: 650px) {
+  .content {
+    width: 99%;
+
+    .new {
+      width: 100%;
+    }
+
+    .comments {
+      width: 100%;
+    }
+  }
+}

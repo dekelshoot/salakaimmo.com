@@ -2,12 +2,12 @@
   <i class="bi bi-emoji-frown-fill"></i>
   <p class="error-detail">{{title}}</p>
   <div class="error-recomentation">
-    <p class="error-recomentation-detail color-danger">
+    <p class="error-recomentation-detail color-danger" *ngIf="errorMessage">
       {{errorMessage}}
     </p>
 
-    <p class="error-recomentation-proposition">{{instruction}} <a style="color:rgb(0, 81, 255); cursor:pointer;"
-        (click)="this.routerService.route(rout)">ici</a>
+    <p class="error-recomentation-proposition" *ngIf="instruction">{{instruction}} <a *ngIf="rout"
+        style="color:rgb(0, 81, 255); cursor:pointer;" (click)="this.routerService.route(rout)">ici</a>
     </p>
   </div>
 

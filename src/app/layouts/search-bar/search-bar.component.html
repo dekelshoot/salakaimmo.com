@@ -1,9 +1,10 @@
-<form action="">
+<form action="" (click)="this.routerService.route('/article/recherche')">
   <div class="wrapper">
     <div #searchInput class="search-input bbb">
       <a #a href="" target="_blank" hidden></a>
       <button class="btn " #icon type="submit"><i class="bi bi-search"></i></button>
-      <input [(ngModel)]="search" [ngModelOptions]="{standalone: true}" #input type="text" placeholder="Rechercher  sur Salakaimmo.com ...">
+      <input [(ngModel)]="search" [ngModelOptions]="{standalone: true}" #input type="text"
+        placeholder="Rechercher  sur Salakaimmo.com ...">
       <div #autocomBox class="autocom-box">
         <!-- here list are inserted from javascript -->
       </div>

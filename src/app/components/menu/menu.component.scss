@@ -152,25 +152,31 @@
     .card-image {
       img {
         width: 150px;
-        height: 150px;
+        height: 135px;
         object-fit: cover;
       }
     }
 
     .image {
       width: 150px;
-      height: 150px;
+      height: 140px;
     }
 
     .card-content {
       width: 150px;
       font-size: 12px;
-      line-height: 0px;
+      // line-height: 0px;
       padding-top: 10px;
 
 
       .card-title-1 {
         font-weight: 500;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        line-height: 10px;
+        margin-bottom: 0;
 
       }
 
@@ -180,6 +186,7 @@
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
         line-height: 15px;
+        margin-top: 0;
       }
     }
   }
@@ -217,6 +224,9 @@
     width: 100%;
     padding: 10px;
     margin: 5px;
+    cursor: pointer;
+
+
 
     .left {
       margin: 0;

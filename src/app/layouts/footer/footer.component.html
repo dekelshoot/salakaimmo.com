@@ -1,0 +1,69 @@
+<br><br>
+<div class="container">
+  <footer class="py-5">
+    <div class="row">
+      <div class="col-6 col-md-2 mb-3">
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2" (click)="this.routerService.route('/accueil')"><a
+              class="nav-link p-0 text-muted">Accueil</a></li>
+          <li class="nav-item mb-2" (click)="this.routerService.route('/article/categories')"><a
+              class="nav-link p-0 text-muted">Catégories</a></li>
+          <li class="nav-item mb-2" (click)="this.routerService.route('/article/recherche')"><a
+              class="nav-link p-0 text-muted">Recherche</a></li>
+          <li class="nav-item mb-2" (click)="this.routerService.route('/commentaire')"><a
+              class="nav-link p-0 text-muted">Commentaires</a></li>
+          <li class="nav-item mb-2" (click)="this.routerService.route('/contrats')"><a
+              class="nav-link p-0 text-muted">Contrats</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-2 mb-3">
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2" style="display: none;"><a class="nav-link p-0 text-muted">Diaspora</a></li>
+          <li class="nav-item mb-2" (click)="this.routerService.route('/services')"><a
+              class="nav-link p-0 text-muted">Services</a></li>
+          <li class="nav-item mb-2" (click)="this.routerService.route('/apropos')"><a
+              class="nav-link p-0 text-muted">Apropos</a></li>
+          <li class="nav-item mb-2" (click)="this.routerService.route('/agents')"><a
+              class="nav-link p-0 text-muted">Agents</a></li>
+          <li class="nav-item mb-2" style="display: none;"><a class="nav-link p-0 text-muted">Contacts</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-2 mb-3">
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2" style="display: none;"><a class="nav-link p-0 text-muted">Developpeur</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-5 offset-md-1 mb-3">
+        <form>
+          <h5>Abonnez-vous à notre newsletter</h5>
+          <p>Résumé mensuel de ce qui est nouveau et excitant de notre part.</p>
+          <form [formGroup]="newsLetterForm" (ngSubmit)="onSaveNewsLetter()">
+            <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+              <label for="newsletter1" class="visually-hidden">Email address</label>
+              <input id="newsletter1" type="text" class="form-control" placeholder="Email address"
+                formControlName="email">
+              <button *ngIf="!loading" class="btn btn-primary" type="submit"
+                [disabled]="newsLetterForm.invalid ">S'abonner</button>
+              <button *ngIf="loading" class="btn btn-primary" type="button" disabled style="font-size: 11px;">
+                <div class="spinner-border  spinner" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </button>
+            </div>
+          </form>
+        </form>
+      </div>
+    </div>
+
+    <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+      <p>&copy;2017-2023 SALAKA SARL U. Tous droits réservés.</p>
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a class="link-dark" href="https://www.facebook.com/salakaimmobilier"><i
+              class="bi bi-facebook"></i></a></li>
+      </ul>
+    </div>
+  </footer>
+</div>

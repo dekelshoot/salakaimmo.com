@@ -1,15 +1,27 @@
 <div class="sidebar">
   <!-- Sidebar -->
-  <aside class="sidebar__sidebar" *ngIf="start==true">
-    <div class="profil">
+
+
+  <aside class="sidebar__sidebar">
+    <!--
+    <div class="placeholder-side">
+      <p class="card-text placeholder-glow placeholder-profil">
+        <span class="placeholder col-12 bg-secondary"></span>
+      </p>
+
+    </div>
+
+    <div class="profil" *ngIf="start==true">
       <img class="picture-profil" src="../../../assets/profil.jpeg">
       <div class="name">
         <p class="nom">Dekel shoot</p>
         <span class="poste">Directeur de la digitalisation</span>
       </div>
-    </div>
-    <button class="btn " (click)="this.routerService.route('accueil')" [ngClass]="{'actives': rout == '/accueil' }"><i
-        class="bi bi-house"></i> <span>Accueil</span></button>
+    </div> -->
+    <br>
+    <button class="btn " (click)="this.routerService.route('accueil')"
+      [ngClass]="{'actives': rout == '/accueil' || rout=='/' }"><i class="bi bi-house"></i>
+      <span>Accueil</span></button>
     <button class="btn" (click)="this.routerService.route('/article/categories')"
       [ngClass]="{'actives':rout == '/article/categories'}"><i
         class="icon bi bi-card-list"></i><span>Catégories</span></button>
@@ -18,37 +30,35 @@
         class="icon bi bi-search"></i><span>Recherche</span></button>
     <button class="btn" (click)="this.routerService.route('/article/new')" *ngIf="isAuth"
       [ngClass]="{'actives':rout == '/article/new'}"><i class="bi bi-upload"></i><span>Publier</span></button>
+    <button class="btn" (click)="this.routerService.route('/ads')" *ngIf="isAuth"
+      [ngClass]="{'actives':rout == '/ads'}"><i class="bi bi-megaphone"></i><span>Annonces</span></button>
     <br>
-    <button class="btn"><i class="bi bi-box-arrow-in-right"></i><span>Diaspora</span></button>
-    <button class="btn"><i class="bi bi-box-arrow-in-right"></i><span>Services</span></button>
-    <button class="btn"><i class="bi bi-chat-square-text"></i><span>Commantaires</span></button>
-    <button class="btn"><i class="bi bi-info"></i><span>Apropos</span></button>
-    <button class="btn"><i class="bi bi-headset"></i><span>Contacts</span></button>
-    <button class="btn"><i class="bi bi-person-rolodex"></i><span>Agents</span></button>
-    <button class="btn"><i class="bi bi-envelope"></i><span>Newsletter</span></button>
-    <button class="btn"><i class="bi bi-list-task"></i><span>Contrats</span></button>
-    <button class="btn"><i class="bi bi-card-checklist"></i><span>Conseils</span></button>
-    <button class="btn"><i class="bi bi-laptop"></i><span>Développeur</span></button>
+    <button class="btn" (click)="this.routerService.route('/commentaire')"
+      [ngClass]="{'actives':rout == '/commentaire'}"><i
+        class="bi bi-chat-square-text"></i><span>Commentaires</span></button>
+    <button class="btn" (click)="onNewsLetter()"><i class="bi bi-envelope"></i><span>Newsletter</span></button>
+    <button class="btn" (click)="this.routerService.route('/contrats')" [ngClass]="{'actives':rout == '/contrats'}"><i
+        class="bi bi-headset"></i><span>Contrats</span></button>
+    <button disabled class="btn"><i class="bi bi-box-arrow-in-right"></i><span>Diaspora</span></button>
+    <button class="btn" (click)="this.routerService.route('/services')" [ngClass]="{'actives':rout == '/services'}"><i
+        class="bi bi-box-arrow-in-right"></i><span>Services</span></button>
+    <button class="btn" (click)="this.routerService.route('/apropos')" [ngClass]="{'actives':rout == '/apropos'}"><i
+        class="bi bi-info"></i><span>Apropos</span></button>
+    <button class="btn" (click)="this.routerService.route('/agents')" [ngClass]="{'actives':rout == '/agents'}"><i
+        class="bi bi-person-rolodex"></i><span>Agents</span></button>
+    <button class="btn" (click)="this.routerService.route('/contacts')" [ngClass]="{'actives':rout == '/contacts'}"><i
+        class="bi bi-list-task"></i><span>Contacts</span></button>
+    <button disabled class="btn"><i class="bi bi-card-checklist"></i><span>Conseils</span></button>
+    <button disabled class="btn"><i class="bi bi-laptop"></i><span>Développeur</span></button>
 
   </aside>
 
-  <aside class="sidebar__sidebar col-12" *ngIf="start==false">
-    <br>
-    <div class="placeholder-side">
-      <p class="card-text placeholder-glow placeholder-profil">
-        <span class="placeholder col-12 bg-secondary"></span>
-      </p>
-      <br><br>
-      <p class="card-text placeholder-glow placeholder-cat" *ngFor="let i of placeholder">
-        <span class="placeholder col-12 bg-secondary"></span>
-      </p>
-    </div>
-    <br><br>
-  </aside>
+
 
   <!-- Main -->
   <div class="sidebar__main">
     <router-outlet></router-outlet>
+    <app-footer></app-footer>
   </div>
 </div>
 
@@ -69,3 +79,4 @@
 
 <br><br>
 <app-toaster></app-toaster>
+<app-newsletter style="z-index: 999999;" #modal [modalConfig]="modalConfig"></app-newsletter>

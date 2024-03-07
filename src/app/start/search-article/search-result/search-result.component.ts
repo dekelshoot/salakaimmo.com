@@ -52,16 +52,19 @@ export class SearchResultComponent implements OnInit {
     this.articleService.getArticleByQuery(queryParams).then(
       (data: any) => {
         this.articles = data;
+        document.getElementById("head")?.scrollIntoView();
         if (data.length > 0) {
           this.result = true;
         } else {
           this.result = false;
         }
+        this.loader = false;
         console.log(data)
       }
 
     ).catch((error) => {
       this.result = false;
+      this.loader = false;
       console.log(error);
     })
     // if (queryParams.type) {

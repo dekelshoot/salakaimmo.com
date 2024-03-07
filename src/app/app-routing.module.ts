@@ -18,6 +18,17 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { CardCrudComponent } from './layouts/card-crud/card-crud.component';
 import { AdvertisementDisableComponent } from './components/advertisement/advertisement-disable/advertisement-disable.component';
 import { ArticleUpdateComponent } from './start/article-update/article-update.component';
+import { CommentComponent } from './components/comment/comment.component';
+import { AccueilBarComponent } from './layouts/accueil-bar/accueil-bar.component';
+import { ProfilComponent } from './components/profil/profil.component';
+import { EditComponent } from './components/profil/edit/edit.component';
+import { AgentsComponent } from './components/agents/agents.component';
+import { AgentComponent } from './components/agents/agent/agent.component';
+import { ContratsComponent } from './components/contrats/contrats.component';
+import { FooterComponent } from './layouts/footer/footer.component';
+import { ServicesComponent } from './components/services/services.component';
+import { AboutComponent } from './components/about/about.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
 
 
 
@@ -36,11 +47,24 @@ const routes: Routes = [
   { path: 'article/categories/:cat', component: ByCatComponent },
   { path: 'ads', canActivate: [AuthGuardService], component: AdvertisementComponent },
   { path: 'ads/disable', canActivate: [AuthGuardService], component: AdvertisementDisableComponent },
-  { path: 'importexport', component: ImportExportComponent },
+  { path: 'profil', component: ProfilComponent },
+  { path: 'agents', component: AgentsComponent },
+  { path: 'agents/:id', component: AgentComponent },
+  { path: 'edit', component: EditComponent },
+  { path: 'contrats', component: ContratsComponent },
+  { path: 'footer', component: FooterComponent },
+  { path: 'services', component: ServicesComponent },
+  { path: 'apropos', component: AboutComponent },
+  { path: 'contacts', component: ContactsComponent },
 
-  { path: '', redirectTo: 'accueil', pathMatch: 'full' },
 
-  { path: 'crud', component: CardCrudComponent },
+  // { path: 'importexport', component: ImportExportComponent },
+  { path: 'commentaire', component: CommentComponent },
+
+  { path: 'bar', component: AccueilBarComponent },
+
+  { path: '', pathMatch: 'full', component: StartComponent },
+  // { path: 'crud', component: CardCrudComponent },
 
   { path: '404', component: ForforComponent },
   { path: '**', redirectTo: '404' }

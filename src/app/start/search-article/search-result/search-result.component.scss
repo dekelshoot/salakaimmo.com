@@ -51,6 +51,7 @@ a {
     }
   }
 
+
   //
   .recherche {
     width: 800px;
@@ -88,8 +89,24 @@ a {
 
 }
 
+.plus {
+  width: 100%;
+  text-align: center;
+
+  .btn {
+    color: white;
+    font-weight: bold;
+    border-radius: 0;
+    width: 300px;
+    background: linear-gradient(337deg, rgba(42, 129, 203, 1) 26%, rgb(98, 50, 171) 84%);
+  }
+}
+
+
 @media (max-width: 600px) {
-  .navbar{
-    .navbar-brand{display: none;}
+  .navbar {
+    .navbar-brand {
+      display: none;
+    }
   }
 }

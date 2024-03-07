@@ -1,0 +1,61 @@
+<app-header routeActive="Editer le profil"></app-header>
+<br id="head">
+<div class="container">
+  <div class="brand-container">
+    <p class="brand">B</p>
+    <p class="title"> Inscrivez-vous sur<span>Salakaimmo.com</span></p>
+  </div>
+  <br>
+  <div class="error" *ngIf="error==true">
+    <p class="text-danger">{{ errorMessage}} </p>
+  </div>
+  <div class="error" *ngIf="success==true">
+    <p class="text-success">Connexion réussit</p>
+  </div>
+  <!-- Login Form -->
+  <form class="form-horizontal" [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div class="control-group">
+      <label class="control-label" for="name">Nom d'utilisateur:</label>
+      <div class="controls">
+        <input id="name" name="name" type="text" class="form-control input-medium" placeholder="nom d'utilisateur"
+          formControlName="name" required="">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="email">Adresse e-mail:</label>
+      <div class="controls">
+        <input id="email" name="login" type="email" class="form-control input-medium" placeholder="mail@gmail.com"
+          formControlName="email" required="">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="email">tel:</label>
+      <div class="controls">
+        <input id="phoneNumber" name="phoneNumber" type="phoneNumber" class="form-control input-medium"
+          placeholder="+237********" formControlName="phoneNumber" required="">
+      </div>
+    </div>
+
+
+
+    <div class="control-group">
+      <label class="control-label" for="edit"></label>
+      <div class="controls">
+        <button *ngIf="loading==false && success==false" [disabled]="editForm.invalid" id="signin" name="edit"
+          class="btn" type="submit">Modifier</button>
+        <button id="signin" *ngIf="loading==true" name="edit" class="btn btn-success" type="submit">
+          <div *ngIf="start==true" class="spinner-border  spinner" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </button>
+        <button *ngIf="success==true" name="edit" class="btn btn-success" type="submit">Modification</button>
+      </div>
+    </div>
+  </form>
+  <br>
+
+</div>
+
+<br><br><br>

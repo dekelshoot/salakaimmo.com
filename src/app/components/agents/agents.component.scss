@@ -1,0 +1,17 @@
+.container {
+  .card {
+    cursor: pointer;
+  }
+
+  img {
+    width: 200px;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  a {
+    background: -webkit-linear-gradient(337deg, rgba(42, 129, 203, 1) 26%, rgb(98, 50, 171) 84%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
